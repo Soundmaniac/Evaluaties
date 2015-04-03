@@ -1,0 +1,225 @@
+body {
+	margin: 0;
+	font-family: arial, Helvetica, sans-serif;
+	/*Om ruimte te maken voor de header, door position: fixed verliest deze de
+	hoogte waarde op het document*/
+	margin-top: 65px;
+}
+
+/*Don't forget, paragraphs have padding!*/
+
+body, .container .content div
+{
+	background-color: #70E673;
+}
+
+/*header*/
+
+header {
+	background-color: #38BA3A;
+	/*Om de header fixed te maken*/
+	position: fixed;
+	width: 100%;
+	margin-top: -65px;
+}
+
+nav {
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	background-color: #38BA3A;
+}
+
+nav a {
+	text-decoration: none;
+	height: 65px;
+	width: 120px;
+	background-color: #21A323;
+	color: white;
+	text-align: center;
+	line-height: 65px;
+}
+
+nav a.active{
+	background-color: #18871A;
+}
+
+nav a:hover {
+	background-color: #42CF44;
+}
+
+nav a:visited {
+	color: white;
+}
+
+
+nav, .container, footer {
+	width: 980px;
+	margin: 0 auto;
+}
+
+/*Content*/
+
+/*Footer krijgt zelfde achtergrondkleur als content*/
+.container, footer {
+	background-color: #38BA3A;
+}
+
+.container {
+	height: 1100px;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.container div {
+	margin-top: 10px;
+	border-radius: 8px;
+}
+
+.container .content {
+	height: 1px;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+/*Home page*/
+
+.container .newsContent {
+	width: 65%;
+}
+
+.container .actiesContent {
+	width: 25%;
+}
+
+/*News*/
+
+.container .newsContent .news {
+	height: 550px;
+	width: 100%;
+	margin-top: 0;
+}
+
+.container .newsContent .news h2 {
+	text-align: center;
+}
+
+.container .content .news .tekstscrollblok{
+	height: 450px;
+	width: 90%;
+	overflow-y: scroll;
+	/*Om de tekstscrollblok te centreren*/
+	margin-left: auto;
+	margin-right: auto;
+	
+	/*Genereated gradient background*/
+	background-image: -o-linear-gradient(bottom, #38BA3A 33%, #70E674 85%);
+	background-image: -moz-linear-gradient(bottom, #38BA3A 33%, #70E674 85%);
+	background-image: -webkit-linear-gradient(bottom, #38BA3A 33%, #70E674 85%);
+	background-image: -ms-linear-gradient(bottom, #38BA3A 33%, #70E674 85%);
+	background-image: linear-gradient(to bottom, #38BA3A 33%, #70E674 85%);
+}
+
+.container .content .news .tekstscrollblok p{
+	text-align: center;
+}
+
+.container .content .news .tekstscrollblok h4{
+	margin-left: 10px;
+}
+
+#chartContainer {
+	margin: 0 auto;
+	width: 400px;
+	background: none;
+}
+
+#resultChart{
+	width: 400px;
+	height: 400px;
+}
+
+/*Images*/
+
+.container .images {
+	height: 200px;
+	width: 80%;
+}
+
+p.test{
+	color:blue;
+	margin: 0;
+}
+
+.test{
+height: 300px;
+width: 200px;
+}
+
+/*Acties*/
+
+.container  .actiesContent .acties{
+	height: 760px;
+	width: 100%;
+	margin-top: 0;
+}
+
+.container  .actiesContent .acties h3 {
+	text-align: center;
+}
+
+.container  .actiesContent .acties ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+.container  .actiesContent .acties ul li a{
+	padding: 10px;
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+.container  .actiesContent .acties ul li a:hover{
+	background-color: #42CF44;
+}
+
+.container  .actiesContent .acties ul li a:visited{
+	color: black;
+}
+
+/*About*/
+
+.about{
+	margin-top: 0;
+	height: 760px;
+	width: 80%;
+}
+
+/*Contact*/
+
+.contact{
+	margin-top: 0;
+	height: 760px;
+	width: 80%;
+}
+
+/*FAQ*/
+
+.FAQ{
+	margin-top: 0;
+	height: 760px;
+	width: 80%;
+}
+
+/*Footer*/
+
+footer{
+	text-align: center;
+}

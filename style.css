@@ -1,0 +1,182 @@
+body{
+	background-color: rgb(200,200,200);
+	font-family: arial;
+}
+
+table{
+	margin-bottom: 10px;
+}
+td{
+	padding: 5px 15px 5px 15px;
+	/*border: 1px solid blue;*/
+}
+
+a{
+	color: rgb(50,50,255);
+	text-decoration: none;
+}
+a:hover{
+	color: rgb(250,150,0);
+}
+
+h1{
+	color: rgb(0,0,200);
+	margin: 0;
+	padding: 0;
+	font-size: 16pt;
+}
+h2{
+	color: rgb(0,0,200);
+	margin: 0;
+	padding: 0;
+	font-size: 14pt;
+	margin-left: 60px;
+}
+
+#container{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	width: 900px;
+	padding-top: 0px;
+	height: auto;
+}
+
+#login{
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
+	height: auto;
+	padding-top: 20px;
+}
+
+#header{
+	width: 890px;
+	height: 60px;
+	margin-top: 10px;
+	padding: 5px;
+	background-image: url(images/logo-nhv.png);
+	background-repeat: no-repeat;
+}
+
+#menu{
+	height: auto;
+	width: 890px;
+	padding: 5px;
+}
+
+#content{
+	height: auto;
+	width: 890px;
+	padding: 5px;
+	box-shadow: 2px 2px 8px #444444;
+	border-radius: 10px;
+	background-color: rgb(255,255,255);
+}
+
+
+
+.button{
+	height: 25px;
+	width: auto;
+	background-color: rgb(50,50,255);
+	padding-top: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-right: 5px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	text-align: center;
+	color: rgb(255,255,255);
+	text-decoration: none;
+	float: left;
+}
+.button:hover{
+	background-color: rgb(250, 150, 0);
+	color: rgb(255,255,255);
+	text-decoration: none;
+}
+
+.submit{
+	height: 25px;
+	width: auto;
+	background-color: rgb(50,50,255);
+	text-align: center;
+	color: rgb(255,255,255);
+	border: 0;
+	text-decoration: none;
+}
+.submit:hover{
+	background-color: rgb(250, 150, 0);
+}
+
+.radio1{
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.pageselect{
+	float: left;
+	display: block;
+	background-color: rgb(50,50,255);
+	color: rgb(255,255,255);
+	width: auto;
+	height: auto;
+	padding: 2px 5px 2px 5px;
+	margin-right: 4px;
+}
+.pageselect:hover{
+	background-color: rgb(250, 150, 0);
+	color: rgb(255, 255, 255);
+}
+
+.profile{
+	height: auto;
+	width: 300px;
+	float: right;
+	text-align: right;
+}
+
+.cleft{
+	width: 435px;
+	height: auto;
+	float: left;
+	padding-top: 5px;
+}
+
+.cright{
+	width: 435px;
+	height: auto;
+	float: right;
+	padding-top: 5px;
+}
+
+
+
+.center{
+	text-align: center;
+}
+
+
+.tcenter{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ocenter tr td{
+	border: 1px solid gray;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.clear{
+	clear: both;
+	width: 0px;
+	height: 0px;
+}
+
+td.text{
+	text-align: right;
+}
+
