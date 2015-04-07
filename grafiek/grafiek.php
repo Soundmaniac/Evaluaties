@@ -8,7 +8,6 @@
 		<script type="text/javascript" src="scripts/Chart.js-master/Chart.js"></script>
 	</head>
 	<body>
-	test
 		<canvas id="resultChart"></canvas>
 		<script type="text/javascript">
 							var chartData = {
