@@ -96,7 +96,7 @@
 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<title></title>
-
+		<script type="text/javascript" src="Chart.js"></script>
 	</head>
 	<body>
 		
@@ -116,16 +116,15 @@
 			
 			<div id="content">
 			
+			
 				<form action="<?php echo("showmentor.php?mentor=" . $_GET['mentor'] . ""); ?>" method="post">
-
-				<div class="center">
-
-
-
-				</div>
-
+					<div class="center">
+					</div>
 				</form>
 
+				
+				
+			
 				<?php
 
 				echo("<table class='ocenter'><tr><td class='center'>Overzicht formulier</td></tr>");
@@ -136,6 +135,36 @@
 				$getDatasql = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
 				while ($row = mysql_fetch_array($getDatasql))
 					{
+						echo ('
+								<canvas id="resultChart"></canvas>
+								<script type="text/javascript">
+								var chartData = 
+								{
+									labels: ["1", "2", "3"],
+									datasets: [
+									{
+										fillColor: "#48A97",
+										strokeColor: "#48A4D1",
+										data: [' . $row[t1a] . ', ' . $row[e1a] . ']
+									},
+									{
+										fillColor: "rgba(73,188,170,0.4)",
+										strokeColor: "rgba(72,174,209,0.4)",
+										data: [' . $row[t1b] . ', ' . $row[e1b] . ']
+									},
+									{
+										fillColor: "#48A97",
+										strokeColor: "#48A4D1",
+										data: [' . $row[t1c] . ', ' . $row[e1c] . ']
+									}
+									]
+								}
+										
+									var ctx = document.getElementById("resultChart").getContext("2d");
+									new Chart(ctx).Bar(chartData);
+								</script>
+						');
+						
 			/*1*/		echo("<tr><td>1.Cursusinhoud: </td> 
 							<td> a:" . $row[t1a] . "</td>
 							<td> a:" . $row[e1a]  ."</td>
