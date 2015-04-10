@@ -1,3 +1,15 @@
+#chartContainer {
+	margin: 0 auto;
+	width: 400px;
+	background: none;
+}
+
+#resultChart{
+	width: 400px;
+	height: 400px;
+}
+
+
 body{
 	background-color: rgb(200,200,200);
 	font-family: arial;
