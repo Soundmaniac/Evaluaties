@@ -42,14 +42,38 @@ function Connect()
 	mysql_connect("localhost", "root", "usbw") or die;
 	mysql_select_db("project");
 }
-//function Connect()
-//{
-//	mysql_connect("localhost", "pcilaaw10_test", "test-omgeving") or die;
-//	mysql_select_db("pcilaaw10_test");
-//}
 function CloseConnect()
 {
 	mysql_close();
+}
+
+function GetData($number)
+{
+	Connect();
+	$selectstring = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
+	if(!$selectstring)
+	{
+		echo("Could not run query: " . mysql_error());
+		exit;
+	}
+	while ($row = mysql_fetch_array($selectstring))
+	{
+		if(isset($number))
+		{
+			switch ($number) {
+				case 0:
+				echo ("[" . $row[t1a] . ", " . $row[t2] . ", " . $row[t3] . "]");
+				break;
+				case 1:
+				echo ("[" . $row[e1a] . ", " . $row[e2a] . ", " . $row[e3a] . "]");
+				break;
+				case 2:
+				echo ("[" . ($row[t1a] + $row[e1a])/2 . ", " . ($row[t2] + $row[e2a])/2 . ", " . ($row[t3] + $row[e3a])/2 . "]");
+				break;
+			}
+		}
+	}
+	CloseConnect();
 }
 
 function profileFunction()

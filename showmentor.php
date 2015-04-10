@@ -5,88 +5,6 @@
 	AdminOnly();
 
 	$failed = null;
-					/*	$tet = ($row[t1a] + $row[t1b] + $row[t1c] + $row[t2] + $row[t3] + $row[t4a] + $row[t4b] + $row[t5])/8;
-						$tee = ($row[e1a] + $row[e1b] + $row[e1c] + $row[e2a] + $row[e2b] + $row[e2c] + $row[e2d] + $row[e2e] + $row[e2f] + $row[e3a] + $row[e3b] + $row[e3c] + $row[e3d] + $row[e3e] + $row[e4a] + $row[e4b] + $row[e4c] + $row[e4d] + $row[e4e] + $row[e4f] + $row[e4g] + $row[e5a] + $row[e5b])/23;
-						$tete = ($row[t1a] + $row[t1b] + $row[t1c] + $row[t2] + $row[t3] + $row[t4a] + $row[t4b] + $row[t5] + $row[e1a] + $row[e1b] + $row[e1c] + $row[e2a] + $row[e2b] + $row[e2c] + $row[e2d] + $row[e2e] + $row[e2f] + $row[e3a] + $row[e3b] + $row[e3c] + $row[e3d] + $row[e3e] + $row[e4a] + $row[e4b] + $row[e4c] + $row[e4d] + $row[e4e] + $row[e4f] + $row[e4g] + $row[e5a] + $row[e5b])/31;
-						$teen = ($row[t1a] + $row[t1b] + $row[t1c])/3;
-						$evier = ($row[e4a] + $row[e4b] + $row[e4c] + $row[e4d] + $row[e4e] + $row[e4f] + $row[e4g])/7;
-						$edrie = ($row[e3a] + $row[e3b] + $row[e3c] + $row[e3d] + $row[e3e])/5;
-						$etwee = ($row[e2a] + $row[e2b] + $row[e2c] + $row[e2d] + $row[e2e] + $row[e2f])/6;
-						$eeen = ($row[e1a] + $row[e1b] + $row[e1c])/3;
-						$tedrie = ($row[t1a] + $row[t1b] + $row[t1c] + $row[e1a] + $row[e1b] + $row[e1c])/6;
-						$teeen = ($row[t1a] + $row[t1b] + $row[t1c] + $row[e1a] + $row[e1b] + $row[e1c])/6;
-						$tetwee = ($row[t2] + $row[e2a] + $row[e2b] + $row[e2c] + $row[e2d] + $row[e2e] + $row[e2f])/7;
-						$tedrie = ($row[t3] + $row[e3a] + $row[e3b] + $row[e3c] + $row[e3d] + $row[e3e])/6; 
-						$tevier = ($row[t4a] + $row[t4b] + $row[e4a] + $row[e4b] + $row[e4c] + $row[e4d] + $row[e4e] + $row[e4f] + $row[e4g])/9;
-						$tevijf = ($row[t5] + $row[a5a] + $row[e5b])/3;
-						$afgerondtet = round($teen, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondtee = round($tee, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondtete  = round($tete , 2, PHP_ROUND_HALF_EVEN);
-						$afgerondteen = round($teen, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondeeen = round($eeen, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondetwee = round($etwee, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondedrie = round($edrie, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondevier = round($evier, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondeen = round($teeen, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondtwee = round($tetwee, 2, PHP_ROUND_HALF_EVEN);
-						$afgeronddrie = round($tedrie, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondvier = round($tevier, 2, PHP_ROUND_HALF_EVEN);
-						$afgerondvijf = round($tevijf, 2, PHP_ROUND_HALF_EVEN);
-			/*1		echo("<tr><td>1.Cursus inhoud: </td> 
-							<td>" . $afgerondteen  ."</td>
-							<td>" . $afgerondeeen  ."</td>
-							<td>" . $afgerondeen  ."</td>
-							</tr>");
-						echo("<tr><td> Commentaar: </td>
-							<td>" . $row[tideas1] ."</td>
-							<td>" . $row[eideas1]  ."</td>
-							</tr>");
-						echo("<tr style='height: 15px;'></tr>");
-			/*2		echo("<tr><td>2.Structuur van de cursus: </td>
-							<td>" . $row[t2]  ."</td>
-							<td>" . $afgerondetwee  ."</td>
-							<td>" . $afgerondtwee  ."</td>
-							</tr>");
-						echo("<tr><td> Commentaar: </td>
-							<td>" . $row[tideas2] ."</td>
-							<td>" . $row[eideas2]  ."</td>
-							</tr>");
-						echo("<tr style='height: 15px;'></tr>");
-			/*3		echo("<tr><td>3.Cursus materiaal: </td>
-							<td>" . $row[t3]  ."</td>
-							<td>" . $afgerondedrie  ."</td>
-							<td>" . $afgeronddrie  ."</td>
-							</tr>");
-						echo("<tr><td> Commentaar: </td>
-							<td>" . $row[tideas3] ."</td>
-							<td>" . $row[eideas3]  ."</td>
-							</tr>");
-						echo("<tr style='height: 15px;'></tr>");
-			/*4		echo("<tr><td>4.Indruk trainer: </td>
-							<td>" . ($row[t4a] + $row[t4b])/2  ."</td>
-							<td>" . $afgerondevier ."</td>
-							<td>" . $afgerondvier  ."</td>
-							</tr>");
-						echo("<tr><td> Commentaar: </td>
-							<td>" . $row[tideas4] ."</td>
-							<td>" . $row[eideas4]  ."</td>
-							</tr>");
-						echo("<tr style='height: 15px;'></tr>");
-			/*5		echo("<tr><td>5.Algemeen oordeel: </td>
-							<td>" . $row[t5]  ."</td>
-							<td>" . ($row[a5a] + $row[e5b])/2  ."</td>
-							<td>" . $afgerondvijf   ."</td>
-							</tr>");
-						echo("<tr><td> Commentaar: </td>
-							<td>" . $row[tideas5] ."</td>
-							<td>" . $row[eideas5]  ."</td>
-							</tr>");
-						echo("<tr style='height: 15px;'></tr>");
-			/*totaal	echo("<tr><td>Totaal gemiddeld rapportcijfer: </td>
-							<td>" . $afgerondtet ."</td>
-							<td>" . $afgerondtee ."</td>
-							<td>" . $afgerondtete ."</td>
-							</tr>");*/
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +13,8 @@
 	<head>
 
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<title></title>
+		<!-- TO DO: Title veranderen naar gepast titel -->
+		<title>PCI Languages - Evaluaties</title>
 		<script type="text/javascript" src="Chart.js"></script>
 	</head>
 	<body>
@@ -116,15 +35,16 @@
 			
 			<div id="content">
 			
-			
 				<form action="<?php echo("showmentor.php?mentor=" . $_GET['mentor'] . ""); ?>" method="post">
-					<div class="center">
-					</div>
+
+				<div class="center">
+
+
+
+				</div>
+
 				</form>
 
-				
-				
-			
 				<?php
 
 				echo("<table class='ocenter'><tr><td class='center'>Overzicht formulier</td></tr>");
@@ -135,36 +55,6 @@
 				$getDatasql = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
 				while ($row = mysql_fetch_array($getDatasql))
 					{
-						echo ('
-								<canvas id="resultChart"></canvas>
-								<script type="text/javascript">
-								var chartData = 
-								{
-									labels: ["1", "2", "3"],
-									datasets: [
-									{
-										fillColor: "#48A97",
-										strokeColor: "#48A4D1",
-										data: [' . $row[t1a] . ', ' . $row[e1a] . ']
-									},
-									{
-										fillColor: "rgba(73,188,170,0.4)",
-										strokeColor: "rgba(72,174,209,0.4)",
-										data: [' . $row[t1b] . ', ' . $row[e1b] . ']
-									},
-									{
-										fillColor: "#48A97",
-										strokeColor: "#48A4D1",
-										data: [' . $row[t1c] . ', ' . $row[e1c] . ']
-									}
-									]
-								}
-										
-									var ctx = document.getElementById("resultChart").getContext("2d");
-									new Chart(ctx).Bar(chartData);
-								</script>
-						');
-						
 			/*1*/		echo("<tr><td>1.Cursusinhoud: </td> 
 							<td> a:" . $row[t1a] . "</td>
 							<td> a:" . $row[e1a]  ."</td>
@@ -323,10 +213,150 @@
 				CloseConnect();
 				echo("</table>");
 				?>
+				
+				<div id="chartContainer">
+					<canvas id="resultChart"></canvas>
+					<script type="text/javascript">
 					
+							/*Kleuren van de balken en andere instellingen kunnen hier worden gewijzigd.*/
+							var chartData = {
+								labels: ["Cursusinhoud", "Structuur van de cursus", "CursusMateriaal"],
+								datasets: [
+								{
+									label: "Eerste gegevens",
+									fillColor: "#48A97",
+									strokeColor: "#48A4D1",
+									data:
+									<?php 
+									GetData(0);
+									?>
+								},
+								{
+									label: "Tweede gegevens",
+									fillColor: "rgba(73,188,170,0.4)",
+									strokeColor: "rgba(72,174,209,0.4)",
+									data: 
+									<?php
+									GetData(1);
+									?>
+								},
+								{
+									label: "Gemiddelde",
+									fillColor: "#48A97",
+									strokeColor: "#48A4D1",
+									data: 
+									<?php
+									GetData(2);
+									?>
+								}
+								]
+							}
+							
+							var options = {
+								legendTemplate : '<ul>'
+								+ '<% for (var i=0; i<datasets.length; i++){%>'
+								+ '<li>'
+								+ '<span style=\"background-color:<%=datasets[i].fillColor%>\"></span>'
+								+ '<%if(datasets[i].label){%><%=datasets[i].label%><%}%>'
+								+ '</li>'
+								+ '<%}%>'
+								+ '</ul>',
+								barDatasetSpacing : 5
+							
+							/*Draws chart in canvas*/
+							var ctx = document.getElementById("resultChart").getContext("2d");
+							new Chart(ctx).Bar(chartData, options);
+							
+					</script>
+				</div>
 				<div class="clear"> </div>
 			</div>
 		</div>
 		
 	</body>
 </html>
+
+<?php
+/*	$tet = ($row[t1a] + $row[t1b] + $row[t1c] + $row[t2] + $row[t3] + $row[t4a] + $row[t4b] + $row[t5])/8;
+						$tee = ($row[e1a] + $row[e1b] + $row[e1c] + $row[e2a] + $row[e2b] + $row[e2c] + $row[e2d] + $row[e2e] + $row[e2f] + $row[e3a] + $row[e3b] + $row[e3c] + $row[e3d] + $row[e3e] + $row[e4a] + $row[e4b] + $row[e4c] + $row[e4d] + $row[e4e] + $row[e4f] + $row[e4g] + $row[e5a] + $row[e5b])/23;
+						$tete = ($row[t1a] + $row[t1b] + $row[t1c] + $row[t2] + $row[t3] + $row[t4a] + $row[t4b] + $row[t5] + $row[e1a] + $row[e1b] + $row[e1c] + $row[e2a] + $row[e2b] + $row[e2c] + $row[e2d] + $row[e2e] + $row[e2f] + $row[e3a] + $row[e3b] + $row[e3c] + $row[e3d] + $row[e3e] + $row[e4a] + $row[e4b] + $row[e4c] + $row[e4d] + $row[e4e] + $row[e4f] + $row[e4g] + $row[e5a] + $row[e5b])/31;
+						$teen = ($row[t1a] + $row[t1b] + $row[t1c])/3;
+						$evier = ($row[e4a] + $row[e4b] + $row[e4c] + $row[e4d] + $row[e4e] + $row[e4f] + $row[e4g])/7;
+						$edrie = ($row[e3a] + $row[e3b] + $row[e3c] + $row[e3d] + $row[e3e])/5;
+						$etwee = ($row[e2a] + $row[e2b] + $row[e2c] + $row[e2d] + $row[e2e] + $row[e2f])/6;
+						$eeen = ($row[e1a] + $row[e1b] + $row[e1c])/3;
+						$tedrie = ($row[t1a] + $row[t1b] + $row[t1c] + $row[e1a] + $row[e1b] + $row[e1c])/6;
+						$teeen = ($row[t1a] + $row[t1b] + $row[t1c] + $row[e1a] + $row[e1b] + $row[e1c])/6;
+						$tetwee = ($row[t2] + $row[e2a] + $row[e2b] + $row[e2c] + $row[e2d] + $row[e2e] + $row[e2f])/7;
+						$tedrie = ($row[t3] + $row[e3a] + $row[e3b] + $row[e3c] + $row[e3d] + $row[e3e])/6; 
+						$tevier = ($row[t4a] + $row[t4b] + $row[e4a] + $row[e4b] + $row[e4c] + $row[e4d] + $row[e4e] + $row[e4f] + $row[e4g])/9;
+						$tevijf = ($row[t5] + $row[a5a] + $row[e5b])/3;
+						$afgerondtet = round($teen, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondtee = round($tee, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondtete  = round($tete , 2, PHP_ROUND_HALF_EVEN);
+						$afgerondteen = round($teen, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondeeen = round($eeen, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondetwee = round($etwee, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondedrie = round($edrie, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondevier = round($evier, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondeen = round($teeen, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondtwee = round($tetwee, 2, PHP_ROUND_HALF_EVEN);
+						$afgeronddrie = round($tedrie, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondvier = round($tevier, 2, PHP_ROUND_HALF_EVEN);
+						$afgerondvijf = round($tevijf, 2, PHP_ROUND_HALF_EVEN);
+			/*1		echo("<tr><td>1.Cursus inhoud: </td> 
+							<td>" . $afgerondteen  ."</td>
+							<td>" . $afgerondeeen  ."</td>
+							<td>" . $afgerondeen  ."</td>
+							</tr>");
+						echo("<tr><td> Commentaar: </td>
+							<td>" . $row[tideas1] ."</td>
+							<td>" . $row[eideas1]  ."</td>
+							</tr>");
+						echo("<tr style='height: 15px;'></tr>");
+			/*2		echo("<tr><td>2.Structuur van de cursus: </td>
+							<td>" . $row[t2]  ."</td>
+							<td>" . $afgerondetwee  ."</td>
+							<td>" . $afgerondtwee  ."</td>
+							</tr>");
+						echo("<tr><td> Commentaar: </td>
+							<td>" . $row[tideas2] ."</td>
+							<td>" . $row[eideas2]  ."</td>
+							</tr>");
+						echo("<tr style='height: 15px;'></tr>");
+			/*3		echo("<tr><td>3.Cursus materiaal: </td>
+							<td>" . $row[t3]  ."</td>
+							<td>" . $afgerondedrie  ."</td>
+							<td>" . $afgeronddrie  ."</td>
+							</tr>");
+						echo("<tr><td> Commentaar: </td>
+							<td>" . $row[tideas3] ."</td>
+							<td>" . $row[eideas3]  ."</td>
+							</tr>");
+						echo("<tr style='height: 15px;'></tr>");
+			/*4		echo("<tr><td>4.Indruk trainer: </td>
+							<td>" . ($row[t4a] + $row[t4b])/2  ."</td>
+							<td>" . $afgerondevier ."</td>
+							<td>" . $afgerondvier  ."</td>
+							</tr>");
+						echo("<tr><td> Commentaar: </td>
+							<td>" . $row[tideas4] ."</td>
+							<td>" . $row[eideas4]  ."</td>
+							</tr>");
+						echo("<tr style='height: 15px;'></tr>");
+			/*5		echo("<tr><td>5.Algemeen oordeel: </td>
+							<td>" . $row[t5]  ."</td>
+							<td>" . ($row[a5a] + $row[e5b])/2  ."</td>
+							<td>" . $afgerondvijf   ."</td>
+							</tr>");
+						echo("<tr><td> Commentaar: </td>
+							<td>" . $row[tideas5] ."</td>
+							<td>" . $row[eideas5]  ."</td>
+							</tr>");
+						echo("<tr style='height: 15px;'></tr>");
+			/*totaal	echo("<tr><td>Totaal gemiddeld rapportcijfer: </td>
+							<td>" . $afgerondtet ."</td>
+							<td>" . $afgerondtee ."</td>
+							<td>" . $afgerondtete ."</td>
+							</tr>");*/
+?>
