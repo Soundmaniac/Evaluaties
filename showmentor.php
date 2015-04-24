@@ -252,6 +252,7 @@
 								]
 							}
 							
+							/*JavaScript Legenda settings*/
 							var options = {
 								legendTemplate : '<ul>'
 								+ '<% for (var i=0; i<datasets.length; i++){%>'
@@ -262,6 +263,7 @@
 								+ '<%}%>'
 								+ '</ul>',
 								barDatasetSpacing : 5
+							}
 							
 							/*Draws chart in canvas*/
 							var ctx = document.getElementById("resultChart").getContext("2d");

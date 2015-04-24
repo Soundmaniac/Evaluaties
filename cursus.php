@@ -158,14 +158,14 @@
 								<td>Tijd Les 1:</td><td><input type="text" name="tijd1"/></td>
 							</tr>
 						</table>
-						
+
 						<div class='clear'></div>
 						<div class='center'><input type='submit' name='submit' value='Nieuwe cursus aanmaken' class='submit'>  </input></div>
 					</form>
-						
+
 				<div class="clear"> </div>
 			</div>
 		</div>
-		
+
 	</body>
 </html>

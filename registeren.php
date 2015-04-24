@@ -8,7 +8,7 @@
 			if(mysql_num_rows($result) == 0)
 			{						
 				mysql_query("
-					INSERT INTO `pcilaaw10_test`.`account` (`gebruiker`, `wachtwoord`, `rol`) 
+					INSERT INTO `project`.`account` (`gebruiker`, `wachtwoord`, `rol`) 
 					VALUES ('" . $_POST['accnaam'] . "', '" . $_POST['accww'] . "', 'mentor');
 				");
 				
@@ -19,7 +19,7 @@
 				}
 				
 				mysql_query("
-					INSERT INTO `pcilaaw10_test`.`contactpersoon` (`voornaam`, `achternaam`, `accountID`) 
+					INSERT INTO `project`.`contactpersoon` (`voornaam`, `achternaam`, `accountID`) 
 					VALUES ('" . $_POST['vnaam'] . "', '" . $_POST['anaam'] . "', '" . $relatie . "')
 				");
 				$succes = true;
@@ -57,7 +57,7 @@
 
 					
 				<form action="<?php echo($_SERVER['PHP_SELF']); ?>" method="post">
-					
+
 					<table class="tcenter">
 						<tr>
 							<td>Gebruikersnaam: </td> <td><input type="text" name="accnaam"/></td>
@@ -81,7 +81,7 @@
 						</tr>
 					</table>
 
-				
+
 				</form>
 					
 				

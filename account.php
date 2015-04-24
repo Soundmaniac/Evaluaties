@@ -14,7 +14,7 @@
 			if(mysql_num_rows($result) == 0)
 			{						
 				mysql_query("
-					INSERT INTO `pcilaaw10_test`.`account` (`gebruiker`, `wachtwoord`, `rol`) 
+					INSERT INTO `project`.`account` (`gebruiker`, `wachtwoord`, `rol`) 
 					VALUES ('" . $_POST['accnaam'] . "', '" . $_POST['accww'] . "', 'admin');
 				");
 			}

@@ -6,6 +6,7 @@ function menuFunction()
 	{
 		echo("<a href='mentor.php'> <div class='button'> Gebruikers </div> </a>");
 		echo("<a href='account.php'> <div class='button'> Accounts </div> </a>");
+        echo("<a href='codegen.php'> <div class='button'> Nieuwe survey </div> </a>");
 	}
 	
 	else if($_SESSION['rol'] == "mentor")
@@ -14,7 +15,7 @@ function menuFunction()
 		echo("<a href='TussentijdseEvaluatie.php'> <div class='button'> Tussentijdse Evaluatie </div> </a>");
 		echo("<a href='EindtijdEvaluatie.php'> <div class='button'> Eindevaluatie </div> </a>");
 	}
-	
+
 }
 function menuFunctioneng()
 {
