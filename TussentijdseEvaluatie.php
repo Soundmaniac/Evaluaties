@@ -43,6 +43,8 @@
 
 			<form name='reviewForm' action='insertReview.php' method='POST'>
 
+            <input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/> <!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
+
 			<table id='Tinhoud'>
 				<tr >
 					<td class='titel'>

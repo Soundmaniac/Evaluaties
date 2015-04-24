@@ -82,7 +82,12 @@ function GenerateID($length = 11)
     {
         /* Laat cursistID op pagina zien op de pagina. */
         echo($cursistID . "<br />Het is gelukt om een ID te genereren, kopieer de ID.");
+        echo("<br/>");
+        echo("<br/><a href='TussentijdseEvaluatie.php?id=" . $cursistID . "'>Tussentijdse Evaluatie</a>");
+        echo("<br/><a href='EindtijdEvaluatie.php?id=" . $cursistID . "'>Eindtijdse Evaluatie</a>");
+
     }
+
     CloseConnection();
 }
 
