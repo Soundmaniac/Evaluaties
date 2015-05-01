@@ -1,0 +1,47 @@
+tt = tussentijds
+ee = eind evaluatie
+comm = commentaar
+
+tabelnamen:
+
+ttcursistresults
+eecursistresults
+
+ttcursistresults heeft de volgende kolomnamen:
+cursusinhouda
+cursusinhoudb
+cursusinhoudc
+cursusinhoudcomm
+structuura
+structuurcomm (staat niet in tussentijdseevaluatie.php, dus hoeft misschien ook niet in database)
+cursustmateriaala
+cursusmateriaalcomm (staat niet in tussentijdseevaluatie.php, dus hoeft misschien ook niet in database)
+trainera
+tainerb
+trainercomm
+algemeenoordeela
+algemeenoordeelcomm
+
+13 kolommen
+
+eecursistresults heeft de volgende kolomnamen (moet nog aangepast worden):
+cursusinhouda
+cursusinhoudb
+cursusinhoudc
+cursusinhoudcomm
+structuura
+structuurb
+structuurc
+structuurd
+structuure
+structuurf
+structuurcomm
+cursustmateriaala
+cursustmateriaalb
+cursustmateriaalc
+cursustmateriaald
+cursustmateriaale
+cursusmateriaalcomm
+algemeenoordeela
+algemeenoordeelb
+algemeenoordeelcomm
