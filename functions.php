@@ -4,19 +4,27 @@ function menuFunction()
 {
 	if($_SESSION['rol'] == "admin")
 	{
-		echo("<a href='mentor.php'> <div class='button'> Gebruikers </div> </a>");
-		echo("<a href='account.php'> <div class='button'> Accounts </div> </a>");
-        echo("<a href='codegen.php'> <div class='button'> Nieuwe survey </div> </a>");
+		/*header in index.php wijzigen naar table.php en*/
+		echo("
+		<a href='cursists.php'>
+			<div class='button'>Cursisten</div>
+		</a>
+		");
 	}
 	
 	else if($_SESSION['rol'] == "mentor")
 	{
-		echo("<a href='profiel.php'> <div class='button'> Profiel </div> </a>");
-		echo("<a href='TussentijdseEvaluatie.php'> <div class='button'> Tussentijdse Evaluatie </div> </a>");
-		echo("<a href='EindtijdEvaluatie.php'> <div class='button'> Eindevaluatie </div> </a>");
+		echo("
+		<a href='profiel.php'>
+			<div class='button'> Profiel </div>
+		</a>
+		<a href='EindtijdEvaluatie.php'>
+			<div class='button'> Eindevaluatie </div>
+		</a>
+		");
 	}
-
 }
+
 function menuFunctioneng()
 {
 	if($_SESSION['rol'] == "admin")
