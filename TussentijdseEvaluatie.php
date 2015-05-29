@@ -4,10 +4,6 @@
 	include_once("dbFunctions.php");
 	StartUp();
 	ini_set( "display_errors", 0);
-
-
-
-
 ?>
 
 <!DOCTYPE html>

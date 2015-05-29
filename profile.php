@@ -52,7 +52,7 @@
 			
 			<div id="menu">
 				<?php
-					menuFunctioneng();
+					menuFunction();
 				?>
 				<div class="clear"> </div>
 			</div>
