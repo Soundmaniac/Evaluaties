@@ -17,7 +17,7 @@ $cursusinhoudb = (isset($_POST['group1b']) ? $_POST['group1b'] : null);
 $cursusinhoudc = (isset($_POST['group1c']) ? $_POST['group1c'] : null);
 $cursusinhoudcomm = (isset($_POST['txtarea1']) ? mysql_real_escape_string(htmlentities($_POST['txtarea1'])) : null);
 $structuura = (isset($_POST['group2']) ? $_POST['group2'] : null);
-$cursustmateriaala = (isset($_POST['group3']) ? $_POST['group3'] : null);
+$cursusmateriaala = (isset($_POST['group3']) ? $_POST['group3'] : null);
 $trainera = (isset($_POST['group4a']) ? $_POST['group4a'] : null);
 $trainerb = (isset($_POST['group4b']) ? $_POST['group4b'] : null);
 $trainercomm = (isset($_POST['txtarea2']) ? mysql_real_escape_string(htmlentities($_POST['txtarea2'])) : null);
@@ -26,7 +26,7 @@ $algemeenoordeelcomm =(isset($_POST['txtarea3']) ? mysql_real_escape_string(html
 /*End of setting variables*/
 
 $query1 = "SELECT cursistID FROM ttsurveyresults WHERE cursistID = '" . $cursistID . "'";
-$query2 = "INSERT INTO ttsurveyresults(cursistID, cursusinhouda, cursusinhoudb, cursusinhoudc, cursusinhoudcomm, structuura, cursustmateriaala, trainera, trainerb, trainercomm, algemeenoordeela, algemeenoordeelcomm) VALUES('$cursistID', '$cursusinhouda', '$cursusinhoudb', '$cursusinhoudc', '$cursusinhoudcomm', '$structuura', '$cursustmateriaala', '$trainera', '$trainerb', '$trainercomm', '$algemeenoordeela', '$algemeenoordeelcomm')";
+$query2 = "INSERT INTO ttsurveyresults(cursistID, cursusinhouda, cursusinhoudb, cursusinhoudc, cursusinhoudcomm, structuura, cursusmateriaala, trainera, trainerb, trainercomm, algemeenoordeela, algemeenoordeelcomm) VALUES('$cursistID', '$cursusinhouda', '$cursusinhoudb', '$cursusinhoudc', '$cursusinhoudcomm', '$structuura', '$cursusmateriaala', '$trainera', '$trainerb', '$trainercomm', '$algemeenoordeela', '$algemeenoordeelcomm')";
 
 if(mysql_num_rows(mysql_query($query1)) > 0)
 {
