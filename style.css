@@ -65,11 +65,6 @@ h2{
     /*float: right;*/
 }
 
-.addcursistbtn
-{
-    height: 25px;
-	text-decoration: none;
-}
 
 #login{
 	margin-top: 200px;
@@ -211,12 +206,34 @@ td.text{
 	text-align: right;
 }
 
+#codegentablewidth
+{
+    width: 580px;
+}
+
 .actions
 {
-    width: 60px; /*<td> tag has to be the same width the images inside require so that they can be placed side by side, instead of on top of each other*/
+    width: 65px; /*<td> tag has to be the same width the images inside require so that they can be placed side by side, instead of on top of each other*/
 }
 
 .actions a
 {
     margin-right: 7px;
+}
+
+.formbtn
+{
+    padding: 5px;
+	background-color: rgb(50,50,255);
+	text-align: center;
+	color: rgb(255,255,255);
+	border: 0;
+	text-decoration: none;
+    font: normal normal normal 13.3333330154419px/normal Arial;
+}
+
+a.formbtn:hover
+{
+    background-color: rgb(250, 150, 0);
+    color: rgb(255, 255, 255);
 }
