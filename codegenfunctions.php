@@ -201,7 +201,7 @@ function editSelectedRow()
 			}
 			else
 			{
-				if(!preg_match("/^[a-zA-Z\s,.'-\pL]+$/", $_POST[$i]))
+				if(!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST[$i]))
 				{
 					$entered = false;
 				}
