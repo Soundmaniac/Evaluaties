@@ -1,7 +1,5 @@
 <?php
 include_once("functions.php");
-include_once("codegenfunctions.php");
-include_once("dbFunctions.php");
 ini_set( "display_errors", 0);
 StartUp();
 AdminOnly();
@@ -44,13 +42,10 @@ $failed = null;
 
             Connect();
 
-            $getttdata= mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $_GET['id'] . "'");
-            $rowtt = mysql_fetch_array($getttdata);
-
-            $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
-            $rowee = mysql_fetch_array($geteedata);
-
-
+            /*TO DO: Query aanpassen zoddat formulier op cursistID wordt laten zien*/
+            $getDatasql = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
+            while ($row = mysql_fetch_array($getDatasql))
+            {
                 /*Alle gegevens in tabel plaatsen*/
                 /*TO DO: Variabelen beter/semantischer benoemen*/
                 echo("
@@ -58,23 +53,23 @@ $failed = null;
 
                 <tr>
                     <td>1.Cursusinhoud: </td>
-                    <td> a:" . $rowtt[cursusinhouda] . "</td>
-                    <td> a:" . $rowee[meninga]  ."</td>
+                    <td> a:" . $row[t1a] . "</td>
+                    <td> a:" . $row[e1a]  ."</td>
                 </tr>
                 <tr>
                     <td> </td>
-                    <td> b:" . $rowtt[cursusinhoudb]  ."</td>
-                    <td> b:" . $rowee[meningb]  ."</td>
+                    <td> b:" . $row[t1b]  ."</td>
+                    <td> b:" . $row[e1b]  ."</td>
                 </tr>
                 <tr>
                     <td> </td>
-                    <td> c:" . $rowtt[cursusinhoudc]  ."</td>
-                    <td> c:" . $rowee[meningc]  ."</td>
+                    <td> c:" . $row[t1c]  ."</td>
+                    <td> c:" . $row[e1c]  ."</td>
                 </tr>
                 <tr>
                     <td> Commentaar: </td>
-                    <td>" . $rowtt[cursusinhoudcomm] ."</td>
-                    <td>" . $rowee[meningcomm]  ."</td>
+                    <td>" . $row[tideas1] ."</td>
+                    <td>" . $row[eideas1]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -82,38 +77,38 @@ $failed = null;
 
                 <tr>
                     <td>2.Structuur van de cursus: </td>
-                    <td> a:" . $rowtt[structuura] . "</td>
-                    <td> a:" . $rowee[structuura]  ."</td>
+                    <td> a:" . $row[t2] . "</td>
+                    <td> a:" . $row[e2a]  ."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> b:" . $rowee[structuurb] ."</td>
+                    <td> b:" . $row[e2b] ."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> c:" . $rowee[structuurc]  ."</td>
+                    <td> c:" . $row[e2c]  ."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> d:" . $rowee[structuurd]  ."</td>
+                    <td> d:" . $row[e2d]  ."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> e:" . $rowee[structuure]  ."</td>
+                    <td> e:" . $row[e2e]  ."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> f:" . $rowee[structuurf] ."</td>
+                    <td> f:" . $row[e2f] ."</td>
                 </tr>
                 <tr>
                     <td> Commentaar: </td>
-                    <td>" . $rowtt[tideas2] ."</td>
-                    <td>" . $rowee[structuurcomm]  ."</td>
+                    <td>" . $row[tideas2] ."</td>
+                    <td>" . $row[eideas2]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -121,33 +116,33 @@ $failed = null;
 
                 <tr>
                     <td>3.Cursusmateriaal: </td>
-                    <td> a:" . $rowtt[cursusmateriaala]  ."</td>
-                    <td> a: " . $rowee[cursusmateriaala]  ."</td>
+                    <td> a:" . $row[t3]  ."</td>
+                    <td> a: " . $row[e3a]  ."</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td> b: " . $rowee[cursusmateriaalb]  ."</td>
+                    <td> b: " . $row[e3b]  ."</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td> c: " . $rowee[cursusmateriaalc]  ."</td>
+                    <td> c: " . $row[e3c]  ."</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td> d: " . $rowee[cursusmateriaald]  ."</td>
+                    <td> d: " . $row[e3d]  ."</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td> e: " . $rowee[cursusmateriaale]  ."</td>
+                    <td> e: " . $row[e3e]  ."</td>
                 </tr>
                 <tr>
                     <td> Commentaar: </td>
-                    <td>" . $rowtt[tideas3] ."</td>
-                    <td>" . $rowee[cursusmateriaalcomm]  ."</td>
+                    <td>" . $row[tideas3] ."</td>
+                    <td>" . $row[eideas3]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -155,42 +150,42 @@ $failed = null;
 
                 <tr>
                     <td>4.Trainer: </td>
-                    <td> a:" . $rowtt[trainera]  ."</td>
-                    <td> a:" . $rowee[trainera] ."</td>
+                    <td> a:" . $row[t4a]  ."</td>
+                    <td> a:" . $row[e4a] ."</td>
                 </tr>
                 <tr>
                     <td> </td>
-                    <td> b:" . $rowtt[trainerb]  ."</td>
-                    <td> b:" . $rowee[trainerb] ."</td>
-                </tr>
-                <tr>
-                    <td> </td>
-                    <td></td>
-                    <td> c:" . $rowee[trainerc]."</td>
+                    <td> b:" . $row[t4b]  ."</td>
+                    <td> b:" . $row[e4b] ."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> d:" .  $rowee[trainerd] ."</td>
+                    <td> c:" . $row[e4c]."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> e:" .  $rowee[trainere] ."</td>
+                    <td> d:" .  $row[e4d] ."</td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td></td>
+                    <td> e:" .  $row[e4e] ."</td>
                 </tr>
                 <tr><td> </td>
                     <td></td>
-                    <td> f:" .  $rowee[trainerf] ."</td>
+                    <td> f:" .  $row[e4f] ."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> g:" .  $rowee[trainerg] ."</td>
+                    <td> g:" .  $row[e4g] ."</td>
                 </tr>
                 <tr>
                     <td> Commentaar: </td>
-                    <td>" . $rowtt[trainercomm] ."</td>
-                    <td>" . $rowee[trainercomm]  ."</td>
+                    <td>" . $row[tideas4] ."</td>
+                    <td>" . $row[eideas4]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -198,18 +193,18 @@ $failed = null;
 
                 <tr>
                     <td>5.Algemeen oordeel: </td>
-                    <td> a:" . $rowtt[algemeenoordeela]  ."</td>
-                    <td> a:" . $rowee[algemeena]  ."</td>
+                    <td> a:" . $row[t5]  ."</td>
+                    <td> a:" . $row[a5a]  ."</td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td></td>
-                    <td> b:" . $rowee[algemeenb]  ."</td>
+                    <td> b:" . $row[e5b]  ."</td>
                 </tr>
                 <tr>
                     <td> Commentaar: </td>
-                    <td>" . $rowtt[algemeenoordeelcomm] ."</td>
-                    <td>" . $rowee[algemeencomm]  ."</td>
+                    <td>" . $row[tideas5] ."</td>
+                    <td>" . $row[eideas5]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -218,7 +213,7 @@ $failed = null;
                 <tr>
                     <td>6. Aanbevelen aan anderen ja/ nee </td>
                     <td></td>
-                    <td> " . $rowee[aanbeveling]  ."</td>
+                    <td> " . $row[e6]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -227,7 +222,7 @@ $failed = null;
                 <tr>
                     <td>7. Welke onderdelen hebben u het meest aangesproken en waarom.</td>
                     <td></td>
-                    <td> " . $rowee[aangesprokenonderdelen]  ."</td>
+                    <td> " . $row[eideas7]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -236,7 +231,7 @@ $failed = null;
                 <tr>
                     <td>8. Waren er onderdelen die u overbodig vond.</td>
                     <td></td>
-                    <td> " . $rowee[overbodigeonderdelen]  ."</td>
+                    <td> " . $row[eideas8]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -245,7 +240,7 @@ $failed = null;
                 <tr>
                     <td>9. Bij welke onderdelen heeft u nieuwe vaardigheden opgedaan of uw vaardigheden verbeterd.</td>
                     <td></td>
-                    <td> " . $rowee[nieuwevaardigheden]  ."</td>
+                    <td> " . $row[eideas9]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -254,7 +249,7 @@ $failed = null;
                 <tr>
                     <td>10. Hoeveel tijd (uren) totaal besteed aan de cursus</td>
                     <td></td>
-                    <td> " . $rowee[voorbereiding]  ."</td>
+                    <td> " . $row[eideas10]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -263,7 +258,7 @@ $failed = null;
                 <tr>
                     <td>11. Duur cursus </td>
                     <td></td>
-                    <td> " . $rowee[lengtecursus]  ."</td>
+                    <td> " . $row[e11]  ."</td>
                 </tr>
                 <tr style='height: 15px;'></tr>
 
@@ -272,13 +267,15 @@ $failed = null;
                 <tr>
                     <td>12. Interesse in een vervolgcursus </td>
                     <td></td>
-                    <td> " . $rowee[vervolgcursus]  ."</td>
+                    <td> " . $row[e12]  ."</td>
                 </tr>
                 <tr>
                     <td> Opmerkingen:</td>
                     <td></td>
-                    <td> " . $rowee[wensen]  ."</td>
+                    <td> " . $row[eideas12]  ."</td>
                 </tr>");
+            }
+            /*End of while loop*/
 
             CloseConnect();
             echo("</table>");
@@ -298,7 +295,7 @@ $failed = null;
                                 strokeColor: "#48A4D1",
                                 data:
                                 <?php
-                                GetData(0, $_GET['id']);
+                                GetData(0);
                                 ?>
                             },
                             {
@@ -307,7 +304,7 @@ $failed = null;
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
-                                GetData(1, $_GET['id']);
+                                GetData(1);
                                 ?>
                             },
                             {
@@ -316,7 +313,7 @@ $failed = null;
                                 strokeColor: "#48A4D1",
                                 data:
                                 <?php
-                                GetData(2, $_GET['id']);
+                                GetData(2);
                                 ?>
                             }
                         ]
