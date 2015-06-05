@@ -13,9 +13,7 @@
 			$showeedate = ($sqlvalue[esubmitdate] != null? date('d/m/Y', strtotime($sqlvalue[esubmitdate])) : "-");
 			echo("
 				<tr>
-					<td>" . $sqlvalue[cursistVoornaam] . "</td>
-					<td>" . $sqlvalue[cursistTussenvoegsel] . "</td>
-					<td>" . $sqlvalue[cursistAchternaam] . "</td>
+					<td>" . $sqlvalue[cursistnaam] . "</td>
 					<td>
 						<select id='ddlEvaluatie' onchange='copyToClip(this)'>
 							<option selected>Selecteer een optie...</option>
@@ -29,7 +27,7 @@
 					<td>" . $showttdate . "</td>
 					<td>" . $showeedate . "</td>
 					<td class='actions'>
-						<a href='editCursistInfo.php?id=" . $sqlvalue["cursistID"] . "'>
+						<a href='#'>
 							<img src='images/wijzigen.png'></img>
 						</a>
 						<a class='confirmation' href='delete.php?id=" . $sqlvalue[cursistID] . "'>

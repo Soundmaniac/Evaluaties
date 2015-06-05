@@ -94,7 +94,7 @@ function GenerateID($length = 11)
 function GenerateRow()
 {
     global $cursistID;
-    $cursistVoornaam = "";
+    $cursistNaam = "";
     $cursistNaamError = "";
 
     /* Controleer of er een post plaats vindt op de pagina. */
@@ -105,138 +105,36 @@ function GenerateRow()
         {
 
             /* Controleer of er iets is ingevuld in de input. */
-            if(empty($_POST['cursistVoornaam']) || empty($_POST['cursistAchternaam']))
+            if(empty($_POST['cursistNaam']))
             {
-                $cursistNaamError = "Vul alle velden in!";
+                $cursistNaamError = "Vul een naam van een cursist in.";
                 echo($cursistNaamError);
             }
             else
             {
-                $cursistVoornaam = $_POST['cursistVoornaam'];
-				$cursistTussenvoegsel = (isset($_POST['cursistTussenvoegsel']) ? $_POST['cursistTussenvoegsel'] : "");
-				$cursistAchternaam = $_POST['cursistAchternaam'];
+                $cursistNaam = $_POST['cursistNaam'];
 
                 /* Als de textbox niet de karakters bevat die in de regex staan, dan komt er een bericht */
-                if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $cursistVoornaam))
+                if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $cursistNaam))
                 {
                     echo("Er zijn alleen letters en spaties toegestaan.");
                 }
-				else if(!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $cursistTussenvoegsel))
-				{
-					echo("Er zijn alleen letters en spaties toegestaan.");
-				}
-				else if(!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $cursistAchternaam))
-				{
-					echo("Er zijn alleen letters en spaties toegestaan.");
-				}
                 else
                 {
                     GenerateID();
                     /* Database vullen met de gegevens van het formulier */
                     OpenConnection();
-                    $selectstring1 = "INSERT INTO cursisten (cursistID, cursistVoornaam, cursistTussenvoegsel, cursistAchternaam) VALUES(\"" . $cursistID . "\", \"" . $cursistVoornaam . "\", \"" . $cursistTussenvoegsel . "\", \"" . $cursistAchternaam . "\")";
-
-                    $sql = mysql_query($selectstring1);
+                    $selectstring = "INSERT INTO cursisten (cursistID, cursistnaam) VALUES(\"" . $cursistID . "\", \"" . $cursistNaam . "\")";
+                    $sql = mysql_query($selectstring);
                     if(!$sql)
                     {
                         echo("Could not run query: " . mysql_error());
                         exit;
                     }
-					else
-					{
-						header("Location: cursists.php");
-					}
                     CloseConnection();
                 }
             }
         }
     }
-}
-
-function deleteSelectedRow($cursistID)
-{
-	$cursistID = (isset($cursistID) && $cursistID != null && $cursistID != "" ? $cursistID : "");
-	OpenConnection();
-	$querystring1 = "DELETE t.* FROM ttsurveyresults t WHERE cursistID = '" . $cursistID . "'";
-	$querystring2 = "DELETE e.* FROM eesurveyresults e WHERE cursistID = '" . $cursistID . "'";
-	$querystring3 = "DELETE c.* FROM cursisten c WHERE cursistID = '" . $cursistID . "'";
-	
-	$sql = mysql_query($querystring1);
-	if(!$sql)
-	{
-		die("Could not run query: " . mysql_error());
-	}
-	
-	$sql = mysql_query($querystring2);
-	if(!$sql)
-	{
-		die("Could not run query: " . mysql_error());
-	}
-	
-	$sql = mysql_query($querystring3);
-	if(!$sql)
-	{
-		die("Could not run query: " . mysql_error());
-	}
-	CloseConnection();
-}
-
-function editSelectedRow()
-{
-	if(!empty($_GET["id"]))
-	{
-		$_SESSION["id"] = $_GET["id"];
-	}
-	
-	if($_SERVER["REQUEST_METHOD"] == "POST")
-	{
-		OpenConnection();
-		$inputname = array("cursistFirstName", "cursistTussenvoegsel", "cursistLastName");
-		foreach($inputname AS $i)
-		{
-			if(empty($_POST[$i]))
-			{
-				$entered = false;
-			}
-			else
-			{
-				if(!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST[$i]))
-				{
-					$entered = false;
-				}
-				else
-				{
-					//DoSomething
-					if($i == "cursistFirstName")
-					{
-						$querystring = "UPDATE `cursisten` SET `cursistVoornaam` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_SESSION["id"] . "'";
-					}
-					else if($i == "cursistTussenvoegsel")
-					{
-						$querystring = "UPDATE `cursisten` SET `cursistTussenvoegsel` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_SESSION["id"] . "'";
-					}
-					else if($i == "cursistLastName")
-					{
-						$querystring = "UPDATE `cursisten` SET `cursistAchternaam` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_SESSION["id"] . "'";;
-					}
-					
-					$sql = mysql_query($querystring);
-					if(!$sql)
-					{
-						die("Could not run query: " . mysql_error());
-					}
-					else
-					{
-						header("Location: cursists.php");
-					}
-				}
-			}
-		}
-		if(!$entered)
-		{
-			echo("Één veld is ongewijzigd gebleven, omdat u dit veld heeft leeg gelaten<br />");
-		}
-		CloseConnection();
-	}
 }
 ?>

@@ -26,50 +26,16 @@
                 <div class="clear"></div>
             </div>
             <div id="content">
-                <div style="margin-left: auto; margin-right: auto; width: 58%;">
+                <div style="margin-left: auto; margin-right: auto; width: 40%;">
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-						<table id="codegentablewidth">
-							<tr>
-								<td>
-									<label for="cursistVoornaam">* Cursist voornaam: </label>
-								</td>
-								<td>
-									<input type="text" name="cursistVoornaam" />
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label for="cursistTussenvoegsel">Tussenvoegsel: </label>
-								</td>
-								<td>
-									<input type="text" name="cursistTussenvoegsel"></input>
-								</td>
-							</tr>
-							<tr>
-							<tr>
-								<td>
-									<label for="cursistAchternaam">* Achternaam: </label>
-								</td>
-								<td>
-									<input type="text" name="cursistAchternaam"></input>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label for="cursistID">CursistID: </label>
-								</td>
-								<td>
-									<?php GenerateRow(); ?>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="submit" value="Verzenden" name="submit" class="submit" />
-								</td>
-								<td>
-								</td>
-							</tr>
-						</table>
+                        <label for="cursistNaam">Cursist naam: </label>
+                        <input type="text" name="cursistNaam" /><br />
+                        <label for="cursistID">CursistID: </label>
+                        <?php
+                        GenerateRow();
+                        ?>
+                        <br />
+                        <input type="submit" value="Verzenden" name="submit" class="submit" />
                     </form>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-	<html>
+<html>
     <head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
         <title>form php</title>
@@ -36,9 +36,7 @@
 						</div>
 						<table>
 							<tr>
-								<th>Voornaam</th>
-								<th>Tussenvoegsel</th>
-								<th>Achternaam</th>
+								<th>Naam</th>
 								<th>Soort evaluatie</th>
 								<th>Resultaten link</th>
 								<th>Tussentijdse evaluatie afgelegde datum</th>
@@ -50,7 +48,7 @@
 							generateRows();
 							?>
 						</table>
-						<a href="codegen.php" class="formbtn">Cursist toevoegen</a>
+						<a href="codegen.php" class="addcursistbtn">Cursist toevoegen</a>
 					</form>
                 </div>
             </div>

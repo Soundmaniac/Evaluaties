@@ -56,7 +56,7 @@ function CloseConnect()
 	mysql_close();
 }
 
-function GetData($number)
+/*function GetData($number)
 {
 	Connect();
 	$selectstring = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
@@ -83,6 +83,37 @@ function GetData($number)
 		}
 	}
 	CloseConnect();
+}*/
+
+function GetData($number, $cursistid)
+{
+    Connect();
+    $getttdata= mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $cursistid . "'");
+    $rowtt = mysql_fetch_array($getttdata);
+
+    $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $cursistid . "'");
+    $rowee = mysql_fetch_array($geteedata);
+
+    if(!$getttdata OR !$geteedata)
+    {
+        echo("Could not run query: " . mysql_error());
+        exit;
+    }
+    if(isset($number))
+    {
+        switch ($number) {
+            case 0:
+                echo ("[" . $rowtt[cursusinhouda] . ", " . $rowtt[structuura] . ", " . $rowtt[cursustmateriaala] . "]");
+                break;
+            case 1:
+                echo ("[" . $rowee[meninga] . ", " . $rowee[structuura] . ", " . $rowee[cursusmateriaala] . "]");
+                break;
+            case 2:
+                echo ("[" . ($rowtt[cursusinhouda] + $rowee[meninga])/2 . ", " . ($rowtt[structuura] + $rowee[structuura])/2 . ", " . ($rowtt[cursustmateriaala] + $rowee[cursusmateriaala])/2 . "]");
+                break;
+        }
+    }
+    CloseConnect();
 }
 
 function profileFunction()
