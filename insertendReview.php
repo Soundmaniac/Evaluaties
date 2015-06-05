@@ -45,13 +45,23 @@ $lengtecursus = (isset($_POST['group11']) ? $_POST['group11'] : null);;
 $vervolgcursus = (isset($_POST['group12']) ? $_POST['group12'] : null);
 $wensen = (isset($_POST['txtarea12']) ? mysql_real_escape_string(htmlentities($_POST['txtarea12'])) : null);
 
-$selectstring = "INSERT INTO eesurveyresults(cursistID, meninga, meningb, meningc, meningcomm, structuura, structuurb,structuurc, structuurd, structuure, structuurf, structuurcomm, cursusmateriaala, cursusmateriaalb, cursusmateriaalc, cursusmateriaald, cursusmateriaale, cursusmateriaalcomm, trainera, trainerb, trainerc, trainerd, trainere, trainerf, trainerg, trainercomm, algemeena, algemeenb, algemeencomm, aanbeveling, aangesprokenonderdelen, overbodigeonderdelen, nieuwevaardigheden, voorbereiding, lengtecursus, vervolgcursus, wensen) VALUES('$cursistID', '$meninga', '$meningb', '$meningc', '$meningcomm', '$structuura', '$structuurb', '$structuurc', '$structuurd', '$structuure', '$structuurf', '$structuurcomm', '$cursusmateriaala', '$cursusmateriaalb', '$cursusmateriaalc', '$cursusmateriaald', '$cursusmateriaale', '$cursusmateriaalcomm', '$trainera', '$trainerb', '$trainerc', '$trainerd', '$trainere', '$trainerf', '$trainerg', '$trainercomm', '$algemeena', '$algemeenb', '$algemeencomm', '$aanbeveling', '$aangesprokenonderdelen', '$overbodigeonderdelen', '$nieuwevaardigheden', '$voorbereiding', '$lengtecursus', '$vervolgcursus', '$wensen')";
+$querystring1 = "SELECT cursistID FROM eesurveyresults WHERE cursistID = '" . $cursistID . "'";
+$querystring2 = "INSERT INTO eesurveyresults(cursistID, submitdate, meninga, meningb, meningc, meningcomm, structuura, structuurb,structuurc, structuurd, structuure, structuurf, structuurcomm, cursusmateriaala, cursusmateriaalb, cursusmateriaalc, cursusmateriaald, cursusmateriaale, cursusmateriaalcomm, trainera, trainerb, trainerc, trainerd, trainere, trainerf, trainerg, trainercomm, algemeena, algemeenb, algemeencomm, aanbeveling, aangesprokenonderdelen, overbodigeonderdelen, nieuwevaardigheden, voorbereiding, lengtecursus, vervolgcursus, wensen) VALUES('$cursistID', NOW(), '$meninga', '$meningb', '$meningc', '$meningcomm', '$structuura', '$structuurb', '$structuurc', '$structuurd', '$structuure', '$structuurf', '$structuurcomm', '$cursusmateriaala', '$cursusmateriaalb', '$cursusmateriaalc', '$cursusmateriaald', '$cursusmateriaale', '$cursusmateriaalcomm', '$trainera', '$trainerb', '$trainerc', '$trainerd', '$trainere', '$trainerf', '$trainerg', '$trainercomm', '$algemeena', '$algemeenb', '$algemeencomm', '$aanbeveling', '$aangesprokenonderdelen', '$overbodigeonderdelen', '$nieuwevaardigheden', '$voorbereiding', '$lengtecursus', '$vervolgcursus', '$wensen')";
 
-$sql = mysql_query($selectstring);
-if(!$sql)
+if(mysql_num_rows(mysql_query($querystring1)) > 0)
 {
-    echo("Could not run query: " . mysql_error());
-    exit;
+	echo("De resultaten van de persoon met cursistID " . $cursistID . " bestaan al. <a href='profile.php'>Klik hier (href aanpassen!)</a> om terug te gaan");
+	/*Wat hierna gebeurd kun je eventueel aanpassen*/
+	exit;
+}
+else
+{
+	$sql = mysql_query($querystring2);
+	if(!$sql)
+	{
+		echo("Could not run query: " . mysql_error());
+		exit;
+	}
 }
 
 CloseConnection();

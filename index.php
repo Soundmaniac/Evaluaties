@@ -2,7 +2,8 @@
 session_start();
 if(isset($_SESSION['gebruiker']))
 	{
-		header( 'Location: mentor.php' );
+		/*Aanpassen in Github*/
+		header( 'Location: cursists.php' );
 	}
 
 ?>

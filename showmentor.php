@@ -34,13 +34,11 @@
 			</div>
 			
 			<div id="content">
-			
-				<form action="<?php echo("showmentor.php?mentor=" . $_GET['mentor'] . ""); ?>" method="post">
 
+			<!--TO DO: URL parameter moet worden aangepast naar cursistID in plaats van mentor-->
+            <form action="<?php echo("showmentor.php?mentor=" . $_GET['mentor'] . ""); ?>" method="post">
+Q
 				<div class="center">
-
-
-
 				</div>
 
 				</form>
@@ -51,7 +49,8 @@
 				echo("<tr><td></td><td> Tussentijdse Evaluatie </td><td>Eind Evaluatie</td></tr>");
 				
 				Connect();
-				
+
+                /*TO DO: Query aanpassen zoddat formulier op cursistID wordt laten zien*/
 				$getDatasql = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
 				while ($row = mysql_fetch_array($getDatasql))
 					{
