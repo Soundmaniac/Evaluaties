@@ -31,11 +31,6 @@
 			<!--CSS aanpassen! -->
                 <div class="editCursistInfo">
 					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-						<div class="searchtable">
-							<label for="search" class="">Search:</label>
-							<input class="" type="search" placeholder="Zoeken"></input>
-						</div>
-						<br />
 						<table>
 							<tr>
 								<th>Voornaam</th>
