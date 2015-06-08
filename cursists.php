@@ -33,7 +33,7 @@
 						<div class="searchtable">
 							<label for="search" class="">Search:</label>
 							<input class="search" name="search" type="search" placeholder="Zoeken" />
-							<input type="submit" />
+							<input type="submit" class="submit" value="Zoeken" />
 						</div>
 						<table>
 							<tr>

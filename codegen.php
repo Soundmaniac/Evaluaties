@@ -64,7 +64,7 @@
 							</tr>
 							<tr>
 								<td>
-									<input type="submit" value="Verzenden" name="submit" class="submit" />
+									<input type="submit" value="Toevoegen" name="submit" class="submit" />
 								</td>
 								<td>
 								</td>
