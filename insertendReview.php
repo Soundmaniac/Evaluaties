@@ -66,5 +66,5 @@ else
 
 CloseConnection();
 
-header( 'Location: profile.php' );
+header( 'Location: thankpage.php' );
 ?>
