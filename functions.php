@@ -4,7 +4,7 @@ function menuFunction()
 {
 	if($_SESSION['rol'] == "admin")
 	{
-		/*header in index.php wijzigen naar table.php en*/
+		/*header in index.php wijzigen naar table.php*/
 		echo("
 		<a href='cursists.php'>
 			<div class='button'>Cursisten</div>
@@ -12,6 +12,7 @@ function menuFunction()
 		");
 	}
 	
+	/*Oude code*/
 	else if($_SESSION['rol'] == "mentor")
 	{
 		echo("
@@ -25,12 +26,22 @@ function menuFunction()
 	}
 }
 
+function backFunction()
+{
+	if($_SESSION['rol'] == "admin")
+	{
+		echo("
+		<br /><br /><a href='cursists.php' class='formbtn' >Terug</a>
+		");
+	}
+}
+
 function menuFunctioneng()
 {
 	if($_SESSION['rol'] == "admin")
 	{
-		echo("<a href='mentor.php'> <div class='button'> Gebruikers </div> </a>");
-		echo("<a href='account.php'> <div class='button'> Accounts </div> </a>");
+		echo("<a href='mentor.php'><div class='button'>Gebruikers</div></a>");
+		echo("<a href='account.php'><div class='button'>Accounts</div></a>");
 	}
 	
 	else if($_SESSION['rol'] == "mentor")
@@ -98,10 +109,11 @@ function GetData($number, $cursistid)
 
 function profileFunction()
 {
-	echo("<div class='profile'> 
-	Welkom <a href='profile.php'>" . $_SESSION['gebruiker'] . "</a><br/>
-	<a href='logout.php'> Uitloggen </a>
-	</div> <div class='clear'></div>");
+	echo("
+	<div class='profile'>Welkom <a href='profile.php'>" . $_SESSION['gebruiker'] . "</a><br/>
+	<a href='logout.php'>Uitloggen </a>
+	</div>
+	<div class='clear'></div>");
 }
 function profileFunctioneng()
 {

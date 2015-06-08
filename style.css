@@ -60,6 +60,13 @@ h2{
     width: 100%;
 }
 
+.codegenposition
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
 .searchtable
 {
     /*float: right;*/
@@ -98,7 +105,7 @@ h2{
 
 #container, #header, #menu, #content
 {
-    width: 990px;
+    width: 1150px; /*990px;*/
 }
 
 
@@ -158,9 +165,7 @@ h2{
 }
 
 .profile{
-	height: auto;
-	width: 300px;
-	float: right;
+	float: right; /*Calculate width*/
 	text-align: right;
 }
 
@@ -208,7 +213,7 @@ td.text{
 
 #codegentablewidth
 {
-    width: 580px;
+    /*If page has not header function, use width: 580px;*/
 }
 
 td.actions
@@ -225,6 +230,10 @@ td.string
 {
     min-width: 75px;
 }
+td.date
+{
+    min-width: 155px;
+}
 
 .formbtn
 {
@@ -234,11 +243,16 @@ td.string
 	color: rgb(255,255,255);
 	border: 0;
 	text-decoration: none;
-    font: normal normal normal 13.3333330154419px/normal Arial;
+    font: normal normal normal 13.3333330154419px/normal Arial; /*User agent style assign this size to input*/
 }
 
 a.formbtn:hover
 {
     background-color: rgb(250, 150, 0);
     color: rgb(255, 255, 255);
+}
+
+.editcursistinfo
+{
+    /*Don't do anything yet.*/
 }

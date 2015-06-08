@@ -53,8 +53,8 @@
 					<td>
 						<a href='results.php?id=" . $sqlvalue[cursistID] . "'>Klik</a>
 					</td>
-					<td>" . $showttdate . "</td>
-					<td>" . $showeedate . "</td>
+					<td class='date'>" . $showttdate . "</td>
+					<td class='date'>" . $showeedate . "</td>
 					<td class='actions'>
 						<a href='editCursistInfo.php?id=" . $sqlvalue["cursistID"] . "'>
 							<img src='images/wijzigen.png'></img>

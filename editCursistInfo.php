@@ -29,7 +29,7 @@
             </div>
             <div id="content">
 			<!--CSS aanpassen! -->
-                <div class="positioncontent">
+                <div class="editCursistInfo">
 					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 						<div class="searchtable">
 							<label for="search" class="">Search:</label>

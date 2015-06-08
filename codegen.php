@@ -26,7 +26,7 @@
                 <div class="clear"></div>
             </div>
             <div id="content">
-                <div style="margin-left: auto; margin-right: auto; width: 58%;">
+                <div class="codegenposition">
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 						<table id="codegentablewidth">
 							<tr>
