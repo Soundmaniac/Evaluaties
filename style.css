@@ -20,7 +20,7 @@ table{
 }
 td{
 	padding: 5px 15px 5px 15px;
-	/*border: 1px solid blue;*/
+    word-wrap: break-word;
 }
 
 a{

@@ -33,13 +33,13 @@ $failed = null;
 </div>
 <div id="content">
 
-<!--TO DO: URL parameter moet worden aangepast naar cursistID in plaats van mentor-->
 <form action="<?php echo("showmentor.php?mentor=" . $_GET['id'] . ""); ?>" method="post">
     <div class="center">
     </div>
 </form>
+
 <?php
-echo("<table class='ocenter'><tr><td class='center'>Overzicht formulier</td></tr>");
+echo("<table style='table-layout: fixed; width: 100%;' class='ocenter'><tr><td class='center'>Overzicht formulier</td></tr>");
 echo("<tr><td></td><td> Tussentijdse Evaluatie </td><td>Eind Evaluatie</td></tr>");
 
 Connect();
@@ -50,9 +50,6 @@ $rowtt = mysql_fetch_array($getttdata);
 $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
 $rowee = mysql_fetch_array($geteedata);
 
-
-/*Alle gegevens in tabel plaatsen*/
-/*TO DO: Variabelen beter/semantischer benoemen*/
 echo("
                 <!--Tabel deel 1: Cursusinhoud-->
 
