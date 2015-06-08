@@ -50,11 +50,12 @@ function GetData($number)
 }
 */
 
-function GenerateID($length = 11)
+function GenerateID()
 {
     OpenConnection();
     /* $cursistID global gemaakt zodat deze in GenerateRow() functie toegevoegd kan worden aan de database */
     global $cursistID;
+	$length = 11;
     $cursistID = "";
     $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -64,7 +65,7 @@ function GenerateID($length = 11)
     }
 
     /* Selectstring aanpassen wanneer er voor deze functie een andere database wordt gebruitkt */
-    $selectstring = "SELECT cursistID from cursisten WHERE cursistID = '$cursistID'";
+    $selectstring = "SELECT cursistID FROM cursisten WHERE cursistID = '$cursistID'";
     $sql = mysql_query($selectstring);
 
     /* Controleer of cursistID al bestaat in de database */
@@ -95,7 +96,6 @@ function GenerateRow()
 {
     global $cursistID;
     $cursistVoornaam = "";
-    $cursistNaamError = "";
 
     /* Controleer of er een post plaats vindt op de pagina. */
     if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -105,10 +105,9 @@ function GenerateRow()
         {
 
             /* Controleer of er iets is ingevuld in de input. */
-            if(empty($_POST['cursistVoornaam']) || empty($_POST['cursistAchternaam']))
+            if(empty($_POST['cursistVoornaam']) || empty($_POST['cursistAchternaam']) || preg_replace('/\s+/', '', $_POST['cursistVoornaam']) == "" || preg_replace('/\s+/', '', $_POST['cursistAchternaam']) == "")
             {
-                $cursistNaamError = "Vul alle velden in!";
-                echo($cursistNaamError);
+                echo("Vul alle velden in!");
             }
             else
             {
