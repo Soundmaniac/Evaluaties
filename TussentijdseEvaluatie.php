@@ -1,5 +1,4 @@
 <?php
-	
 	include_once("functions.php");
 	include_once("dbFunctions.php");
 	ini_set( "display_errors", 0);
@@ -18,9 +17,7 @@
 		
 		<div id="container">
 			<div id="header">
-				<?php
-					profileFunction();
-				?>
+				
 			</div>
 			
 			<div id="menu">
