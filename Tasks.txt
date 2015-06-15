@@ -12,7 +12,7 @@ Nieuw:
 		Cursus tabel
 		Bedrijf tabel
 	-Bedrijfpagina 
-		4 bedrijfen in grid formaat tonen met een knop/zoekveld eronder om alle cursisten te zien zonder het te ordennen op bedrijf/cursus? (dit helpt met het zoeken naar cursisten waarvan we de cursus vergeten zijn)
+		4 bedrijven in grid formaat tonen met een knop/zoekveld eronder om alle cursisten te zien zonder het te ordennen op bedrijf/cursus? (dit helpt met het zoeken naar cursisten waarvan we de cursus vergeten zijn)
 	-Cursuspagina
 		Hetzelfde idee als de huidige cursistenpagina. Een lijst met een zoekveld. Elke rij heeft een link naar bijvoorbeeld cursists.php?cursus=[cursusid]
 Updaten:
