@@ -1,12 +1,48 @@
 Taken:
+
+
+SUGGESTIONS (Dit zijn suggesties die, als ze groot zijn, het liefst buiten de scope van het project gezien worden):
+-Een klein icoontje in het cursistenoverzicht bij elke cursist waar je kunt zien 
+-Een updates page waar te zien is wie als laatste een formulier heeft ingevuld, kan ook nice zijn als index page
+-Een history page waar de laatste veranderingen/ deletes zichtbaar zijn (combineren met updates is mogelijk?)
+
 TO DO:
+Nieuw:
+	-Database
+		Cursus tabel
+		Bedrijf tabel
+	-Bedrijfpagina 
+		4 bedrijfen in grid formaat tonen met een knop/zoekveld eronder om alle cursisten te zien zonder het te ordennen op bedrijf/cursus? (dit helpt met het zoeken naar cursisten waarvan we de cursus vergeten zijn)
+	-Cursuspagina
+		Hetzelfde idee als de huidige cursistenpagina. Een lijst met een zoekveld. Elke rij heeft een link naar bijvoorbeeld cursists.php?cursus=[cursusid]
+Updaten:
+	-Resultatenpagina
+		Pagina aanpassen om er uit te zien als het word document dat ze op dit moment gebruiken. Ook moeten onvoldoende cijfers een notificatie geven, en er moet ook een notificatie zijn als alles voldoende staat
+		Een printbaar resultaat/ pdf-baar resultaat
+	-Formulieren
+		Validation
+		Pagina aanpassen die getoond wordt als het formulier al is ingevuld
+	-Cursists
+		Paging (nodig?)
+
+DONE:
+	Cursists toevoegen pagina (Barry)
+	Cursists wijzigen pagina (Barry)
+	Cursists verwijderen pagina (Barry)
+	Cursists resultaten (Nigel)
+	Cursists login (Niels)
+	Cursists tussentijdse/eind-evaluatie (Niels + Nigel + Barry)
+	Cursists functions (Niels + Nigel + Barry)
+	Styling (style.css) (Niels + Nigel + Barry)
+
+=======   informatie van 12/06/2015   =======
 Mevrouw:
 Bedrijf pagina toeveogen -> Cursus pagina toevoegen -> cursists.php
-Bedrijven:
-PCI Languages
-PCI2
-PCI NT2 Exam Training (Alleen Engels)
-Business English Express
+	Bedrijven:
+	PCI Languages
+	PCI2
+	PCI NT2 Exam Training (Alleen Engels)
+	Business English Express
 
 print functie
 opslaan van de evaluatie functie
@@ -16,21 +52,9 @@ cursus + projectnummer
 
 instructie (of gids): work file\ISO  9001 2008\Map II\9. Functieomschrijvingen?Werkinstructies
 
-Auly:
-Layout (bold)
-Onvoldoendes moeten uitblinken
-Overzichtelijkere formaat resultaten
+Auli:
+	Formulier layout (bold)
+	Onvoldoendes moeten uitblinken
+	Overzichtelijkere formaat resultaten
+==============================================	
 
-Wij:
-
-Display pagina (cursists.php) (Barry) -> Paging
-
-DONE:
-Cursists toevoegen pagina (Barry)
-Cursists wijzigen pagina (Barry)
-Cursists verwijderen pagina (Barry)
-Cursists resultaten (Nigel)
-Cursists login (Niels)
-Cursists tussentijdse/eind-evaluatie (Niels + Nigel + Barry)
-Cursists functions (Niels + Nigel + Barry)
-Styling (style.css) (Niels + Nigel + Barry)
