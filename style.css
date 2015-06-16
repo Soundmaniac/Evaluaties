@@ -15,12 +15,10 @@ body{
 	font-family: arial;
 }
 
-table{
-	margin-bottom: 10px;
-}
+
 td{
-	padding: 5px 15px 5px 15px;
-    word-wrap: break-word;
+	/*padding: 5px 15px 5px 15px;*/
+	/*border: 1px solid blue;*/
 }
 
 a{
@@ -108,7 +106,25 @@ h2{
     width: 1150px; /*990px;*/
 }
 
+table.tablecursists
+{
+    /*Styling voor tabel in cursists.php*/
+}
 
+table.tableforms
+{
+    /*Styling voor tabel in TussentijdseEvaluatie.php en EintijdEvaluatie.php*/
+    margin-left: 10px;
+}
+
+table.tableforms td
+{
+    padding: 5px 0;
+}
+
+.center{
+	text-align: center;
+}
 
 .button{
 	height: 25px;
@@ -183,13 +199,6 @@ h2{
 	padding-top: 5px;
 }
 
-
-
-.center{
-	text-align: center;
-}
-
-
 .tcenter{
 	margin-left: auto;
 	margin-right: auto;
@@ -233,7 +242,7 @@ td.string
 }
 td.date
 {
-    min-width: 155px;
+    /**/
 }
 
 .formbtn
@@ -256,4 +265,45 @@ a.formbtn:hover
 .editcursistinfo
 {
     /*Don't do anything yet.*/
+}
+
+td.titel
+{
+    font-weight: bold;
+}
+
+#positioncompaniestable
+{
+    width: 430px; /*Width of table*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#companiestable
+{
+    border-spacing: 5px;
+}
+
+#companiestable, #companiestable td
+{
+    border: 1px solid #1d219d;
+}
+
+#companiestable td
+{
+    margin: 1px;
+}
+
+#companiestable td a
+{
+    display: block;
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+    background-color: rgb(50, 50, 255);
+}
+
+#companiestable td a:hover
+{
+    background-color: rgb(250, 150 , 0);
 }

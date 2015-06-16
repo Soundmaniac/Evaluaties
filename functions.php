@@ -6,7 +6,7 @@ function menuFunction()
 	{
 		/*header in index.php wijzigen naar table.php*/
 		echo("
-		<a href='cursists.php'>
+		<a href='students.php'>
 			<div class='button'>Cursisten</div>
 		</a>
 		");
@@ -26,16 +26,6 @@ function menuFunction()
 	}
 }
 
-function backFunction()
-{
-	if($_SESSION['rol'] == "admin")
-	{
-		echo("
-		<br /><br /><a href='cursists.php' class='formbtn' >Terug</a>
-		");
-	}
-}
-
 function menuFunctioneng()
 {
 	if($_SESSION['rol'] == "admin")
@@ -50,6 +40,7 @@ function menuFunctioneng()
 		echo("<a href='engTussentijdseEvaluatie.php'> <div class='button'> Midterm Course Evaluation </div> </a>");
 		echo("<a href='engEindtijdEvaluatie.php'> <div class='button'> Final Course Evaluation </div> </a>");
 	}
+	
 }
 
 function safeSql($value)
@@ -66,45 +57,33 @@ function CloseConnect()
 	mysql_close();
 }
 
-/*function GetData($number)
+function GetData($number)
 {
 	Connect();
 	$selectstring = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
-@@ -83,6 +75,37 @@ function GetData($number)
+	if(!$selectstring)
+	{
+		echo("Could not run query: " . mysql_error());
+		exit;
+	}
+	while ($row = mysql_fetch_array($selectstring))
+	{
+		if(isset($number))
+		{
+			switch ($number) {
+				case 0:
+				echo ("[" . $row[t1a] . ", " . $row[t2] . ", " . $row[t3] . "]");
+				break;
+				case 1:
+				echo ("[" . $row[e1a] . ", " . $row[e2a] . ", " . $row[e3a] . "]");
+				break;
+				case 2:
+				echo ("[" . ($row[t1a] + $row[e1a])/2 . ", " . ($row[t2] + $row[e2a])/2 . ", " . ($row[t3] + $row[e3a])/2 . "]");
+				break;
+			}
 		}
 	}
 	CloseConnect();
-}*/
-
-function GetData($number, $cursistid)
-{
-    Connect();
-    $getttdata= mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $cursistid . "'");
-    $rowtt = mysql_fetch_array($getttdata);
-
-    $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $cursistid . "'");
-    $rowee = mysql_fetch_array($geteedata);
-
-    if(!$getttdata OR !$geteedata)
-    {
-        echo("Could not run query: " . mysql_error());
-        exit;
-    }
-    if(isset($number))
-    {
-        switch ($number) {
-            case 0:
-                echo ("[" . $rowtt[cursusinhouda] . ", " . $rowtt[structuura] . ", " . $rowtt[cursustmateriaala] . "]");
-                break;
-            case 1:
-                echo ("[" . $rowee[meninga] . ", " . $rowee[structuura] . ", " . $rowee[cursusmateriaala] . "]");
-                break;
-            case 2:
-                echo ("[" . ($rowtt[cursusinhouda] + $rowee[meninga])/2 . ", " . ($rowtt[structuura] + $rowee[structuura])/2 . ", " . ($rowtt[cursusmateriaala] + $rowee[cursusmateriaala])/2 . "]");
-                break;
-        }
-    }
-    CloseConnect();
 }
 
 function profileFunction()
@@ -212,4 +191,15 @@ function Pages($table, $page)
 	CloseConnect();
 }
 
+/*Functions by Barry*/
+
+function backFunction()
+{
+	if($_SESSION['rol'] == "admin")
+	{
+		echo("
+		<br /><br /><a href='students.php' class='formbtn' >Terug</a>
+		");
+	}
+}
 ?>

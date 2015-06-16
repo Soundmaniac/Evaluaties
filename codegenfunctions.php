@@ -143,7 +143,7 @@ function GenerateRow()
                     }
 					else
 					{
-						header("Location: cursists.php");
+						header("Location: students.php");
 					}
                     CloseConnection();
                 }

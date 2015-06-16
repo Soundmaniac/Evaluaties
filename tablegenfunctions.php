@@ -17,7 +17,7 @@
 				}
 				else
 				{
-					//header("Location: cursists.php?query=" . $searchq); querystring functie kan worden gemaakt.
+					//header("Location: students.php?query=" . $searchq); querystring functie kan worden gemaakt.
 					$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID WHERE c.cursistVoornaam LIKE '%$searchq%' OR c.cursistAchternaam LIKE '%$searchq%'";
 				}
 			}
