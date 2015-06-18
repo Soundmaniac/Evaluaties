@@ -8,6 +8,7 @@ SUGGESTIONS (Dit zijn suggesties die, als ze groot zijn, het liefst buiten de sc
 
 TO DO:
 Nieuw:
+	-Werkinstructies schrijven over het toevoegen van vragen aan de formulieren
 	-Database
 		Cursus tabel
 		Bedrijf tabel
