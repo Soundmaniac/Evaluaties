@@ -15,6 +15,7 @@ Nieuw:
 		4 bedrijven in grid formaat tonen met een knop/zoekveld eronder om alle cursisten te zien zonder het te ordennen op bedrijf/cursus? (dit helpt met het zoeken naar cursisten waarvan we de cursus vergeten zijn)
 	-Cursuspagina
 		Hetzelfde idee als de huidige cursistenpagina. Een lijst met een zoekveld. Elke rij heeft een link naar bijvoorbeeld cursists.php?cursus=[cursusid]
+		projectnummer, trainernaam, begin- en einddatum
 Updaten:
 	-Resultatenpagina
 		Pagina aanpassen om er uit te zien als het word document dat ze op dit moment gebruiken. Ook moeten onvoldoende cijfers een notificatie geven, en er moet ook een notificatie zijn als alles voldoende staat
@@ -22,6 +23,7 @@ Updaten:
 	-Formulieren
 		Validation
 		Pagina aanpassen die getoond wordt als het formulier al is ingevuld
+		Logo's van de verschillende bedrijven op de formulieren
 	-Cursists
 		Paging (nodig?)
 
