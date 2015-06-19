@@ -1,7 +1,7 @@
 	<html>
     <head>
 		<meta http-equiv="Content-Type" content="text/html;" >
-        <title>PCI Languages - Bedrijf: Business English Express</title>
+        <title>PCI Languages - Cursussen</title>
         <?php
         include_once("functions.php");
         include_once("dbFunctions.php");
@@ -30,7 +30,7 @@
                 <div id="coursesposition">
 					<!--Laat alle gegevens zien op basis van gekozen bedrijf-->
 					<!--Kan kiezen voor twee mogelijkheden:-->
-					<h1>Business English Express</h1>
+					<h1>Cursussen</h1>
 					<form>
 						<select>
 							<option>cursusnaam - nummer1</option>
@@ -47,7 +47,7 @@
 						<tbody>
 							<tr>
 								<td>
-									<a href="#">cursusnaam - nummer1</a>
+									<a href="students.php" />Test - 1</a>
 								</td>
 							</tr>
 							<tr>

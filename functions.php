@@ -9,16 +9,16 @@ function menuFunction()
 		<a href='companies.php'>
 			<div class='button'>Bedrijven</div>
 		</a>
-		<a href='pcilanguages.php'>
+		<a href='courses.php?selected=PCI-Languages'>
 			<div class='button'>PCI Languages</div>
 		</a>
-		<a href='pci2.php'>
+		<a href='courses.php?selected=PCI2'>
 			<div class='button'>PCI2</div>
 		</a>
-		<a href='pcint2.php'>
+		<a href='courses.php?selected=PCI-NT2-Exam-Training'>
 			<div class='button'>PCI NT2 Exam Training</div>
 		</a>
-		<a href='businesseng.php'>
+		<a href='courses.php?selected=Business-English-Express'>
 			<div class='button'>Business English Express</div>
 		</a>
 		");
