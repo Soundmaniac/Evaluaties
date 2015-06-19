@@ -272,6 +272,8 @@ td.titel
     font-weight: bold;
 }
 
+/*Cody by Barry:*/
+
 #positioncompaniestable
 {
     width: 430px; /*Width of table*/
@@ -306,4 +308,21 @@ td.titel
 #companiestable td a:hover
 {
     background-color: rgb(250, 150 , 0);
+}
+
+#coursesposition
+{
+    width: 270px; /*equals to the amount of content width required*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coursestable, .coursestable td
+{
+    border: 1px solid #1d219d;
+}
+
+.coursestable td a
+{
+    display: block;
 }
