@@ -15,8 +15,8 @@ function menuFunction()
 		<a href='courses.php?selected=PCI2'>
 			<div class='button'>PCI2</div>
 		</a>
-		<a href='courses.php?selected=PCI-NT2-Exam-Training'>
-			<div class='button'>PCI NT2 Exam Training</div>
+		<a href='courses.php?selected=NT2-Exam-Training'>
+			<div class='button'>NT2 Exam Training</div>
 		</a>
 		<a href='courses.php?selected=Business-English-Express'>
 			<div class='button'>Business English Express</div>
