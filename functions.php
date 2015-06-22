@@ -69,33 +69,72 @@ function CloseConnect()
 	mysql_close();
 }
 
-function GetData($number)
+function GetData($number, $cursistid)
 {
-	Connect();
-	$selectstring = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
-	if(!$selectstring)
-	{
-		echo("Could not run query: " . mysql_error());
-		exit;
-	}
-	while ($row = mysql_fetch_array($selectstring))
-	{
-		if(isset($number))
-		{
-			switch ($number) {
-				case 0:
-				echo ("[" . $row[t1a] . ", " . $row[t2] . ", " . $row[t3] . "]");
-				break;
-				case 1:
-				echo ("[" . $row[e1a] . ", " . $row[e2a] . ", " . $row[e3a] . "]");
-				break;
-				case 2:
-				echo ("[" . ($row[t1a] + $row[e1a])/2 . ", " . ($row[t2] + $row[e2a])/2 . ", " . ($row[t3] + $row[e3a])/2 . "]");
-				break;
-			}
-		}
-	}
-	CloseConnect();
+    Connect();
+    $getttdata= mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $cursistid . "'");
+    $rowtt = mysql_fetch_array($getttdata);
+
+    $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $cursistid . "'");
+    $rowee = mysql_fetch_array($geteedata);
+
+    if(!$getttdata OR !$geteedata)
+    {
+        echo("Could not run query: " . mysql_error());
+        exit;
+    }
+    if(isset($number))
+    {
+        switch ($number) {
+            case 0:
+                echo ("[" .
+                    (($rowtt[cursusinhouda] + $rowtt[cursusinhoudb] + $rowtt[cursusinhoudc])/3) . ", " .
+                    $rowtt[structuura] . ", " .
+                    $rowtt[cursusmateriaala] . ", " .
+                    (($rowtt[trainera] + $rowtt[trainerb])/2) . ", " .
+                    $rowtt[algemeenoordeela] . ", " .
+                    //avarage
+                    (($rowtt[cursusinhouda] + $rowtt[cursusinhoudb] + $rowtt[cursusinhoudc] +
+                            $rowtt[structuura] +
+                            $rowtt[cursusmateriaala] +
+                            $rowtt[trainera] + $rowtt[trainerb] +
+                            $rowtt[algemeenoordeela])/8) . "]");
+                break;
+            case 1:
+                echo ("[" .
+                    (($rowee[meninga] + $rowee[meningb] + $rowee[meningc])/3) . ", " .
+                    (($rowee[structuura] + $rowee[structuurb] + $rowee[structuurc] + $rowee[structuurd] + $rowee[structuure] + $rowee[structuurf])/6) . ", " .
+                    (($rowee[cursusmateriaala] + $rowee[cursusmateriaalb] + $rowee[cursusmateriaalc] + $rowee[cursusmateriaald] + $rowee[cursusmateriaale])/5) . ", " .
+                    (($rowee[trainera] + $rowee[trainerb] + $rowee[trainerc] + $rowee[trainerd] + $rowee[trainere] + $rowee[trainerf] + $rowee[trainerg])/7) . ", " .
+                    (($rowee[algemeena] + $rowee[algemeenb])/2) . ", " .
+                    //avarage
+                    (($rowee[meninga] + $rowee[meningb] + $rowee[meningc] +
+                            $rowee[structuura] + $rowee[structuurb] + $rowee[structuurc] + $rowee[structuurd] + $rowee[structuure] + $rowee[structuurf] +
+                            $rowee[cursusmateriaala] + $rowee[cursusmateriaalb] + $rowee[cursusmateriaalc] + $rowee[cursusmateriaald] + $rowee[cursusmateriaale] +
+                            $rowee[trainera] + $rowee[trainerb] + $rowee[trainerc] + $rowee[trainerd] + $rowee[trainere] + $rowee[trainerf] + $rowee[trainerg] +
+                            $rowee[algemeena] + $rowee[algemeenb])/23) . "]");
+                break;
+            case 2:
+                echo ("[" .
+                    ((($rowtt[cursusinhouda] + $rowtt[cursusinhoudb] + $rowtt[cursusinhoudc])/3) + (($rowee[meninga] + $rowee[meningb] + $rowee[meningc])/3))/2  . ", " .
+                    ($rowtt[structuura] + (($rowee[structuura] + $rowee[structuurb] + $rowee[structuurc] + $rowee[structuurd] + $rowee[structuure] + $rowee[structuurf])/6))/2 . ", " .
+                    ($rowtt[cursusmateriaala] + (($rowee[cursusmateriaala] + $rowee[cursusmateriaalb] + $rowee[cursusmateriaalc] + $rowee[cursusmateriaald] + $rowee[cursusmateriaale])/5))/2 . ", " .
+                    ((($rowtt[trainera] + $rowtt[trainerb])/2) + (($rowee[trainera] + $rowee[trainerb] + $rowee[trainerc] + $rowee[trainerd] + $rowee[trainere] + $rowee[trainerf] + $rowee[trainerg])/7))/2 . ", " .
+                    ($rowtt[algemeenoordeela] + (($rowee[algemeena] + $rowee[algemeenb])/2))/2 . "," .
+                    ((($rowee[meninga] + $rowee[meningb] + $rowee[meningc] +
+                                $rowee[structuura] + $rowee[structuurb] + $rowee[structuurc] + $rowee[structuurd] + $rowee[structuure] + $rowee[structuurf] +
+                                $rowee[cursusmateriaala] + $rowee[cursusmateriaalb] + $rowee[cursusmateriaalc] + $rowee[cursusmateriaald] + $rowee[cursusmateriaale] +
+                                $rowee[trainera] + $rowee[trainerb] + $rowee[trainerc] + $rowee[trainerd] + $rowee[trainere] + $rowee[trainerf] + $rowee[trainerg] +
+                                $rowee[algemeena] + $rowee[algemeenb])/23) +
+                        (($rowtt[cursusinhouda] + $rowtt[cursusinhoudb] + $rowtt[cursusinhoudc] +
+                                $rowtt[structuura] +
+                                $rowtt[cursusmateriaala] +
+                                $rowtt[trainera] + $rowtt[trainerb] +
+                                $rowtt[algemeenoordeela])/8))/2 . "]");
+                break;
+        }
+    }
+    CloseConnect();
 }
 
 function profileFunction()
