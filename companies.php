@@ -39,7 +39,7 @@
 						</tr>
 						<tr>
 							<td>
-								<a href="courses.php?selected=PCI-NT2-Exam-Training">PCI NT2 Exam Training</a>
+								<a href="courses.php?selected=NT2-Exam-Training">NT2 Exam Training</a>
 							</td>
 							<td>
 								<a href="courses.php?selected=Business-English-Express">Business English Express</a>
