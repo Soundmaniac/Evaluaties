@@ -31,45 +31,14 @@
 						<table id="codegentablewidth">
 							<tr>
 								<td>
-									<label for="cursistVoornaam">* Cursist voornaam: </label>
+									<label for="cursusnaam">* Cursus naam: </label>
 								</td>
 								<td>
-									<input type="text" name="cursistVoornaam" />
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label for="cursistTussenvoegsel">Tussenvoegsel: </label>
-								</td>
-								<td>
-									<input type="text" name="cursistTussenvoegsel"></input>
-								</td>
-							</tr>
-							<tr>
-							<tr>
-								<td>
-									<label for="cursistAchternaam">* Achternaam: </label>
-								</td>
-								<td>
-									<input type="text" name="cursistAchternaam"></input>
+									<input type="text" name="cursusNaam" />
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<label for="cursus">* Cursus: </label>
-								</td>
-								<td>
-									<!--TO DO: Assign options (database retrieval)-->
-									<select name="cursus">
-										<option value="1">Cursus 1</option>
-										<option value="2">Cursus 2</option>
-										<option value="3">Cursus 3</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label for="cursistID">CursistID: </label>
 								</td>
 								<td>
 									<?php GenerateRow(); ?>

@@ -32,16 +32,16 @@
 					<!--Laat alle gegevens zien op basis van gekozen bedrijf-->
 					<!--Kan kiezen voor twee mogelijkheden:-->
 					<h1>Cursussen</h1>
-					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-						<input type="submit" value="Cursus toevoegen" class="submit" />
-						<table class="coursestable">
-							<tbody>
-								<?php
-								generateCourses();
-								?>
-							</tbody>
-						</table>
-					</form>
+					<table class="coursestable">
+						<tbody>
+							<?php
+							generateCourses();
+							?>
+						</tbody>
+					</table>
+					<div class="positionbtn">
+						<a href="addcursus.php" class="formbtn">Cursus toevoegen</a>
+					</div>
                 </div>
             </div>
         </div>

@@ -51,7 +51,9 @@
 							generateRows();
 							?>
 						</table>
-						<a href="codegen.php" class="formbtn">Cursist toevoegen</a>
+						<div class="positionbtn">
+							<a href="codegen.php" class="formbtn">Cursist toevoegen</a>
+						</div>
 					</form>
                 </div>
             </div>

@@ -71,6 +71,8 @@
 	
 	function generateCourses()
 	{
+		mysql_connect("localhost", "root", "usbw") or die("Error message: " .mysql_error());
+		mysql_select_db("project");
 		/*Value aanpassen/vervangen:*/
 		echo("
 			<tr>
