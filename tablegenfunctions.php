@@ -68,4 +68,16 @@
 		}
 		mysql_close();
 	}
+	
+	function generateCourses()
+	{
+		/*Value aanpassen/vervangen:*/
+		echo("
+			<tr>
+				<td>
+					<a href='students.php?course=value' />Test - 1</a>
+				</td>
+			</tr>
+			");
+	}
 ?>

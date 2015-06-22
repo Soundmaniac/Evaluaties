@@ -5,6 +5,7 @@
         <?php
         include_once("functions.php");
         include_once("dbFunctions.php");
+		include_once("tablegenFunctions.php");
         StartUp();
         ini_set( "display_errors", 0);
         AdminOnly();
@@ -31,48 +32,16 @@
 					<!--Laat alle gegevens zien op basis van gekozen bedrijf-->
 					<!--Kan kiezen voor twee mogelijkheden:-->
 					<h1>Cursussen</h1>
-					<form>
-						<select>
-							<option>cursusnaam - nummer1</option>
-							<option>cursusnaam - nummer2</option>
-							<option>cursusnaam - nummer3</option>
-							<option>cursusnaam - nummer4</option>
-							<option>cursusnaam - nummer5</option>
-						</select>
-						<input type="submit" value="Gaan" class="submit" />
+					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+						<input type="submit" value="Cursus toevoegen" class="submit" />
+						<table class="coursestable">
+							<tbody>
+								<?php
+								generateCourses();
+								?>
+							</tbody>
+						</table>
 					</form>
-					<!--of:-->
-					<p>Of: </p>
-					<table class="coursestable">
-						<tbody>
-							<tr>
-								<td>
-									<a href="students.php" />Test - 1</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<a href="#">cursusnaam - nummer2</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<a href="#">cursusnaam - nummer3</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<a href="#">cursusnaam - nummer4</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<a href="#">cursusnaam - nummer5</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<!--Keuze verwijst naar pagina met studenten.php als huidige naam-->
                 </div>
             </div>
         </div>
