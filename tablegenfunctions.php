@@ -56,7 +56,7 @@
 					<td class='date'>" . $showttdate . "</td>
 					<td class='date'>" . $showeedate . "</td>
 					<td class='actions'>
-						<a href='editCursistInfo.php?id=" . $sqlvalue["cursistID"] . "'>
+						<a href='editCursistInfo.php?id=" . $sqlvalue[cursistID] . "'>
 							<img src='images/wijzigen.png'></img>
 						</a>
 						<a class='confirmation' href='delete.php?id=" . $sqlvalue[cursistID] . "'>
@@ -73,13 +73,28 @@
 	{
 		mysql_connect("localhost", "root", "usbw") or die("Error message: " .mysql_error());
 		mysql_select_db("project");
-		/*Value aanpassen/vervangen:*/
-		echo("
+		
+		$selectstring = "SELECT * FROM `cursussen`";
+		$sql = mysql_query($selectstring);
+		while ($sqlvalue = mysql_fetch_array($sql))
+		{
+			/*Value aanpassen/vervangen:*/
+			echo("
 			<tr>
 				<td>
-					<a href='students.php?course=value' />Test - 1</a>
+					<a href='students.php?course=" . $sqlvalue[cursusID] . "' />" . $sqlvalue[cursusID] . " - " . $sqlvalue[cursusnaam] . "</a>
+				</td>
+				<td class='actions'>
+					<a href='editCourse.php?id=" . $sqlvalue[cursusID] . "'>
+					<img src='images/wijzigen.png'></img>
+					</a>
+					<a class='confirmation' href='deleteCourse.php?id=" . $sqlvalue[cursusID] . "'>
+						<img src='images/verwijderen.png'></img>
+					</a>
 				</td>
 			</tr>
 			");
+		}
+		mysql_close();
 	}
 ?>

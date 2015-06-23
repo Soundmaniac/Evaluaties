@@ -332,6 +332,11 @@ td.titel
     display: block;
 }
 
+.coursestable td.actions a
+{
+    display: inline;
+}
+
 #questions
 {
     margin-left: auto;

@@ -61,9 +61,14 @@
 								<td>
 									<!--TO DO: Assign options (database retrieval)-->
 									<select name="cursus">
+										<?php
+										generateOptions();
+										?>
+										<!--
 										<option value="1">Cursus 1</option>
 										<option value="2">Cursus 2</option>
 										<option value="3">Cursus 3</option>
+										-->
 									</select>
 								</td>
 							</tr>

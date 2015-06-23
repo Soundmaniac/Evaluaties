@@ -114,6 +114,7 @@ function GenerateRow()
                 $cursistVoornaam = $_POST['cursistVoornaam'];
 				$cursistTussenvoegsel = (isset($_POST['cursistTussenvoegsel']) ? $_POST['cursistTussenvoegsel'] : "");
 				$cursistAchternaam = $_POST['cursistAchternaam'];
+				$cursusID = $_POST['cursus'];
 
                 /* Als de textbox niet de karakters bevat die in de regex staan, dan komt er een bericht */
                 if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $cursistVoornaam))
@@ -133,7 +134,7 @@ function GenerateRow()
                     GenerateID();
                     /* Database vullen met de gegevens van het formulier */
                     OpenConnection();
-                    $selectstring1 = "INSERT INTO cursisten (cursistID, cursistVoornaam, cursistTussenvoegsel, cursistAchternaam) VALUES(\"" . $cursistID . "\", \"" . $cursistVoornaam . "\", \"" . $cursistTussenvoegsel . "\", \"" . $cursistAchternaam . "\")";
+                    $selectstring1 = "INSERT INTO cursisten (cursistID, cursusID, cursistVoornaam, cursistTussenvoegsel, cursistAchternaam) VALUES(\"" . $cursistID . "\", \"" . $cursusID . "\", \"" . $cursistVoornaam . "\", \"" . $cursistTussenvoegsel . "\", \"" . $cursistAchternaam . "\")";
 
                     $sql = mysql_query($selectstring1);
                     if(!$sql)
@@ -150,6 +151,58 @@ function GenerateRow()
             }
         }
     }
+}
+
+function generateOptions()
+{
+	OpenConnection();
+	$query = "SELECT c.* FROM cursussen c";
+	$sql = mysql_query($query);
+	while($sqlvalue = mysql_fetch_array($sql))
+	{
+		echo("
+		<option value='" . $sqlvalue['cursusID'] . "'>" . $sqlvalue['cursusnaam'] . "</option>
+		");
+	}
+	CloseConnection();
+}
+
+function addCursus()
+{
+	if ($_SERVER["REQUEST_METHOD"] == "POST")
+	{
+		if(isset($_POST['submit']))
+		{
+			if(empty($_POST['cursusnaam']) || preg_replace('/\s+/', '', $_POST['cursusnaam']) == "")
+			{
+				echo("Vul alle velden in!");
+			}
+			else
+			{
+				if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST['cursusnaam']))
+				{
+					echo("Er zijn alleen letters en spaties toegestaan.");
+				}
+				else
+				{
+					OpenConnection();
+					
+					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\");";
+					$sql = mysql_query($query);
+                    if(!$sql)
+                    {
+                        echo("Could not run query: " . mysql_error());
+                        exit;
+                    }
+					else
+					{
+						header("Location: courses.php");
+					}
+                    CloseConnection();
+				}
+			}
+		}
+	}
 }
 
 function deleteSelectedRow($cursistID)

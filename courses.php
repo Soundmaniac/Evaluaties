@@ -1,4 +1,4 @@
-	<html>
+<html>
     <head>
 		<meta http-equiv="Content-Type" content="text/html;" >
         <title>PCI Languages - Cursussen</title>
@@ -45,5 +45,6 @@
                 </div>
             </div>
         </div>
+		<script src="confirm.js"></script>
     </body>
 </html>
