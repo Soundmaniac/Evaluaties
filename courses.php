@@ -41,6 +41,7 @@
 					</table>
 					<div class="positionbtn">
 						<a href="addcursus.php" class="formbtn">Cursus toevoegen</a>
+						<!--TO DO: Cursus verwijderen toevoegen-->
 					</div>
                 </div>
             </div>

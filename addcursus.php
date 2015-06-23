@@ -34,19 +34,21 @@
 									<label for="cursusnaam">* Cursus naam: </label>
 								</td>
 								<td>
-									<input type="text" name="cursusNaam" />
+									<input type="text" name="cursusnaam" />
 								</td>
 							</tr>
 							<tr>
 								<td>
 								</td>
 								<td>
-									<?php GenerateRow(); ?>
+									<?php addCourse(); ?>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<input type="submit" value="Toevoegen" name="submit" class="submit" />
+									<!--TO DO: adjust href to selected company-->
+									<a href="courses.php?selected=<?php ?>" class="formbtn" >Terug</a>
 								</td>
 								<td>
 								</td>

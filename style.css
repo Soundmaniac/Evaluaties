@@ -320,6 +320,7 @@ td.titel
     width: 270px; /*equals to the amount of content width required*/
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
 }
 
 .coursestable, .coursestable td

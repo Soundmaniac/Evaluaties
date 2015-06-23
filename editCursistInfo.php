@@ -54,7 +54,7 @@
 						editSelectedRow();
 						?>
 						<input type="submit" value="Opslaan" name="submit" class="submit"></input>
-						<a href="students.php" class="formbtn" >Terug</a>
+						<a href="students.php?course=<?php echo($_SESSION["course"]) ?>" class="formbtn" >Terug</a>
 					</form>
                 </div>
             </div>

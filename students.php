@@ -13,6 +13,9 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+		<?php
+		setSession();
+		?>
         <div id="container">
             <div id="header">
                 <?php

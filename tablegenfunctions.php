@@ -4,6 +4,9 @@
 		mysql_connect("localhost", "root", "usbw") or die("Error message: " .mysql_error());
 		mysql_select_db("project");
 		
+		/*TO DO: selecstrings vervangen*/
+		$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusnaam = '" . $_SESSION['course'] . "'";
+		//OLD STRING: $selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID";
 		
 		if($_SERVER["REQUEST_METHOD"] == "POST")
 		{
@@ -13,23 +16,19 @@
 				if(!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $searchq))
 				{
 					echo("Er zijn alleen letters, spaties en interpuncties toegestaan.");
-					$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID";
 				}
 				else
 				{
 					//header("Location: students.php?query=" . $searchq); querystring functie kan worden gemaakt.
-					$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID WHERE c.cursistVoornaam LIKE '%$searchq%' OR c.cursistAchternaam LIKE '%$searchq%'";
+					//TO DO: subquery gaat verloren na postback, waardoor session wordt overschreven. Z.s.m. oplossen!!!
+					$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusnaam = '" . $_SESSION['course'] . "' AND c.cursistVoornaam LIKE '%$searchq%' OR c.cursistAchternaam LIKE '%$searchq%'";
+					//OLD STRING: $selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID WHERE c.cursistVoornaam LIKE '%$searchq%' OR c.cursistAchternaam LIKE '%$searchq%'";
 				}
 			}
 			else
 			{
 				echo "Zoek invoer was niet ingevoerd.";
-				$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID";
 			}
-		}
-		else
-		{
-			$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID";
 		}
 		
 		$sql = mysql_query($selectstring);
@@ -82,7 +81,7 @@
 			echo("
 			<tr>
 				<td>
-					<a href='students.php?course=" . $sqlvalue[cursusID] . "' />" . $sqlvalue[cursusID] . " - " . $sqlvalue[cursusnaam] . "</a>
+					<a href='students.php?course=" . $sqlvalue[cursusnaam] . "' />" . $sqlvalue[cursusID] . " - " . $sqlvalue[cursusnaam] . "</a>
 				</td>
 				<td class='actions'>
 					<a href='editCourse.php?id=" . $sqlvalue[cursusID] . "'>

@@ -50,6 +50,7 @@ function GetData($number)
 }
 */
 
+/* ***Code for generating a row for a student*** */
 function GenerateID()
 {
     OpenConnection();
@@ -144,7 +145,7 @@ function GenerateRow()
                     }
 					else
 					{
-						header("Location: students.php");
+						header("Location: students.php?course=" . $_SESSION["course"]);
 					}
                     CloseConnection();
                 }
@@ -165,44 +166,6 @@ function generateOptions()
 		");
 	}
 	CloseConnection();
-}
-
-function addCursus()
-{
-	if ($_SERVER["REQUEST_METHOD"] == "POST")
-	{
-		if(isset($_POST['submit']))
-		{
-			if(empty($_POST['cursusnaam']) || preg_replace('/\s+/', '', $_POST['cursusnaam']) == "")
-			{
-				echo("Vul alle velden in!");
-			}
-			else
-			{
-				if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST['cursusnaam']))
-				{
-					echo("Er zijn alleen letters en spaties toegestaan.");
-				}
-				else
-				{
-					OpenConnection();
-					
-					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\");";
-					$sql = mysql_query($query);
-                    if(!$sql)
-                    {
-                        echo("Could not run query: " . mysql_error());
-                        exit;
-                    }
-					else
-					{
-						header("Location: courses.php");
-					}
-                    CloseConnection();
-				}
-			}
-		}
-	}
 }
 
 function deleteSelectedRow($cursistID)
@@ -280,7 +243,7 @@ function editSelectedRow()
 					}
 					else
 					{
-						header("Location: cursists.php");
+						header("Location: students.php?courses=" . $_SESSION["course"]);
 					}
 				}
 			}
@@ -292,4 +255,45 @@ function editSelectedRow()
 		CloseConnection();
 	}
 }
+/* ***End of code for generating a row for a student*** */
+
+/* ***Code for generating a row for a course*** */
+function addCourse()
+{
+	if ($_SERVER["REQUEST_METHOD"] == "POST")
+	{
+		if(isset($_POST['submit']))
+		{
+			if(empty($_POST['cursusnaam']) || preg_replace('/\s+/', '', $_POST['cursusnaam']) == "")
+			{
+				echo("Vul alle velden in!");
+			}
+			else
+			{
+				if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST['cursusnaam']))
+				{
+					echo("Er zijn alleen letters en spaties toegestaan.");
+				}
+				else
+				{
+					OpenConnection();
+					
+					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\");";
+					$sql = mysql_query($query);
+                    if(!$sql)
+                    {
+                        echo("Could not run query: " . mysql_error());
+                        exit;
+                    }
+					else
+					{
+						header("Location: courses.php");
+					}
+                    CloseConnection();
+				}
+			}
+		}
+	}
+}
+/* ***End code for generating a row for a course*** */
 ?>

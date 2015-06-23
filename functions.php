@@ -253,4 +253,13 @@ function backFunction()
 		");
 	}
 }
+
+/*Function for cross-page*/
+function setSession()
+{
+	if(isset($_GET["course"]) && $_GET["course"] != "")
+	{
+		$_SESSION["course"] = $_GET["course"];
+	}
+}
 ?>
