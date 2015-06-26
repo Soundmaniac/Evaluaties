@@ -41,8 +41,8 @@
                         datasets: [
                             {
                                 label: "Eerste gegevens",
-                                fillColor: "#48A97",
-                                strokeColor: "#48A4D1",
+                                fillColor: "rgba(73,188,170,0.4)",
+                                strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
                                 GetData(0, $_GET['id']);
@@ -59,8 +59,8 @@
                             },
                             {
                                 label: "Gemiddelde",
-                                fillColor: "#48A97",
-                                strokeColor: "#48A4D1",
+                                fillColor: "rgba(80, 80, 82, 0.9)",
+                                strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
                                 GetData(2, $_GET['id']);
@@ -89,11 +89,11 @@
                 </script>
             </div>
         </div>
-        <?php
-            Connect();
-            $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
-            $rowee = mysql_fetch_array($geteedata);
-        ?>
+        <div id="questions" style="text-align: center;">
+            <?php
+                CheckGrades($_GET['id']);
+            ?>
+        </div>
         <div id="questions">
             <table>
                 <tr>

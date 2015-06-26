@@ -59,14 +59,184 @@ function safeSql($value)
 {
 	return mysql_real_escape_string($value);
 }
+
 function Connect()
 {
 	mysql_connect("localhost", "root", "usbw") or die;
 	mysql_select_db("project");
 }
+
 function CloseConnect()
 {
 	mysql_close();
+}
+
+function CheckGrades($cursistid)
+{
+    Connect();
+    $getttdata= mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $cursistid . "'");
+    $rowtt = mysql_fetch_array($getttdata);
+
+    $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $cursistid . "'");
+    $rowee = mysql_fetch_array($geteedata);
+
+    $ttgradecounter = 0;
+    $eegradecounter = 0;
+
+    if ($rowtt[cursusinhouda] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($rowtt[cursusinhoudb] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($rowtt[cursusinhoudc] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($rowtt[structuura] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($rowtt[cursusmateriaala] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($rowtt[trainera] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($rowtt[trainerb] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($rowtt[algemeenoordela] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($rowtt[cursusinhouda] < 3)
+    {
+        $ttgradecounter++;
+    }
+    if ($ttgradecounter > 0)
+    {
+        switch ($ttgradecounter)
+        {
+            case 1:
+                echo ("<h4>In de tussentijdse evaluatie is <b>" . $ttgradecounter . "</b> onvoldoende ingevuld.</h>");
+                break;
+            default:
+                echo ("<h4>In de tussentijdse evaluatie zijn <b>" . $ttgradecounter . "</b> onvoldoendes ingevuld.</h>");
+                break;
+        }
+    }
+
+    if ($rowee[meninga] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[meningb] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[meningc] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[structuura] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[structuurb] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[structuurc] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[structuurd] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[structuure] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[structuurf] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[cursusmateriaala] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[cursusmateriaalb] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[cursusmateriaalc] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[cursusmateriaald] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[cursusmateriaale] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[trainera] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[trainerb] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[trainerc] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[trainerd] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[trainere] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[trainerf] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[trainerg] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[algemeen] < 3)
+    {
+        $eegradecounter++;
+    }
+    if ($rowee[algemeenb] < 3)
+    {
+        $eegradecounter++;
+    }
+
+    if ($eegradecounter > 0)
+    {
+        switch ($eegradecounter)
+        {
+            case 1:
+                echo ("<h4>In de eindevaluatie is <b>" . $eegradecounter . "</b> onvoldoende ingevuld.</h>");
+                break;
+            default:
+                echo ("<h4>In de eindevaluatie zijn <b>" . $eegradecounter . "</b> onvoldoendes ingevuld.</h>");
+                break;
+        }
+    }
 }
 
 function GetData($number, $cursistid)
@@ -93,7 +263,7 @@ function GetData($number, $cursistid)
                     $rowtt[cursusmateriaala] . ", " .
                     (($rowtt[trainera] + $rowtt[trainerb])/2) . ", " .
                     $rowtt[algemeenoordeela] . ", " .
-                    //avarage
+                    //average
                     (($rowtt[cursusinhouda] + $rowtt[cursusinhoudb] + $rowtt[cursusinhoudc] +
                             $rowtt[structuura] +
                             $rowtt[cursusmateriaala] +
@@ -107,7 +277,7 @@ function GetData($number, $cursistid)
                     (($rowee[cursusmateriaala] + $rowee[cursusmateriaalb] + $rowee[cursusmateriaalc] + $rowee[cursusmateriaald] + $rowee[cursusmateriaale])/5) . ", " .
                     (($rowee[trainera] + $rowee[trainerb] + $rowee[trainerc] + $rowee[trainerd] + $rowee[trainere] + $rowee[trainerf] + $rowee[trainerg])/7) . ", " .
                     (($rowee[algemeena] + $rowee[algemeenb])/2) . ", " .
-                    //avarage
+                    //average
                     (($rowee[meninga] + $rowee[meningb] + $rowee[meningc] +
                             $rowee[structuura] + $rowee[structuurb] + $rowee[structuurc] + $rowee[structuurd] + $rowee[structuure] + $rowee[structuurf] +
                             $rowee[cursusmateriaala] + $rowee[cursusmateriaalb] + $rowee[cursusmateriaalc] + $rowee[cursusmateriaald] + $rowee[cursusmateriaale] +
