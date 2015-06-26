@@ -81,13 +81,17 @@
 			echo("
 			<tr>
 				<td>
-					<a href='students.php?course=" . $sqlvalue[cursusnaam] . "' />" . $sqlvalue[cursusID] . " - " . $sqlvalue[cursusnaam] . "</a>
+					<a href='students.php?course=" . $sqlvalue["cursusnaam"] . "' />" . $sqlvalue["cursusID"] . " - " . $sqlvalue["cursusnaam"] . "</a>
 				</td>
+				<td>" . $sqlvalue["projectnummer"] . "</td>
+				<td>" . $sqlvalue["trainernaam"] . "</td>
+				<td>" . $sqlvalue["begindatum"] . "</td>
+				<td>" . $sqlvalue["einddatum"] . "</td>
 				<td class='actions'>
-					<a href='editCourse.php?id=" . $sqlvalue[cursusID] . "'>
+					<a href='editCourse.php?id=" . $sqlvalue["cursusID"] . "'>
 					<img src='images/wijzigen.png'></img>
 					</a>
-					<a class='confirmation' href='deleteCourse.php?id=" . $sqlvalue[cursusID] . "'>
+					<a class='confirmation' href='deleteCourse.php?id=" . $sqlvalue["cursusID"] . "'>
 						<img src='images/verwijderen.png'></img>
 					</a>
 				</td>

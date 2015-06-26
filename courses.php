@@ -34,6 +34,16 @@
 					<h1>Cursussen</h1>
 					<table class="coursestable">
 						<tbody>
+							<thead>
+								<tr>
+									<th>Cursus</th>
+									<th>Projectnummer</th>
+									<th>Trainernaam</th>
+									<th>Begin datum</th>
+									<th>Eind datum</th>
+									<th>Acties</th>
+								</tr>
+							</thead>
 							<?php
 							generateCourses();
 							?>

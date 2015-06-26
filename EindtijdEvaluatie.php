@@ -777,7 +777,7 @@
 						</tr>
 						<tr>
 							<td class='open'>               
-								<p>Specifieke wensen: </p>
+								<p>Als u nog opmerkingen, toelichting of wensen heeft, kunt u die hier invullen: </p>
 							</td>
 							<td class='open'>
 								<textarea id="ideas12" name='txtarea12'></textarea>

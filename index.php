@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['gebruiker']))
 	{
-		header( 'Location: students.php' );
+		header( 'Location: companies.php' );
 	}
 
 ?>

@@ -7,14 +7,15 @@ if(isset($_SESSION['gebruiker']))
 	header( 'Location: profiel.php' );
 }
 
+/*Nederlandse login formulier*/
 if (isset($_POST['inloggen'])) { 
 	if(isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord']))
 	{
-	Connect();
-	$logcheck = true;
+		Connect();
+		$logcheck = true;
 
-	$result = mysql_query("SELECT * FROM account WHERE gebruiker='" . safeSql($_POST["gebruikersnaam"]) . "' AND wachtwoord='" . safeSql($_POST['wachtwoord']) . "'");
-			
+		$result = mysql_query("SELECT * FROM account WHERE gebruiker='" . safeSql($_POST["gebruikersnaam"]) . "' AND wachtwoord='" . safeSql($_POST['wachtwoord']) . "'");
+				
 		if(mysql_num_rows($result) == 1)
 		{
 			while($row = mysql_fetch_array($result))
@@ -32,29 +33,31 @@ if (isset($_POST['inloggen'])) {
 			$logcheck = false;
 		}
 
-	CloseConnect();
+		CloseConnect();
 
 		if($logcheck == true)
 		{
-			header( 'Location: profiel.php' );
+			header( 'Location: companies.php' );
 		}
 		else
 		{
 			header( 'Location: index.php' );
 		}
 	}
-	} else if (isset($_POST['registeren'])) { 
+}
 
-		  header( 'Location: registeren.php' );
-
-	} else if (isset($_POST['login'])) { 
-
-		if(isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord']))
+else if (isset($_POST['registeren'])) {
+	header( 'Location: registeren.php' );
+}
+/*Engelse login formulier*/
+else if (isset($_POST['login'])) {
+	
+	if(isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord']))
 	{
-	Connect();
-	$logcheck = true;
-
-	$result = mysql_query("SELECT * FROM account WHERE gebruiker='" . safeSql($_POST["gebruikersnaam"]) . "' AND wachtwoord='" . safeSql($_POST['wachtwoord']) . "'");
+		Connect();
+		$logcheck = true;
+		
+		$result = mysql_query("SELECT * FROM account WHERE gebruiker='" . safeSql($_POST["gebruikersnaam"]) . "' AND wachtwoord='" . safeSql($_POST['wachtwoord']) . "'");
 			
 		if(mysql_num_rows($result) == 1)
 		{
@@ -77,7 +80,7 @@ if (isset($_POST['inloggen'])) {
 
 		if($logcheck == true)
 		{
-			header( 'Location: profile.php' );
+			header( 'Location: companies.php' );
 		}
 		else
 		{

@@ -170,7 +170,7 @@ function generateOptions()
 
 function deleteSelectedRow($cursistID)
 {
-	/*Based on querystring, not safe*/
+	/*Based on querystring, probably not safe*/
 	$cursistID = (isset($cursistID) && $cursistID != null && $cursistID != "" ? $cursistID : "");
 	OpenConnection();
 	$querystring1 = "DELETE t.* FROM ttsurveyresults t WHERE cursistID = '" . $cursistID . "'";
@@ -264,6 +264,7 @@ function addCourse()
 	{
 		if(isset($_POST['submit']))
 		{
+			/*Code toevoegen om andere invul velden te valideren*/
 			if(empty($_POST['cursusnaam']) || preg_replace('/\s+/', '', $_POST['cursusnaam']) == "")
 			{
 				echo("Vul alle velden in!");
@@ -278,7 +279,9 @@ function addCourse()
 				{
 					OpenConnection();
 					
-					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\");";
+					//Oude query: $query = "INSERT INTO `project`.`cursussen` (`cursusnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\");";
+					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\");";
+					
 					$sql = mysql_query($query);
                     if(!$sql)
                     {
@@ -294,6 +297,43 @@ function addCourse()
 			}
 		}
 	}
+}
+
+function deleteSelectedCourse($cursusID)
+{
+	$cursusID = (isset($cursusID) && $cursusID != null && $cursusID != "" ? $cursusID : "");
+	OpenConnection();
+	
+	/*Kan misschien in één query worden gedaan*/
+	$querystring1 = "DELETE FROM `ttsurveyresults` WHERE cursistID IN (SELECT c.cursistID FROM `cursisten` c WHERE c.cursusID = \"" . $cursusID . "\")";
+	$querystring2 = "DELETE FROM `eesurveyresults` WHERE cursistID IN (SELECT c.cursistID FROM `cursisten` c WHERE c.cursusID = \"" . $cursusID . "\")";
+	$querystring3 = "DELETE FROM `cursisten` WHERE cursusID = \"" . $cursusID . "\"";
+	$querystring4 = "DELETE FROM `cursussen` WHERE cursusID = \"" . $cursusID . "\"";
+	
+	$sql = mysql_query($querystring1);
+	if(!$sql)
+	{
+		die("Could not run query: " . mysql_error());
+	}
+	
+	$sql = mysql_query($querystring2);
+	if(!$sql)
+	{
+		die("Could not run query: " . mysql_error());
+	}
+	
+	$sql = mysql_query($querystring3);
+	if(!$sql)
+	{
+		die("Could not run query: " . mysql_error());
+	}
+	
+	$sql = mysql_query($querystring4);
+	if(!$sql)
+	{
+		die("Could not run query: " . mysql_error());
+	}
+	CloseConnection();
 }
 /* ***End code for generating a row for a course*** */
 ?>

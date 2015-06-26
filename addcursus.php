@@ -39,6 +39,38 @@
 							</tr>
 							<tr>
 								<td>
+									<label for="projectnummer">* Projectnummer: </label>
+								</td>
+								<td>
+									<input type="text" name="projectnummer" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="trainernaam">* Trainernaam: </label>
+								</td>
+								<td>
+									<input type="text" name="trainernaam" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="begindatum">* Begindatum: </label>
+								</td>
+								<td>
+									<input type="date" name="begindatum" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="einddatum">* Einddatum: </label>
+								</td>
+								<td>
+									<input type="date" name="einddatum" />
+								</td>
+							</tr>
+							<tr>
+								<td>
 								</td>
 								<td>
 									<?php addCourse(); ?>

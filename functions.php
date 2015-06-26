@@ -6,19 +6,16 @@ function menuFunction()
 	{
 		/*header in index.php wijzigen naar table.php*/
 		echo("
-		<a href='companies.php'>
-			<div class='button'>Bedrijven</div>
-		</a>
-		<a href='courses.php?selected=PCI-Languages'>
+		<a href='courses.php?company=PCI-Languages'>
 			<div class='button'>PCI Languages</div>
 		</a>
-		<a href='courses.php?selected=PCI2'>
+		<a href='courses.php?company=PCI2'>
 			<div class='button'>PCI2</div>
 		</a>
-		<a href='courses.php?selected=NT2-Exam-Training'>
+		<a href='courses.php?company=NT2-Exam-Training'>
 			<div class='button'>NT2 Exam Training</div>
 		</a>
-		<a href='courses.php?selected=Business-English-Express'>
+		<a href='courses.php?company=Business-English-Express'>
 			<div class='button'>Business English Express</div>
 		</a>
 		");

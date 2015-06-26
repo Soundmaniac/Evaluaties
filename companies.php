@@ -31,18 +31,18 @@
 					<table id="companiestable">
 						<tr>
 							<td>
-								<a href="courses.php?selected=PCI-Languages">PCI Languages</a>
+								<a href="courses.php?company=PCI-Languages">PCI Languages</a>
 							</td>
 							<td>
-								<a href="courses.php?selected=PCI2">PCI2</a>
+								<a href="courses.php?company=PCI2">PCI2</a>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<a href="courses.php?selected=NT2-Exam-Training">NT2 Exam Training</a>
+								<a href="courses.php?company=NT2-Exam-Training">NT2 Exam Training</a>
 							</td>
 							<td>
-								<a href="courses.php?selected=Business-English-Express">Business English Express</a>
+								<a href="courses.php?company=Business-English-Express">Business English Express</a>
 							</td>
 						</tr>
 					</table>
