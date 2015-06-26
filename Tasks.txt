@@ -4,7 +4,8 @@ Taken:
 SUGGESTIONS (Dit zijn suggesties die, als ze groot zijn, het liefst buiten de scope van het project gezien worden):
 -Een klein icoontje in het cursistenoverzicht bij elke cursist waar je kunt zien 
 -Een updates page waar te zien is wie als laatste een formulier heeft ingevuld, kan ook nice zijn als index page
--Een history page waar de laatste veranderingen/ deletes zichtbaar zijn (combineren met updates is mogelijk?)
+-Een history page waar de laatste veranderingen/ deletes zichtbaar zijn (combineren met updates is mogelijk?)'
+-Resultaten bekijken als functie toevoegen onder het kolom met acties
 
 TO DO:
 Nieuw:
@@ -61,5 +62,4 @@ Auli:
 	Formulier layout (bold)
 	Onvoldoendes moeten uitblinken
 	Overzichtelijkere formaat resultaten
-==============================================	
-
+==============================================
