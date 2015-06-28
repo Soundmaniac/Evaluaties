@@ -115,7 +115,6 @@ function GenerateRow()
                 $cursistVoornaam = $_POST['cursistVoornaam'];
 				$cursistTussenvoegsel = (isset($_POST['cursistTussenvoegsel']) ? $_POST['cursistTussenvoegsel'] : "");
 				$cursistAchternaam = $_POST['cursistAchternaam'];
-				$cursusID = $_POST['cursus'];
 
                 /* Als de textbox niet de karakters bevat die in de regex staan, dan komt er een bericht */
                 if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $cursistVoornaam))
@@ -135,7 +134,7 @@ function GenerateRow()
                     GenerateID();
                     /* Database vullen met de gegevens van het formulier */
                     OpenConnection();
-                    $selectstring1 = "INSERT INTO cursisten (cursistID, cursusID, cursistVoornaam, cursistTussenvoegsel, cursistAchternaam) VALUES(\"" . $cursistID . "\", \"" . $cursusID . "\", \"" . $cursistVoornaam . "\", \"" . $cursistTussenvoegsel . "\", \"" . $cursistAchternaam . "\")";
+                    $selectstring1 = "INSERT INTO cursisten (cursistID, cursusID, cursistVoornaam, cursistTussenvoegsel, cursistAchternaam) VALUES(\"" . $cursistID . "\", \"" . $_POST['cursusID'] . "\", \"" . $cursistVoornaam . "\", \"" . $cursistTussenvoegsel . "\", \"" . $cursistAchternaam . "\")";
 
                     $sql = mysql_query($selectstring1);
                     if(!$sql)
@@ -154,19 +153,6 @@ function GenerateRow()
     }
 }
 
-function generateOptions()
-{
-	OpenConnection();
-	$query = "SELECT c.* FROM cursussen c";
-	$sql = mysql_query($query);
-	while($sqlvalue = mysql_fetch_array($sql))
-	{
-		echo("
-		<option value='" . $sqlvalue['cursusID'] . "'>" . $sqlvalue['cursusnaam'] . "</option>
-		");
-	}
-	CloseConnection();
-}
 
 function deleteSelectedRow($cursistID)
 {
@@ -280,7 +266,7 @@ function addCourse()
 					OpenConnection();
 					
 					//Oude query: $query = "INSERT INTO `project`.`cursussen` (`cursusnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\");";
-					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\");";
+					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`, `bedrijfnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\", \"" . $_POST['bedrijfnaam'] . "\");";
 					
 					$sql = mysql_query($query);
                     if(!$sql)

@@ -94,6 +94,11 @@
                 CheckGrades($_GET['id']);
             ?>
         </div>
+        <?php
+            Connect();
+            $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
+            $rowee = mysql_fetch_array($geteedata);
+        ?>
         <div id="questions">
             <table>
                 <tr>

@@ -45,12 +45,12 @@
 								</tr>
 							</thead>
 							<?php
-							generateCourses();
+                            generateCourses($_GET['company']);
 							?>
 						</tbody>
 					</table>
 					<div class="positionbtn">
-						<a href="addcursus.php" class="formbtn">Cursus toevoegen</a>
+						<a href="addcursus.php?company=<?php echo ($_GET['company']) ?>" class="formbtn">Cursus toevoegen</a>
 						<!--TO DO: Cursus verwijderen toevoegen-->
 					</div>
                 </div>

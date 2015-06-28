@@ -29,6 +29,7 @@
                 <div class="codegenposition">
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 						<table id="codegentablewidth">
+                            <input type="hidden" name="bedrijfnaam" value="<?php echo($_GET["company"]); ?>"/>
 							<tr>
 								<td>
 									<label for="cursusnaam">* Cursus naam: </label>

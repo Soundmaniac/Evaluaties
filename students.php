@@ -55,7 +55,7 @@
 							?>
 						</table>
 						<div class="positionbtn">
-							<a href="codegen.php" class="formbtn">Cursist toevoegen</a>
+							<a href="codegen.php?course=<?php echo ($_GET['course']) ?>" class="formbtn">Cursist toevoegen</a>
 						</div>
 					</form>
                 </div>

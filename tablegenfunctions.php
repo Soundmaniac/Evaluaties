@@ -5,7 +5,7 @@
 		mysql_select_db("project");
 		
 		/*TO DO: selecstrings vervangen*/
-		$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusnaam = '" . $_SESSION['course'] . "'";
+		$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusID = '" . $_GET['course'] . "'";
 		//OLD STRING: $selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID";
 		
 		if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -68,12 +68,12 @@
 		mysql_close();
 	}
 	
-	function generateCourses()
+	function generateCourses($bedrijfnaam)
 	{
 		mysql_connect("localhost", "root", "usbw") or die("Error message: " .mysql_error());
 		mysql_select_db("project");
 		
-		$selectstring = "SELECT * FROM `cursussen`";
+		$selectstring = "SELECT * FROM `cursussen` WHERE `bedrijfnaam`='". $bedrijfnaam ."'";
 		$sql = mysql_query($selectstring);
 		while ($sqlvalue = mysql_fetch_array($sql))
 		{
@@ -81,7 +81,7 @@
 			echo("
 			<tr>
 				<td>
-					<a href='students.php?course=" . $sqlvalue["cursusnaam"] . "' />" . $sqlvalue["cursusID"] . " - " . $sqlvalue["cursusnaam"] . "</a>
+					<a href='students.php?course=" . $sqlvalue["cursusID"] . "' />" . $sqlvalue["cursusID"] . " - " . $sqlvalue["cursusnaam"] . "</a>
 				</td>
 				<td>" . $sqlvalue["projectnummer"] . "</td>
 				<td>" . $sqlvalue["trainernaam"] . "</td>

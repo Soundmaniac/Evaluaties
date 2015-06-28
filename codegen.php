@@ -29,6 +29,7 @@
                 <div class="codegenposition">
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 						<table id="codegentablewidth">
+                            <input type="hidden" name="cursusID" value="<?php echo($_GET["course"]); ?>"/>
 							<tr>
 								<td>
 									<label for="cursistVoornaam">* Cursist voornaam: </label>
@@ -56,25 +57,7 @@
 							</tr>
 							<tr>
 								<td>
-									<label for="cursus">* Cursus: </label>
-								</td>
-								<td>
-									<!--TO DO: Assign options (database retrieval)-->
-									<select name="cursus">
-										<?php
-										generateOptions();
-										?>
-										<!--
-										<option value="1">Cursus 1</option>
-										<option value="2">Cursus 2</option>
-										<option value="3">Cursus 3</option>
-										-->
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label for="cursistID">CursistID: </label>
+
 								</td>
 								<td>
 									<?php GenerateRow(); ?>
