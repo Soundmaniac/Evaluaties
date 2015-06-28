@@ -8,38 +8,36 @@ SUGGESTIONS (Dit zijn suggesties die, als ze groot zijn, het liefst buiten de sc
 -Resultaten bekijken als functie toevoegen onder het kolom met acties
 
 TO DO:
-Nieuw:
-	-Werkinstructies schrijven over het toevoegen van vragen aan de formulieren
-	-Database
-		Cursus tabel
-		Bedrijf tabel
-	-Bedrijfpagina 
-		4 bedrijven in grid formaat tonen met een knop/zoekveld eronder om alle cursisten te zien zonder het te ordennen op bedrijf/cursus? (dit helpt met het zoeken naar cursisten waarvan we de cursus vergeten zijn)
-	-Cursuspagina
-		Hetzelfde idee als de huidige cursistenpagina. Een lijst met een zoekveld. Elke rij heeft een link naar bijvoorbeeld cursists.php?cursus=[cursusid]
-		projectnummer, trainernaam, begin- en einddatum
-	-Cursus resultaten
+Ingeschatte tijdsduur:
+Lang:
+	-Cursus resultaten 
 		Zelfde resultaten pagina, maar dan voor cursussen (gemiddelde van alles)
-Updaten:
-	-Resultatenpagina
-		Pagina aanpassen om er uit te zien als het word document dat ze op dit moment gebruiken. Ook moeten onvoldoende cijfers een notificatie geven, en er moet ook een notificatie zijn als alles voldoende staat
-		Een printbaar resultaat/ pdf-baar resultaat
-	-Formulieren
-		Validation
-		Pagina aanpassen die getoond wordt als het formulier al is ingevuld
-		Logo's van de verschillende bedrijven op de formulieren
-	-Cursists
-		Paging (nodig?)	
 
+Middelmatig:
+	-Cursuspagina
+		zoekveld
+	-Formulieren 
+		Logo's van de verschillende bedrijven op de formulieren
+	-Werkinstructies schrijven over het toevoegen van vragen aan de formulieren
+
+Kort:
+	-Resultatenpagina
+		Printen
+===================================================================================================================================
 DONE:
-	Cursists toevoegen pagina (Barry)
-	Cursists wijzigen pagina (Barry)
-	Cursists verwijderen pagina (Barry)
+	Cursuspagina (Barry)
+		Lijst
+	Resultatenpagina (Nigel)
+		Balken/Notificaties
+	Bedrijfpagina 
+		4 bedrijven in grid formaat tonen met een knop/zoekveld eronder om alle cursisten te zien zonder het te ordennen op bedrijf/cursus?
+	Database Updates (Barry + Nigel)
+	Cursists CRUD (Barry)
 	Cursists resultaten (Nigel)
-	Cursists login (Niels)
-	Cursists tussentijdse/eind-evaluatie (Niels + Nigel + Barry)
-	Cursists functions (Niels + Nigel + Barry)
-	Styling (style.css) (Niels + Nigel + Barry)
+	Cursists login (Nils)
+	Cursists tussentijdse/eind-evaluatie (Nils + Nigel + Barry)
+	Cursists functions (Nils + Nigel + Barry)
+	Styling (style.css) (Nils + Nigel + Barry)
 
 =======   informatie van 12/06/2015   =======
 Mevrouw:
