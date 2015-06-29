@@ -10,28 +10,17 @@ SUGGESTIONS (Dit zijn suggesties die, als ze groot zijn, het liefst buiten de sc
 
 TO DO:
 Ingeschatte tijdsduur:
-Lang:
-	-Cursus resultaten 
-		Zelfde resultaten pagina, maar dan voor cursussen (gemiddelde van alles)
-
 Middelmatig:
-	-Cursuspagina
-		zoekveld
 	-Formulieren 
 		Logo's van de verschillende bedrijven op de formulieren
 	-Werkinstructies schrijven over het toevoegen van vragen aan de formulieren
-
-Kort:
-	-Resultatenpagina
-		Printen
+	
 ===================================================================================================================================
 DONE:
 	Cursuspagina (Barry)
-		Lijst
-	Resultatenpagina (Nigel)
-		Balken/Notificaties
-	Bedrijfpagina 
-		4 bedrijven in grid formaat tonen met een knop/zoekveld eronder om alle cursisten te zien zonder het te ordennen op bedrijf/cursus?
+	Student Resultatenpagina (Nigel)
+	Cursus Resultatenpagina (Nigel)
+	Bedrijfpagina (Barry)
 	Database Updates (Barry + Nigel)
 	Cursists CRUD (Barry)
 	Cursists resultaten (Nigel)
