@@ -31,12 +31,15 @@
             <h2>
                 <?php
                 Connect();
-                $sql1 = mysql_query("SELECT * FROM cursisten WHERE cursistID='" . $_GET['id'] . "'");
-                $row1 = mysql_fetch_array($sql1);
-                $sql2 = mysql_query("SELECT * FROM cursussen WHERE cursusID='" . $row1['cursusID'] . "'");
-                $row2 = mysql_fetch_array($sql2);
+                $sql = mysql_query("SELECT * FROM cursussen WHERE cursusID='" . $_GET['course'] . "'");
+                $sql2 = mysql_query("SELECT * FROM cursisten WHERE cursusID='" . $_GET['course'] . "'");
+                $row = mysql_fetch_array($sql);
                 $counter = 0;
-                echo ("Studentoverzicht: <br/>". $row1["cursistVoornaam"] . " " . $row1["cursistAchternaam"] . " <br/> " . $row2["cursusnaam"] . " - " . $row2["projectnummer"]);
+                while ($loop = mysql_fetch_assoc($sql2))
+                {
+                    $counter++;
+                }
+                echo ("Cursusoverzicht: <br/>". $row["cursusnaam"] . " - " . $row["projectnummer"] . " (" . $counter . " studenten) <br/>" . $row["trainernaam"] );
                 CloseConnect();
                 ?>
             </h2>
@@ -56,7 +59,7 @@
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
-                                GetData(0, $_GET['id']);
+                                GetCourseData(0, $_GET['course']);
                                 ?>
                             },
                             {
@@ -65,7 +68,7 @@
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
-                                GetData(1, $_GET['id']);
+                                GetCourseData(1, $_GET['course']);
                                 ?>
                             },
                             {
@@ -74,7 +77,7 @@
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
-                                GetData(2, $_GET['id']);
+                                GetCourseData(2, $_GET['course']);
                                 ?>
                             },
                         ]
@@ -100,76 +103,10 @@
                 </script>
             </div>
         </div>
-        <div id="questions" style="text-align: center;">
-            <?php
-                CheckGrades($_GET['id']);
-            ?>
-        </div>
-        <?php
-            Connect();
-            $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
-            $rowee = mysql_fetch_array($geteedata);
-        ?>
-        <div id="questions">
-            <table>
-                <tr>
-                    <td>
-                        Aanbevelen aan anderen ja/nee
-                    </td>
-                    <td>
-                        <?php
-                            echo ($rowee[aanbeveling]);
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Hoeveel tijd (in uren) heeft u in totaal besteed aan de voorbereiding van de cursus/training?
-                    </td>
-                    <td>
-                        <?php
-                            echo ($rowee[voorbereiding]);
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Duur cursus
-                    </td>
-                    <td>
-                        <?php
-                            echo ($rowee[lengtecursus]);
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Interesse in een vervolgcursus
-                    </td>
-                    <td>
-                        <?php
-                            echo ($rowee[vervolgcursus]);
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Opmerkingen
-                    </td>
-                    <td>
-                        <?php
-                            echo ($rowee[wensen]);
-                        ?>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <?php
-            CloseConnect();
-        ?>
         <br/>
-        <a href="results.php?id=<?php echo ($_GET['id']) ?>" class="formbtn">Alle resulaten</a> | <a href="compactresults_print.php?id=<?php echo ($_GET['id']) ?>" class="formbtn">Printbaar</a>
+        <a href="compactcourseresults_print.php?course=<?php echo ($_GET['course']) ?>" class="formbtn">Printbaar</a>
     </div>
+
 </div>
 <script>
 </script>

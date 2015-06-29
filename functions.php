@@ -108,11 +108,7 @@ function CheckGrades($cursistid)
     {
         $ttgradecounter++;
     }
-    if ($rowtt[algemeenoordela] < 3)
-    {
-        $ttgradecounter++;
-    }
-    if ($rowtt[cursusinhouda] < 3)
+    if ($rowtt[algemeenoordeela] < 3)
     {
         $ttgradecounter++;
     }
@@ -213,7 +209,7 @@ function CheckGrades($cursistid)
     {
         $eegradecounter++;
     }
-    if ($rowee[algemeen] < 3)
+    if ($rowee[algemeena] < 3)
     {
         $eegradecounter++;
     }
@@ -298,6 +294,108 @@ function GetData($number, $cursistid)
                                 $rowtt[cursusmateriaala] +
                                 $rowtt[trainera] + $rowtt[trainerb] +
                                 $rowtt[algemeenoordeela])/8))/2 . "]");
+                break;
+        }
+    }
+    CloseConnect();
+}
+
+function GetCourseData($number, $cursusID)
+{
+    Connect();
+    $tt1 = 0;
+    $tt2 = 0;
+    $tt3 = 0;
+    $tt4 = 0;
+    $tt5 = 0;
+    $ttaverage = 0;
+
+    $ee1 = 0;
+    $ee2 = 0;
+    $ee3 = 0;
+    $ee4 = 0;
+    $ee5 = 0;
+    $eeaverage = 0;
+
+    $rowcounter = 0;
+
+    $getstudentsdata = mysql_query("SELECT * FROM cursisten WHERE cursusID='" . $cursusID . "'");
+    while ($row = mysql_fetch_assoc($getstudentsdata))
+    {
+        $rowcounter++;
+        $getttdata = mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $row["cursistID"] . "'");
+        $rowtt = mysql_fetch_array($getttdata);
+
+        $geteedata = mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $row["cursistID"] . "'");
+        $rowee = mysql_fetch_array($geteedata);
+
+        $tt1 = $tt1 + (($rowtt[cursusinhouda] + $rowtt[cursusinhoudb] + $rowtt[cursusinhoudc])/3);
+        $tt2 = $tt2 + $rowtt[structuura];
+        $tt3 = $tt3 + $rowtt[cursusmateriaala];
+        $tt4 = $tt4 + (($rowtt[trainera] + $rowtt[trainerb])/2) ;
+        $tt5 = $tt5 + $rowtt[algemeenoordeela];
+        $ttaverage = $ttaverage + (($rowtt[cursusinhouda] + $rowtt[cursusinhoudb] + $rowtt[cursusinhoudc] +
+                    $rowtt[structuura] +
+                    $rowtt[cursusmateriaala] +
+                    $rowtt[trainera] + $rowtt[trainerb] +
+                    $rowtt[algemeenoordeela])/8);
+
+        $ee1 = $ee1 + (($rowee[meninga] + $rowee[meningb] + $rowee[meningc])/3);
+        $ee2 = $ee2 + (($rowee[structuura] + $rowee[structuurb] + $rowee[structuurc] + $rowee[structuurd] + $rowee[structuure] + $rowee[structuurf])/6);
+        $ee3 = $ee3 + (($rowee[cursusmateriaala] + $rowee[cursusmateriaalb] + $rowee[cursusmateriaalc] + $rowee[cursusmateriaald] + $rowee[cursusmateriaale])/5);
+        $ee4 = $ee4 + (($rowee[trainera] + $rowee[trainerb] + $rowee[trainerc] + $rowee[trainerd] + $rowee[trainere] + $rowee[trainerf] + $rowee[trainerg])/7);
+        $ee5 = $ee5 + (($rowee[algemeena] + $rowee[algemeenb])/2);
+        $eeaverage = $eeaverage + (($rowee[meninga] + $rowee[meningb] + $rowee[meningc] +
+                    $rowee[structuura] + $rowee[structuurb] + $rowee[structuurc] + $rowee[structuurd] + $rowee[structuure] + $rowee[structuurf] +
+                    $rowee[cursusmateriaala] + $rowee[cursusmateriaalb] + $rowee[cursusmateriaalc] + $rowee[cursusmateriaald] + $rowee[cursusmateriaale] +
+                    $rowee[trainera] + $rowee[trainerb] + $rowee[trainerc] + $rowee[trainerd] + $rowee[trainere] + $rowee[trainerf] + $rowee[trainerg] +
+                    $rowee[algemeena] + $rowee[algemeenb])/23);
+    }
+    $tt1_avg = $tt1/$rowcounter;
+    $tt2_avg = $tt2/$rowcounter;
+    $tt3_avg = $tt3/$rowcounter;
+    $tt4_avg = $tt4/$rowcounter;
+    $tt5_avg = $tt5/$rowcounter;
+    $ttaverage_avg = $ttaverage/$rowcounter;
+
+    $ee1_avg = $ee1/$rowcounter;
+    $ee2_avg = $ee2/$rowcounter;
+    $ee3_avg = $ee3/$rowcounter;
+    $ee4_avg = $ee4/$rowcounter;
+    $ee5_avg = $ee5/$rowcounter;
+    $eeaverage_avg = $eeaverage/$rowcounter;
+
+    if(isset($number))
+    {
+        switch ($number) {
+            case 0:
+                echo ("[" .
+                    $tt1_avg . ", " .
+                    $tt2_avg . ", " .
+                    $tt3_avg . ", " .
+                    $tt4_avg . ", " .
+                    $tt5_avg . ", " .
+                    //average
+                    $ttaverage_avg . "]");
+                break;
+            case 1:
+                echo ("[" .
+                    $ee1_avg . ", " .
+                    $ee2_avg . ", " .
+                    $ee3_avg . ", " .
+                    $ee4_avg . ", " .
+                    $ee5_avg . ", " .
+                    //average
+                    $eeaverage_avg  . "]");
+                break;
+            case 2:
+                echo ("[" .
+                    ($tt1_avg + $ee1_avg)/2  . ", " .
+                    ($tt2_avg + $ee2_avg)/2  . ", " .
+                    ($tt3_avg + $ee3_avg)/2  . ", " .
+                    ($tt4_avg + $ee4_avg)/2  . ", " .
+                    ($tt5_avg + $ee5_avg)/2  . "," .
+                    ($ttaverage_avg + $eeaverage_avg)/2   . "]");
                 break;
         }
     }

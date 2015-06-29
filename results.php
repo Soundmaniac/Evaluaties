@@ -280,64 +280,6 @@ echo("
 CloseConnect();
 echo("</table>");
 ?>
-<!--Chart will be displayed beneath the PHP-generated table, which will insert the data from the results table above-->
-<div id="chartContainer">
-    <canvas id="resultChart"></canvas>
-    <script type="text/javascript">
-
-        /*Kleuren van de balken en andere instellingen kunnen hier worden gewijzigd.*/
-        var chartData = {
-            labels: ["Cursusinhoud", "Structuur van de cursus", "CursusMateriaal"],
-            datasets: [
-                {
-                    label: "Eerste gegevens",
-                    fillColor: "#48A97",
-                    strokeColor: "#48A4D1",
-                    data:
-                    <?php
-                    GetData(0, $_GET['id']);
-                    ?>
-                },
-                {
-                    label: "Tweede gegevens",
-                    fillColor: "rgba(73,188,170,0.4)",
-                    strokeColor: "rgba(72,174,209,0.4)",
-                    data:
-                    <?php
-                    GetData(1, $_GET['id']);
-                    ?>
-                },
-                {
-                    label: "Gemiddelde",
-                    fillColor: "#48A97",
-                    strokeColor: "#48A4D1",
-                    data:
-                    <?php
-                    GetData(2, $_GET['id']);
-                    ?>
-                }
-            ]
-        }
-
-        /*JavaScript Legenda settings*/
-        var options = {
-            legendTemplate : '<ul>'
-                + '<% for (var i=0; i<datasets.length; i++){%>'
-                + '<li>'
-                + '<span style=\"background-color:<%=datasets[i].fillColor%>\"></span>'
-                + '<%if(datasets[i].label){%><%=datasets[i].label%><%}%>'
-                + '</li>'
-                + '<%}%>'
-                + '</ul>',
-            barDatasetSpacing : 5
-        }
-
-        /*Draws chart in canvas*/
-        var ctx = document.getElementById("resultChart").getContext("2d");
-        new Chart(ctx).Bar(chartData, options);
-
-    </script>
-</div>
 <div class="clear"> </div>
 </div>
 </div>

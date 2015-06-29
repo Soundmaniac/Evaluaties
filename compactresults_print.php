@@ -13,20 +13,7 @@
     <script type="text/javascript" src="Chart.js"></script>
 
 </head>
-<body>
-<div id="container">
-    <div id="header">
-        <?php
-        profileFunction();
-        ?>
-    </div>
-    <div id="menu">
-        <?php
-        menuFunction();
-        ?>
-        <div class="clear"></div>
-    </div>
-    <div id="content">
+<body style="background-color: white">
         <div id="resultstitle">
             <h2>
                 <?php
@@ -102,13 +89,13 @@
         </div>
         <div id="questions" style="text-align: center;">
             <?php
-                CheckGrades($_GET['id']);
+            CheckGrades($_GET['id']);
             ?>
         </div>
         <?php
-            Connect();
-            $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
-            $rowee = mysql_fetch_array($geteedata);
+        Connect();
+        $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
+        $rowee = mysql_fetch_array($geteedata);
         ?>
         <div id="questions">
             <table>
@@ -118,7 +105,7 @@
                     </td>
                     <td>
                         <?php
-                            echo ($rowee[aanbeveling]);
+                        echo ($rowee[aanbeveling]);
                         ?>
                     </td>
                 </tr>
@@ -128,7 +115,7 @@
                     </td>
                     <td>
                         <?php
-                            echo ($rowee[voorbereiding]);
+                        echo ($rowee[voorbereiding]);
                         ?>
                     </td>
                 </tr>
@@ -138,7 +125,7 @@
                     </td>
                     <td>
                         <?php
-                            echo ($rowee[lengtecursus]);
+                        echo ($rowee[lengtecursus]);
                         ?>
                     </td>
                 </tr>
@@ -148,7 +135,7 @@
                     </td>
                     <td>
                         <?php
-                            echo ($rowee[vervolgcursus]);
+                        echo ($rowee[vervolgcursus]);
                         ?>
                     </td>
                 </tr>
@@ -158,19 +145,17 @@
                     </td>
                     <td>
                         <?php
-                            echo ($rowee[wensen]);
+                        echo ($rowee[wensen]);
                         ?>
                     </td>
                 </tr>
             </table>
         </div>
         <?php
-            CloseConnect();
+        CloseConnect();
         ?>
         <br/>
-        <a href="results.php?id=<?php echo ($_GET['id']) ?>" class="formbtn">Alle resulaten</a> | <a href="compactresults_print.php?id=<?php echo ($_GET['id']) ?>" class="formbtn">Printbaar</a>
-    </div>
-</div>
+        <br/>
 <script>
 </script>
 </body>
