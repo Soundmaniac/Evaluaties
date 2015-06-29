@@ -19,9 +19,8 @@
 				}
 				else
 				{
-					//header("Location: students.php?query=" . $searchq); querystring functie kan worden gemaakt.
 					//TO DO: subquery gaat verloren na postback, waardoor session wordt overschreven. Z.s.m. oplossen!!!
-					$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusnaam = '" . $_SESSION['course'] . "' AND c.cursistVoornaam LIKE '%$searchq%' OR c.cursistAchternaam LIKE '%$searchq%'";
+					$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusID = '" . $_GET['course'] . "' AND c.cursistVoornaam LIKE '%$searchq%' OR c.cursistAchternaam LIKE '%$searchq%';";
 					//OLD STRING: $selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID WHERE c.cursistVoornaam LIKE '%$searchq%' OR c.cursistAchternaam LIKE '%$searchq%'";
 				}
 			}
@@ -34,32 +33,32 @@
 		$sql = mysql_query($selectstring);
 		while ($sqlvalue = mysql_fetch_array($sql))
 		{			
-			$cursistTussenvoegsel = ($sqlvalue[cursistTussenvoegsel] != null ? $sqlvalue[cursistTussenvoegsel] : "-");
-			$showttdate = ($sqlvalue[tsubmitdate] != null ? date('d/m/Y', strtotime($sqlvalue[tsubmitdate])) : "-");
-			$showeedate = ($sqlvalue[esubmitdate] != null? date('d/m/Y', strtotime($sqlvalue[esubmitdate])) : "-");
+			$cursistTussenvoegsel = ($sqlvalue['cursistTussenvoegsel'] != null ? $sqlvalue['cursistTussenvoegsel'] : "-");
+			$showttdate = ($sqlvalue['tsubmitdate'] != null ? date('d/m/Y', strtotime($sqlvalue['tsubmitdate'])) : "-");
+			$showeedate = ($sqlvalue['esubmitdate'] != null? date('d/m/Y', strtotime($sqlvalue['esubmitdate'])) : "-");
 			echo("
 				<tr>
-					<td class='string'>" . $sqlvalue[cursistVoornaam] . "</td>
+					<td class='string'>" . $sqlvalue['cursistVoornaam'] . "</td>
 					<td class='string'>" . $cursistTussenvoegsel . "</td>
-					<td class='string'>" . $sqlvalue[cursistAchternaam] . "</td>
+					<td class='string'>" . $sqlvalue['cursistAchternaam'] . "</td>
 					<td>
 						<select id='ddlEvaluatie' onchange='copyToClip(this)'>
 							<option selected>Selecteer een optie...</option>
-							<option value='TussentijdseEvaluatie.php?id=" . $sqlvalue[cursistID] . "'>Tussentijdse evaluatie</option>
-							<option value='EindtijdEvaluatie.php?id=" . $sqlvalue[cursistID] . "'>Eind evaluatie</option>
+							<option value='TussentijdseEvaluatie.php?id=" . $sqlvalue['cursistID'] . "'>Tussentijdse evaluatie</option>
+							<option value='EindtijdEvaluatie.php?id=" . $sqlvalue['cursistID'] . "'>Eind evaluatie</option>
 						</select>
 					</td>
 					<td>
-						<a href='results.php?id=" . $sqlvalue[cursistID] . "'>Klik</a>
+						<a href='results.php?id=" . $sqlvalue['cursistID'] . "'>Klik</a>
 					</td>
 					<td class='date'>" . $showttdate . "</td>
 					<td class='date'>" . $showeedate . "</td>
 					<td class='actions'>
 						<div class='positionaction'>
-							<a href='editCursistInfo.php?id=" . $sqlvalue[cursistID] . "'>
+							<a title='Wijzigen' href='editStudentsInfo.php?course=" . $_GET['course'] . "&id=" . $sqlvalue['cursistID'] . "'>
 								<img src='images/wijzigen.png'></img>
 							</a>
-							<a class='confirmation' href='delete.php?id=" . $sqlvalue[cursistID] . "'>
+							<a title='Verwijderen' class='confirmation' href='delete.php?course=" . $_GET['course'] . "&id=" . $sqlvalue['cursistID'] . "'>
 								<img src='images/verwijderen.png'></img>
 							</a>
 						</div>
@@ -77,12 +76,13 @@
 		
 		if($search == false)
 		{
-			$selectstring = "SELECT * FROM `cursussen` WHERE `bedrijfnaam`='". $coursevalue ."'";
+			//$selectstring = "SELECT * FROM `cursussen` WHERE `bedrijfnaam`='". $coursevalue ."';";
+			$selectstring = "SELECT c.*, b.bedrijfnaam FROM `cursussen` c LEFT JOIN bedrijven b ON c.bedrijfID = b.bedrijfID WHERE b.bedrijfnaam = '". $coursevalue ."';";
 		}
 		else
 		{
 			//$selectstring = "SELECT * FROM `cursussen` WHERE `bedrijfnaam`='". "PCI2" ."'";
-			$selectstring = "SELECT * FROM `cursussen` WHERE `cursusnaam` LIKE '%$coursevalue%' OR `projectnummer` LIKE '%$coursevalue%' OR `trainernaam` LIKE '%$coursevalue%' OR `bedrijfnaam` LIKE'%$coursevalue%'";
+			$selectstring = "SELECT c.*, b.bedrijfnaam FROM `cursussen` c LEFT JOIN bedrijven b ON c.bedrijfID = b.bedrijfID WHERE c.`cursusnaam` LIKE '%$coursevalue%' OR c.`projectnummer` LIKE '%$coursevalue%' OR c.`trainernaam` LIKE '%$coursevalue%' OR b.`bedrijfnaam` LIKE '%$coursevalue%';";
 		}
 		$sql = mysql_query($selectstring);
 		while ($sqlvalue = mysql_fetch_array($sql))
@@ -98,10 +98,10 @@
 				<td class='date'>" . $sqlvalue["begindatum"] . "</td>
 				<td class='date'>" . $sqlvalue["einddatum"] . "</td>
 				<td class='actions'>
-					<a href='editCourse.php?id=" . $sqlvalue["cursusID"] . "'>
-					<img src='images/wijzigen.png'></img>
+					<a title='Wijzigen' href='editCourseInfo.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
+						<img src='images/wijzigen.png'></img>
 					</a>
-					<a class='confirmation' href='deleteCourse.php?id=" . $sqlvalue["cursusID"] . "'>
+					<a title='Verwijderen' class='confirmation' href='deleteCourse.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
 						<img src='images/verwijderen.png'></img>
 					</a>
 				</td>

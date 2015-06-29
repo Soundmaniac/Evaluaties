@@ -4,5 +4,5 @@ if($_GET["id"] != null && $_GET["id"] != "")
 {
 	deleteSelectedCourse($_GET["id"]);
 }
-header("Location: courses.php?company=" . $_SESSION["company"]);
+header("Location: courses.php?company=" . $_GET["company"]);
 ?>

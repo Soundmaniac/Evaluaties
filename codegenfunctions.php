@@ -144,7 +144,7 @@ function GenerateRow()
                     }
 					else
 					{
-						header("Location: students.php?course=" . $_SESSION["course"]);
+						header("Location: students.php?course=" . $_GET["course"]);
 					}
                     CloseConnection();
                 }
@@ -185,11 +185,6 @@ function deleteSelectedRow($cursistID)
 
 function editSelectedRow()
 {
-	if(!empty($_GET["id"]))
-	{
-		$_SESSION["id"] = $_GET["id"];
-	}
-	
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		OpenConnection();
@@ -208,18 +203,19 @@ function editSelectedRow()
 				}
 				else
 				{
-					//DoSomething
+					echo $_GET['id'];
+					
 					if($i == "cursistFirstName")
 					{
-						$querystring = "UPDATE `cursisten` SET `cursistVoornaam` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_SESSION["id"] . "'";
+						$querystring = "UPDATE `cursisten` SET `cursistVoornaam` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_GET["id"] . "'";
 					}
 					else if($i == "cursistTussenvoegsel")
 					{
-						$querystring = "UPDATE `cursisten` SET `cursistTussenvoegsel` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_SESSION["id"] . "'";
+						$querystring = "UPDATE `cursisten` SET `cursistTussenvoegsel` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_GET["id"] . "'";
 					}
 					else if($i == "cursistLastName")
 					{
-						$querystring = "UPDATE `cursisten` SET `cursistAchternaam` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_SESSION["id"] . "'";;
+						$querystring = "UPDATE `cursisten` SET `cursistAchternaam` = '" . $_POST[$i] . "' WHERE `cursisten`.`cursistID` = '" . $_GET["id"] . "'";;
 					}
 					
 					$sql = mysql_query($querystring);
@@ -229,14 +225,15 @@ function editSelectedRow()
 					}
 					else
 					{
-						header("Location: students.php?courses=" . $_SESSION["course"]);
+						header("Location: students.php?course=" . $_GET["course"]);
 					}
 				}
 			}
 		}
+		
 		if(!$entered)
 		{
-			echo("Één veld is ongewijzigd gebleven, omdat u dit veld heeft leeg gelaten<br />");
+			echo("Één veld is ongewijzigd gebleven, omdat u dit veld heeft leeg gelaten of bestaat uit incorrecte leestekens<br />");
 		}
 		CloseConnection();
 	}
@@ -244,7 +241,7 @@ function editSelectedRow()
 /* ***End of code for generating a row for a student*** */
 
 /* ***Code for generating a row for a course*** */
-function addCourse()
+function addCourse($company)
 {
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
@@ -253,20 +250,37 @@ function addCourse()
 			/*Code toevoegen om andere invul velden te valideren*/
 			if(empty($_POST['cursusnaam']) || preg_replace('/\s+/', '', $_POST['cursusnaam']) == "")
 			{
-				echo("Vul alle velden in!");
+				echo("Vul cursusnaam alstublieft correct in");
+			}
+			else if(empty($_POST['projectnummer']) || preg_replace('/\s+/', '', $_POST['projectnummer']) == "")
+			{
+				echo("Vul projectnummer alstublieft correct in");
+			}
+			else if(empty($_POST['trainernaam']) || preg_replace('/\s+/', '', $_POST['trainernaam']) == "")
+			{
+				echo("Vul trainernaam alstublieft correct in");
 			}
 			else
 			{
-				if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST['cursusnaam']))
+				if (!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST['cursusnaam']) || !preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST['trainernaam']))
 				{
-					echo("Er zijn alleen letters en spaties toegestaan.");
+					echo("Er zijn alleen letters en spaties toegestaan bij cursusnaam en trainernaam.");
 				}
 				else
 				{
 					OpenConnection();
 					
+					$query = "SELECT b.bedrijfID FROM bedrijven b WHERE b.bedrijfnaam = '" . $_POST['bedrijfnaam'] ."'";
 					//Oude query: $query = "INSERT INTO `project`.`cursussen` (`cursusnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\");";
-					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`, `bedrijfnaam`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\", \"" . $_POST['bedrijfnaam'] . "\");";
+					$sql = mysql_query($query);
+					while($row = mysql_fetch_array($sql))
+					{
+						$bedrijfID = $row['bedrijfID'];
+					}
+					
+					echo($bedrijfID);
+					
+					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`, `bedrijfID`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\", \"" . $bedrijfID . "\");";
 					
 					$sql = mysql_query($query);
                     if(!$sql)
@@ -276,13 +290,18 @@ function addCourse()
                     }
 					else
 					{
-						header("Location: courses.php");
+						header("Location: courses.php?company=" . $company);
 					}
                     CloseConnection();
 				}
 			}
 		}
 	}
+}
+
+function editSelectedCourse()
+{
+	
 }
 
 function deleteSelectedCourse($cursusID)

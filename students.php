@@ -13,9 +13,6 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-		<?php
-		setSession();
-		?>
         <div id="container">
             <div id="header">
                 <?php
@@ -32,7 +29,7 @@
             <div id="content">
 			<!--CSS aanpassen! -->
                 <div id="studentsposition">
-					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<form method="post" action="<?php echo (htmlspecialchars($_SERVER["PHP_SELF"]) . "?course=" . $_GET['course']);?>">
 						<div class="searchtable">
 							<label for="search" class="">Search:</label>
 							<input class="search" name="search" type="search" placeholder="Zoeken" />
@@ -68,8 +65,17 @@
 			var optVal = s.options[s.selectedIndex].value;
 			if(optVal != "Selecteer een optie...")
 			{
-				window.prompt("Druk op CTRL+C om de URL te kopieëren:", "http://localhost:8080/Evaluaties/" + optVal);
+				var l = "This is &agrave; string";
+				var decoded = HtmlDecode(l);
+				window.prompt(decoded, "http://localhost:8080/Evaluaties/" + optVal);
 			}
+		}
+		
+		function HtmlDecode(html)
+		{
+			var div = document.createElement("div");
+			div.innerHTML = html;
+			return div.childNodes[0].nodeValue;
 		}
 		</script>
 		<script src="confirm.js"></script>

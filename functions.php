@@ -307,7 +307,7 @@ function GetData($number, $cursistid)
 function profileFunction()
 {
 	echo("
-	<div class='profile'>Welkom <a href='profile.php'>" . $_SESSION['gebruiker'] . "</a><br/>
+	<div class='profile'>Welkom, <a href='profile.php'>" . $_SESSION['gebruiker'] . "</a><br/>
 	<a href='logout.php'>Uitloggen </a>
 	</div>
 	<div class='clear'></div>");

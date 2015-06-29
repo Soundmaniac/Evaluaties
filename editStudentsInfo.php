@@ -9,7 +9,6 @@
         StartUp();
         ini_set( "display_errors", 0);
         AdminOnly();
-		session_start();
         ?>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
@@ -30,14 +29,13 @@
             <div id="content">
 			<!--CSS aanpassen! -->
                 <div class="editCursistInfo">
-					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<form method="post" action="<?php echo (htmlspecialchars($_SERVER["PHP_SELF"]) . "?course=" . $_GET['course'] . "&id=" . $_GET['id']); ?>">
 						<table>
 							<tr>
 								<th>Voornaam</th>
 								<th>Tussenvoegsel</th>
 								<th>Achternaam</th>
 							</tr>
-							<!--Genereer tabel hier-->
 							<tr>
 								<td>
 									<input placeholder="Voornaam" type="text" name="cursistFirstName"></input>
@@ -54,7 +52,7 @@
 						editSelectedRow();
 						?>
 						<input type="submit" value="Opslaan" name="submit" class="submit"></input>
-						<a href="students.php?course=<?php echo($_SESSION["course"]) ?>" class="formbtn" >Terug</a>
+						<a href="students.php?course=<?php echo($_GET["course"]) ?>" class="formbtn" >Terug</a>
 					</form>
                 </div>
             </div>

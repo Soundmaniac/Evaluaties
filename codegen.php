@@ -27,7 +27,7 @@
             </div>
             <div id="content">
                 <div class="codegenposition">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post" action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"]) . "?course=" . $_GET['course']); ?>">
 						<table id="codegentablewidth">
                             <input type="hidden" name="cursusID" value="<?php echo($_GET["course"]); ?>"/>
 							<tr>

@@ -27,12 +27,12 @@
             </div>
             <div id="content">
                 <div class="codegenposition">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post" action="<?php echo (htmlspecialchars($_SERVER["PHP_SELF"]) ."?company=" . $_GET['company']);?>">
 						<table id="codegentablewidth">
                             <input type="hidden" name="bedrijfnaam" value="<?php echo($_GET["company"]); ?>"/>
 							<tr>
 								<td>
-									<label for="cursusnaam">* Cursus naam: </label>
+									<label for="cursusnaam">* Cursusnaam: </label>
 								</td>
 								<td>
 									<input type="text" name="cursusnaam" />
@@ -56,7 +56,7 @@
 							</tr>
 							<tr>
 								<td>
-									<label for="begindatum">* Begindatum: </label>
+									<label for="begindatum">Begindatum: </label>
 								</td>
 								<td>
 									<input type="date" name="begindatum" />
@@ -64,7 +64,7 @@
 							</tr>
 							<tr>
 								<td>
-									<label for="einddatum">* Einddatum: </label>
+									<label for="einddatum">Einddatum: </label>
 								</td>
 								<td>
 									<input type="date" name="einddatum" />
@@ -74,7 +74,7 @@
 								<td>
 								</td>
 								<td>
-									<?php addCourse(); ?>
+									<?php addCourse($_GET['company']); ?>
 								</td>
 							</tr>
 							<tr>
