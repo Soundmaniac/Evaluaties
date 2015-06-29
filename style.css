@@ -312,7 +312,8 @@ td.titel
 #coursesposition table
 {
     margin-top: 10px;
-    border-radius: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     background-color: rgba(50,50,255, 1.0);;
     color: rgba(255, 255, 255, 1.0);
 }
@@ -372,7 +373,8 @@ td.titel
 #studentsposition table
 {
     margin-top: 10px;
-    border-radius: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     background-color: rgba(50,50,255, 1.0);;
     color: rgba(255, 255, 255, 1.0);
 }
