@@ -97,13 +97,15 @@ h2{
 	height: auto;
 	padding: 5px;
 	box-shadow: 2px 2px 8px #444444;
-	border-radius: 10px;
+	border-radius: 5px;
 	background-color: rgb(255,255,255);
 }
 
-#container, #header, #menu, #content
+/*Width is based on the amount of content which required the largest amount of width, which is in this case the studentstable*/
+
+#container, #header, #menu, #content, #studentsposition, #studentsposition table
 {
-    width: 1150px; /*990px;*/
+    width: 1205px; /*990px;*/
 }
 
 table.tablecursists
@@ -225,26 +227,6 @@ td.text{
     /*If page has not header function, use width: 580px;*/
 }
 
-td.actions
-{
-    width: 65px; /*<td> tag has to be the same width the images inside require so that they can be placed side by side, instead of on top of each other*/
-}
-
-td.actions a
-{
-    margin-right: 7px;
-}
-
-td.string
-{
-    max-width: 105px;
-    word-wrap: break-word;
-}
-td.date
-{
-    /**/
-}
-
 .positionbtn
 {
     margin-top: 20px;
@@ -317,25 +299,135 @@ td.titel
 
 #coursesposition
 {
-    width: 270px; /*equals to the amount of content width required*/
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
 }
 
-.coursestable, .coursestable td
+#coursesposition, #coursesposition table
 {
-    border: 1px solid #1d219d;
+    width: 785px;
 }
 
-.coursestable td a
+#coursesposition table
+{
+    margin-top: 10px;
+    border-radius: 1px;
+    background-color: rgba(50,50,255, 1.0);;
+    color: rgba(255, 255, 255, 1.0);
+}
+
+#coursesposition table td
+{
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 1.0)
+}
+
+#coursesposition table td a
 {
     display: block;
+    color: rgba(0, 0, 0, 1.0);
 }
 
-.coursestable td.actions a
+#coursesposition table td a:visited
+{
+    color: rgba(0, 0, 0, 1.0);
+}
+
+#coursesposition table td a:hover
+{
+    color: rgba(255,255,255, 1.0);
+}
+
+#coursesposition table td.cursusnaam, #coursesposition table td.trainernaam
+{
+    min-width: 185px;
+}
+
+#coursesposition table td.date
+{
+    min-width: 110px;
+}
+
+#coursesposition table td.actions a
 {
     display: inline;
+}
+
+/*Students*/
+
+#studentsposition
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+/* This is already defined at the top side of this sheet.
+#studentsposition, #studentsposition table
+{
+    width: 1250px;
+}
+*/
+#studentsposition table
+{
+    margin-top: 10px;
+    border-radius: 1px;
+    background-color: rgba(50,50,255, 1.0);;
+    color: rgba(255, 255, 255, 1.0);
+}
+
+#studentsposition table td
+{
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 1.0)
+}
+
+#studentsposition table td a
+{
+    display: block;
+    color: rgba(0, 0, 0, 1.0);
+}
+
+#studentsposition table td a:visited
+{
+    color: rgba(0, 0, 0, 1.0);
+}
+
+#studentsposition table td a:hover
+{
+    color: rgba(255,255,255, 1.0);
+}
+
+#studentsposition table td .positionaction
+{
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+}
+
+#studentsposition table td.actions
+{
+    width: 65px; /*<td> tag has to be the same width the images inside require so that they can be placed side by side, instead of on top of each other*/
+}
+
+#studentsposition table td.actions a
+{
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+#studentsposition table td.string
+{
+    min-width: 185px;
+    word-wrap: break-word;
+}
+
+#studentsposition table td.date
+{
+    min-width: 110px;
 }
 
 #questions

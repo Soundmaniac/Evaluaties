@@ -29,30 +29,43 @@
             <div id="content">
 			<!--CSS aanpassen! -->
                 <div id="coursesposition">
-					<!--Laat alle gegevens zien op basis van gekozen bedrijf-->
-					<!--Kan kiezen voor twee mogelijkheden:-->
 					<h1>Cursussen</h1>
-					<table class="coursestable">
-						<tbody>
-							<thead>
-								<tr>
-									<th>Cursus</th>
-									<th>Projectnummer</th>
-									<th>Trainernaam</th>
-									<th>Begin datum</th>
-									<th>Eind datum</th>
-									<th>Acties</th>
-								</tr>
-							</thead>
-							<?php
-                            generateCourses($_GET['company']);
-							?>
-						</tbody>
-					</table>
-					<div class="positionbtn">
-						<a href="addcursus.php?company=<?php echo ($_GET['company']) ?>" class="formbtn">Cursus toevoegen</a>
-						<!--TO DO: Cursus verwijderen toevoegen-->
-					</div>
+					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+						<div class="searchtable">
+							<label for="search" class="">Search:</label>
+							<input class="search" name="search" type="search" placeholder="Zoeken" />
+							<input type="submit" class="submit" value="Zoeken" />
+						</div>
+						<!--Laat alle gegevens zien op basis van gekozen bedrijf-->
+						<table>
+							<tbody>
+								<thead>
+									<tr>
+										<th>Cursus</th>
+										<th>Projectnummer</th>
+										<th>Trainernaam</th>
+										<th>Begin datum</th>
+										<th>Eind datum</th>
+										<th>Acties</th>
+									</tr>
+								</thead>
+								<?php
+								$coursevalue = (isset($_POST['search']) && $_POST['search'] != null && $_POST['search'] != ""? $_POST['search'] : $_GET['company']);
+								
+								$search = false;
+								if(isset($_POST['search']) && $_POST['search'] != "" && $_POST['search'] != null)
+								{
+									$search = true;
+								}
+								generateCourses($coursevalue, $search);
+								?>
+							</tbody>
+						</table>
+						<div class="positionbtn">
+							<a href="addcursus.php?company=<?php echo ($_GET['company']) ?>" class="formbtn">Cursus toevoegen</a>
+							<!--TO DO: Cursus verwijderen toevoegen-->
+						</div>
+					</form>
                 </div>
             </div>
         </div>
