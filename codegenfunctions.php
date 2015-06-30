@@ -247,7 +247,7 @@ function addCourse($company)
 	{
 		if(isset($_POST['submit']))
 		{
-			/*Code toevoegen om andere invul velden te valideren*/
+			/*Code toevoegen om invul velden te valideren*/
 			if(empty($_POST['cursusnaam']) || preg_replace('/\s+/', '', $_POST['cursusnaam']) == "")
 			{
 				echo("Vul cursusnaam alstublieft correct in");
@@ -301,7 +301,60 @@ function addCourse($company)
 
 function editSelectedCourse()
 {
-	
+	if ($_SERVER["REQUEST_METHOD"] == "POST")
+	{
+		if(isset($_POST['submit']))
+		{
+			OpenConnection();
+			$inputname = array("cursusnaam", "projectnummer", "trainernaam", "einddatum", "begindatum");
+			$entered = false;
+			foreach($inputname AS $i)
+			{
+				/*Check if post is empty or entered*/
+				if(!empty($_POST[$i]) || $_POST[$i] != "")
+				{
+					//When the post is not empty, post is entered
+					$entered = true;
+					
+					//If a post is entered
+					if($entered)
+					{						
+						if($i == "cursusnaam" || $i == "trainernaam")
+						{
+							if(!preg_match("/^[a-zA-Z\s,.'-\pL]*$/", $_POST[$i]))
+							{
+								echo("geen tekst");
+							}
+							else
+							{
+								$querystring = "UPDATE `project`.`cursussen` SET `" . $i . "` = '" . $_POST[$i] . "' WHERE `cursussen`.`cursusID` = '" . $_GET['id'] . "';";
+							}
+						}
+						else
+						{
+							$querystring = "UPDATE `project`.`cursussen` SET `" . $i . "` = '" . $_POST[$i] . "' WHERE `cursussen`.`cursusID` = '" . $_GET['id'] . "';";
+						}
+						
+						$sql = mysql_query($querystring);
+						if(!$sql)
+						{
+							die("Could not run query: " . mysql_error());
+						}
+						else
+						{
+							header("Location: courses.php?company=" . $_GET["company"]);
+						}
+					}
+				}
+			}
+			
+			if(!$entered)
+			{
+				echo "Er is niks ingevuld<br />";
+			}
+			CloseConnection();
+		}
+	}
 }
 
 function deleteSelectedCourse($cursusID)

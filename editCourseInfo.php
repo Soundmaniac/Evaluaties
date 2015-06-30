@@ -30,7 +30,7 @@
             <div id="content">
 			<!--CSS aanpassen! -->
                 <div class="editCursistInfo">
-					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<form method="post" action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"]) . "?company=" . $_GET['company'] . "&id=" . $_GET['id']);?>">
 						<table>
 							<tr>
 								<th>Cursusnaam</th>
@@ -53,7 +53,7 @@
 									<input placeholder="Begindatum" type="text" name="begindatum"></input>
 								</td>
 								<td>
-									<input placeholder="Einddatum" type="text" name="einddatum	"></input>
+									<input placeholder="Einddatum" type="text" name="einddatum"></input>
 								</td>
 							</tr>
 						</table>
@@ -61,7 +61,7 @@
 						editSelectedCourse();
 						?>
 						<input type="submit" value="Opslaan" name="submit" class="submit"></input>
-						<a href="students.php?course=<?php echo($_SESSION["course"]) ?>" class="formbtn" >Terug</a>
+						<a href="courses.php?company=<?php echo($_GET["company"]) ?>" class="formbtn" >Terug</a>
 					</form>
                 </div>
             </div>
