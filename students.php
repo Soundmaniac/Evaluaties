@@ -65,16 +65,16 @@
 			var optVal = s.options[s.selectedIndex].value;
 			if(optVal != "Selecteer een optie...")
 			{
-				var l = "This is &agrave; string";
-				var decoded = HtmlDecode(l);
-				window.prompt(decoded, "http://localhost:8080/Evaluaties/" + optVal);
+				var text = "Druk op CTRL+C om de link te kopie&euml;ren:";
+				var text = decode(text);
+				window.prompt(text, "http://localhost:8080/Evaluaties/" + optVal);
 			}
 		}
 		
-		function HtmlDecode(html)
+		function decode(text)
 		{
 			var div = document.createElement("div");
-			div.innerHTML = html;
+			div.innerHTML = text;
 			return div.childNodes[0].nodeValue;
 		}
 		</script>
