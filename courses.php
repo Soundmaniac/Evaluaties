@@ -44,8 +44,9 @@
 										<th>Cursus</th>
 										<th>Projectnummer</th>
 										<th>Trainernaam</th>
-										<th>Begin datum</th>
-										<th>Eind datum</th>
+                                        <th>Gemiddelde resultaten</th>
+                                        <th>Begindatum</th>
+										<th>Einddatum</th>
 										<th>Acties</th>
 									</tr>
 								</thead>

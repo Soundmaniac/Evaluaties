@@ -36,6 +36,12 @@
 			$cursistTussenvoegsel = ($sqlvalue['cursistTussenvoegsel'] != null ? $sqlvalue['cursistTussenvoegsel'] : "-");
 			$showttdate = ($sqlvalue['tsubmitdate'] != null ? date('d/m/Y', strtotime($sqlvalue['tsubmitdate'])) : "-");
 			$showeedate = ($sqlvalue['esubmitdate'] != null? date('d/m/Y', strtotime($sqlvalue['esubmitdate'])) : "-");
+
+            $sqlcursussen = mysql_query("SELECT * FROM cursussen WHERE cursusID='" . $sqlvalue['cursusID'] . "'");
+            $rowcursussen = mysql_fetch_array($sqlcursussen);
+            $sqlbedrijven = mysql_query("SELECT * FROM bedrijven WHERE bedrijfID='" . $rowcursussen['bedrijfID'] . "'");
+            $rowbedrijven = mysql_fetch_array($sqlbedrijven);
+
 			echo("
 				<tr>
 					<td class='string'>" . $sqlvalue['cursistVoornaam'] . "</td>
@@ -44,12 +50,12 @@
 					<td>
 						<select id='ddlEvaluatie' onchange='copyToClip(this)'>
 							<option selected>Selecteer een optie...</option>
-							<option value='TussentijdseEvaluatie.php?id=" . $sqlvalue['cursistID'] . "'>Tussentijdse evaluatie</option>
-							<option value='EindtijdEvaluatie.php?id=" . $sqlvalue['cursistID'] . "'>Eind evaluatie</option>
+							<option value='TussentijdseEvaluatie.php?id=" . $sqlvalue['cursistID'] . "&company=". $rowbedrijven['bedrijfID'] ."'>Tussentijdse evaluatie</option>
+							<option value='EindtijdEvaluatie.php?id=" . $sqlvalue['cursistID'] . "&company=". $rowbedrijven['bedrijfID'] . "'>Eind evaluatie</option>
 						</select>
 					</td>
 					<td>
-						<a href='results.php?id=" . $sqlvalue['cursistID'] . "'>Klik</a>
+						<a href='compactresults.php?id=" . $sqlvalue['cursistID'] . "'>Klik</a>
 					</td>
 					<td class='date'>" . $showttdate . "</td>
 					<td class='date'>" . $showeedate . "</td>
@@ -95,6 +101,7 @@
 				</td>
 				<td>" . $sqlvalue["projectnummer"] . "</td>
 				<td class='trainernaam'>" . $sqlvalue["trainernaam"] . "</td>
+				<td><a href='compactcourseresults.php?course=" . $sqlvalue['cursusID'] . "'>Klik</a></td>
 				<td class='date'>" . $sqlvalue["begindatum"] . "</td>
 				<td class='date'>" . $sqlvalue["einddatum"] . "</td>
 				<td class='actions'>

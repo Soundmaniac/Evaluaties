@@ -16,10 +16,24 @@
 	<body>
 		
 		<div id="container">
-			<div id="header">
-				
-			</div>
-			
+        <?php
+            if ($_GET["company"] == 1)
+            {
+                echo ("<div id='formheader1'></div>");
+            }
+            if ($_GET["company"] == 2)
+            {
+                echo ("<div id='formheader1'></div>");
+            }
+            if ($_GET["company"] == 3)
+            {
+                echo ("<div id='formheader3'></div>");
+            }
+            if ($_GET["company"] == 4)
+            {
+                echo ("<div id='formheader4'></div>");
+            }
+        ?>
 			<div id="menu">
 				<?php
 					menuFunction();

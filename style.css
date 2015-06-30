@@ -80,6 +80,31 @@ h2{
 	padding-top: 20px;
 }
 
+#formheader1
+{
+    height: 60px;
+    margin-top: 10px;
+    padding: 5px;
+    background-image: url(https://i.imgur.com/zR23IMH.png);
+    background-repeat: no-repeat;
+}
+#formheader3
+{
+    height: 60px;
+    margin-top: 10px;
+    padding: 5px;
+    background-image: url(http://i.imgur.com/7RiGjsd.png);
+    background-repeat: no-repeat;
+}
+#formheader4
+{
+    height: 110px;
+    margin-top: 10px;
+    padding: 5px;
+    background-image: url(http://i.imgur.com/O298wCD.png);
+    background-repeat: no-repeat;
+}
+
 #header{
 	height: 60px;
 	margin-top: 10px;

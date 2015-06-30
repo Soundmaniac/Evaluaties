@@ -43,7 +43,7 @@
 								<th>Soort evaluatie</th>
 								<th>Resultaten link</th>
 								<th>Tussentijdse evaluatie afgelegde datum</th>
-								<th>Eind evaluatie afgelegde datum</th>
+								<th>Eindevaluatie afgelegde datum</th>
 								<th>Acties</th>
 							</tr>
 							<!--Genereer tabel hier-->
