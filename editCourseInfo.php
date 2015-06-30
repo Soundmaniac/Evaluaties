@@ -30,7 +30,7 @@
             <div id="content">
 			<!--CSS aanpassen! -->
                 <div class="editCursistInfo">
-					<form method="post" action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"]) . "?company=" . $_GET['company'] . "&id=" . $_GET['id']);?>">
+					<form method="post" action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"]) . "?company=" . $_GET['company'] . "&	id=" . $_GET['id']);?>">
 						<table>
 							<tr>
 								<th>Cursusnaam</th>

@@ -30,7 +30,7 @@
 			<!--CSS aanpassen! -->
                 <div id="coursesposition">
 					<h1>Cursussen</h1>
-					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<form method="post" action="<?php echo (htmlspecialchars($_SERVER["PHP_SELF"]) . "?company=" . $_GET['company']);?>">
 						<div class="searchtable">
 							<label for="search" class="">Search:</label>
 							<input class="search" name="search" type="search" placeholder="Zoeken" />
@@ -44,21 +44,20 @@
 										<th>Cursus</th>
 										<th>Projectnummer</th>
 										<th>Trainernaam</th>
-                                        <th>Gemiddelde resultaten</th>
-                                        <th>Begindatum</th>
-										<th>Einddatum</th>
+										<th>Begin datum</th>
+										<th>Eind datum</th>
 										<th>Acties</th>
 									</tr>
 								</thead>
 								<?php
-								$coursevalue = (isset($_POST['search']) && $_POST['search'] != null && $_POST['search'] != ""? $_POST['search'] : $_GET['company']);
+								$searchvalue = $_POST['search'];
 								
 								$search = false;
 								if(isset($_POST['search']) && $_POST['search'] != "" && $_POST['search'] != null)
 								{
 									$search = true;
 								}
-								generateCourses($coursevalue, $search);
+								generateCourses($searchvalue, $search);
 								?>
 							</tbody>
 						</table>

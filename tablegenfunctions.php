@@ -75,25 +75,23 @@
 		mysql_close();
 	}
 	
-	function generateCourses($coursevalue, $search)
+	function generateCourses($searchvalue, $search)
 	{
 		mysql_connect("localhost", "root", "usbw") or die("Error message: " .mysql_error());
 		mysql_select_db("project");
 		
-		if($search == false)
+		if(!$search)
 		{
-			//$selectstring = "SELECT * FROM `cursussen` WHERE `bedrijfnaam`='". $coursevalue ."';";
-			$selectstring = "SELECT c.*, b.bedrijfnaam FROM `cursussen` c LEFT JOIN bedrijven b ON c.bedrijfID = b.bedrijfID WHERE b.bedrijfnaam = '". $coursevalue ."';";
+			$selectstring = "SELECT c.*, b.bedrijfnaam FROM `cursussen` c LEFT JOIN bedrijven b ON c.bedrijfID = b.bedrijfID WHERE b.bedrijfnaam = '". $_GET['company'] ."';";
 		}
 		else
 		{
-			//$selectstring = "SELECT * FROM `cursussen` WHERE `bedrijfnaam`='". "PCI2" ."'";
-			$selectstring = "SELECT c.*, b.bedrijfnaam FROM `cursussen` c LEFT JOIN bedrijven b ON c.bedrijfID = b.bedrijfID WHERE c.`cursusnaam` LIKE '%$coursevalue%' OR c.`projectnummer` LIKE '%$coursevalue%' OR c.`trainernaam` LIKE '%$coursevalue%' OR b.`bedrijfnaam` LIKE '%$coursevalue%';";
+			$selectstring = "SELECT c.*, b.bedrijfnaam FROM `cursussen` c LEFT JOIN bedrijven b ON c.bedrijfID = b.bedrijfID WHERE b.`bedrijfnaam` = '" . $_GET['company'] . "' AND c.`cursusnaam` LIKE '%" . $searchvalue . "%' OR b.`bedrijfnaam` = '" . $_GET['company'] . "' AND c.`projectnummer` LIKE '%" . $searchvalue . "%' OR b.`bedrijfnaam` = '" . $_GET['company'] . "' AND c.`trainernaam` LIKE '%" . $searchvalue . "%';";
 		}
+		
 		$sql = mysql_query($selectstring);
 		while ($sqlvalue = mysql_fetch_array($sql))
 		{
-			/*Value aanpassen/vervangen:*/
 			echo("
 			<tr>
 				<td class='cursusnaam'>

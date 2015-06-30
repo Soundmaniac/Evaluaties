@@ -28,7 +28,7 @@
             <div id="content">
 			<!--CSS aanpassen! -->
                 <div id="positioncompaniestable">
-					<table id="companiestable">
+					<table>
 						<tr>
 							<td>
 								<a href="courses.php?company=PCI-Languages">PCI Languages</a>

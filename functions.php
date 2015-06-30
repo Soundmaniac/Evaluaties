@@ -6,6 +6,9 @@ function menuFunction()
 	{
 		/*header in index.php wijzigen naar table.php*/
 		echo("
+		<a href='companies.php'>
+			<div class='button'>Bedrijven</div>
+		</a>
 		<a href='courses.php?company=PCI-Languages'>
 			<div class='button'>PCI Languages</div>
 		</a>
