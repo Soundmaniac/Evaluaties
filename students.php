@@ -67,7 +67,7 @@
 			{
 				var text = "Druk op CTRL+C om de link te kopie&euml;ren:";
 				var text = decode(text);
-				window.prompt(text, "http://localhost:8080/Evaluaties/" + optVal);
+				window.prompt(text, "http://evaluaties.pcilanguages.com/" + optVal);
 			}
 		}
 		

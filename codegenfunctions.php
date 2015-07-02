@@ -281,7 +281,7 @@ function addCourse($company)
 					
 					echo($bedrijfID);
 					
-					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`, `bedrijfID`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\", \"" . $bedrijfID . "\");";
+					$query = "INSERT INTO `cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`, `bedrijfID`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\", \"" . $bedrijfID . "\");";
 					
 					$sql = mysql_query($query);
                     if(!$sql)
@@ -328,12 +328,12 @@ function editSelectedCourse()
 							}
 							else
 							{
-								$querystring = "UPDATE `project`.`cursussen` SET `" . $i . "` = '" . $_POST[$i] . "' WHERE `cursussen`.`cursusID` = '" . $_GET['id'] . "';";
+								$querystring = "UPDATE `cursussen` SET `" . $i . "` = '" . $_POST[$i] . "' WHERE `cursussen`.`cursusID` = '" . $_GET['id'] . "';";
 							}
 						}
 						else
 						{
-							$querystring = "UPDATE `project`.`cursussen` SET `" . $i . "` = '" . $_POST[$i] . "' WHERE `cursussen`.`cursusID` = '" . $_GET['id'] . "';";
+							$querystring = "UPDATE `cursussen` SET `" . $i . "` = '" . $_POST[$i] . "' WHERE `cursussen`.`cursusID` = '" . $_GET['id'] . "';";
 						}
 						
 						$sql = mysql_query($querystring);
