@@ -50,10 +50,10 @@
 									<input placeholder="Trainernaam" type="text" name="trainernaam"></input>
 								</td>
 								<td>
-									<input placeholder="Begindatum" type="text" name="begindatum"></input>
+									<input placeholder="Begindatum" type="date" name="begindatum"></input>
 								</td>
 								<td>
-									<input placeholder="Einddatum" type="text" name="einddatum"></input>
+									<input placeholder="Einddatum" type="date" name="einddatum"></input>
 								</td>
 							</tr>
 						</table>

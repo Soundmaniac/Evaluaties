@@ -92,6 +92,8 @@
 		$sql = mysql_query($selectstring);
 		while ($sqlvalue = mysql_fetch_array($sql))
 		{
+			$firstdate = ($sqlvalue['begindatum'] != null ? date('d/m/Y', strtotime($sqlvalue['begindatum'])) : "-");
+			$lastdate = ($sqlvalue['einddatum'] != null? date('d/m/Y', strtotime($sqlvalue['einddatum'])) : "-");
 			echo("
 			<tr>
 				<td class='cursusnaam'>
@@ -100,15 +102,17 @@
 				<td>" . $sqlvalue["projectnummer"] . "</td>
 				<td class='trainernaam'>" . $sqlvalue["trainernaam"] . "</td>
 				<td><a href='compactcourseresults.php?course=" . $sqlvalue['cursusID'] . "'>Klik</a></td>
-				<td class='date'>" . $sqlvalue["begindatum"] . "</td>
-				<td class='date'>" . $sqlvalue["einddatum"] . "</td>
+				<td class='date'>" . $firstdate . "</td>
+				<td class='date'>" . $lastdate . "</td>
 				<td class='actions'>
-					<a title='Wijzigen' href='editCourseInfo.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
-						<img src='images/wijzigen.png'></img>
-					</a>
-					<a title='Verwijderen' class='confirmation' href='deleteCourse.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
-						<img src='images/verwijderen.png'></img>
-					</a>
+					<div class='positionaction'>
+						<a title='Wijzigen' href='editCourseInfo.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
+							<img src='images/wijzigen.png'></img>
+						</a>
+						<a title='Verwijderen' class='confirmation' href='deleteCourse.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
+							<img src='images/verwijderen.png'></img>
+						</a>
+					</div>
 				</td>
 			</tr>
 			");
