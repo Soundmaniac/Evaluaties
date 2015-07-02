@@ -1,8 +1,8 @@
 <?php
 	function generateRows()
 	{
-		mysql_connect("localhost", "root", "usbw") or die("Error message: " .mysql_error());
-		mysql_select_db("project");
+		mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
+		mysql_select_db("pcilaaw10_eval");
 		
 		/*TO DO: selecstrings vervangen*/
 		$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusID = '" . $_GET['course'] . "'";
@@ -77,8 +77,8 @@
 	
 	function generateCourses($searchvalue, $search)
 	{
-		mysql_connect("localhost", "root", "usbw") or die("Error message: " .mysql_error());
-		mysql_select_db("project");
+		mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
+		mysql_select_db("pcilaaw10_eval");
 		
 		if(!$search)
 		{
@@ -92,8 +92,6 @@
 		$sql = mysql_query($selectstring);
 		while ($sqlvalue = mysql_fetch_array($sql))
 		{
-			$firstdate = ($sqlvalue['begindatum'] != null ? date('d/m/Y', strtotime($sqlvalue['begindatum'])) : "-");
-			$lastdate = ($sqlvalue['einddatum'] != null? date('d/m/Y', strtotime($sqlvalue['einddatum'])) : "-");
 			echo("
 			<tr>
 				<td class='cursusnaam'>
@@ -102,17 +100,15 @@
 				<td>" . $sqlvalue["projectnummer"] . "</td>
 				<td class='trainernaam'>" . $sqlvalue["trainernaam"] . "</td>
 				<td><a href='compactcourseresults.php?course=" . $sqlvalue['cursusID'] . "'>Klik</a></td>
-				<td class='date'>" . $firstdate . "</td>
-				<td class='date'>" . $lastdate . "</td>
+				<td class='date'>" . $sqlvalue["begindatum"] . "</td>
+				<td class='date'>" . $sqlvalue["einddatum"] . "</td>
 				<td class='actions'>
-					<div class='positionaction'>
-						<a title='Wijzigen' href='editCourseInfo.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
-							<img src='images/wijzigen.png'></img>
-						</a>
-						<a title='Verwijderen' class='confirmation' href='deleteCourse.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
-							<img src='images/verwijderen.png'></img>
-						</a>
-					</div>
+					<a title='Wijzigen' href='editCourseInfo.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
+						<img src='images/wijzigen.png'></img>
+					</a>
+					<a title='Verwijderen' class='confirmation' href='deleteCourse.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
+						<img src='images/verwijderen.png'></img>
+					</a>
 				</td>
 			</tr>
 			");

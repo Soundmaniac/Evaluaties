@@ -1,4 +1,22 @@
 <?php
+function redirect($url)
+{
+    if (!headers_sent())
+    {
+        header('Location: '.$url);
+        exit;
+    }
+    else
+    {
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="'.$url.'";';
+        echo '</script>';
+        echo '<noscript>';
+        echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
+        echo '</noscript>'; exit;
+    }
+}
+
 
 function menuFunction()
 {
@@ -62,8 +80,8 @@ function safeSql($value)
 
 function Connect()
 {
-	mysql_connect("localhost", "root", "usbw") or die;
-	mysql_select_db("project");
+	mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
+	mysql_select_db("pcilaaw10_eval");
 }
 
 function CloseConnect()

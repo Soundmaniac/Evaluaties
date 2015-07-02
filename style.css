@@ -423,7 +423,7 @@ td.titel
     color: rgba(255,255,255, 1.0);
 }
 
-#studentsposition table td .positionaction, #coursesposition table td .positionaction
+#studentsposition table td .positionaction
 {
     width: 50px;
     margin-left: auto;

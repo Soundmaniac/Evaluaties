@@ -60,7 +60,7 @@
 
 								</td>
 								<td>
-									<?php GenerateRow(); ?>
+                                    <?php GenerateRow(); ?>
 								</td>
 							</tr>
 							<tr>
