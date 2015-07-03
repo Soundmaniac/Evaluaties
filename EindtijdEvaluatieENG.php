@@ -27,8 +27,11 @@ ini_set( "display_errors", 0);
 
 			<div id="content">
 				<p>
-					For each question, please mark one box and provide a short explanation.
+					For each question, please mark one box and provide a short explanation.<br />
+					<br />
+					Text areas are limited to 500 characters.
 				</p>
+				
 				<form name='reviewForm' action='insertendReview.php?lang=eng' method='POST'>
 					<input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/> <!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
 					<table class='tableforms'>
@@ -122,7 +125,7 @@ ini_set( "display_errors", 0);
 								<p>Suggestions and remarks: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas1" name='txtarea1'></textarea>
+								<textarea maxlength="500" id="ideas1" name='txtarea1'></textarea>
 							</td>
 						</tr>
 
@@ -279,7 +282,7 @@ ini_set( "display_errors", 0);
 								<p>Suggestions and remarks: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas2" name='txtarea2'></textarea>
+								<textarea maxlength="500" id="ideas2" name='txtarea2'></textarea>
 							</td>
 						</tr>
 
@@ -415,7 +418,7 @@ ini_set( "display_errors", 0);
 								<p>Suggestions and remarks: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas3" name='txtarea3'></textarea>
+								<textarea maxlength="500" id="ideas3" name='txtarea3'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -590,7 +593,7 @@ ini_set( "display_errors", 0);
 								<p>Suggestions and remarks: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas4" name='txtarea4'></textarea>
+								<textarea maxlength="500" id="ideas4" name='txtarea4'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -660,7 +663,7 @@ ini_set( "display_errors", 0);
 								<p>Suggestions and remarks: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas5" name='txtarea5'></textarea>
+								<textarea maxlength="500" id="ideas5" name='txtarea5'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -689,7 +692,7 @@ ini_set( "display_errors", 0);
 								<p>7. Which part did you find the most useful and why? </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas7" name='txtarea7'></textarea>
+								<textarea maxlength="500" id="ideas7" name='txtarea7'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -697,7 +700,7 @@ ini_set( "display_errors", 0);
 								<p>8. Did you find any section unnecessary? If so, why? </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas8" name='txtarea8'></textarea>
+								<textarea maxlength="500" id="ideas8" name='txtarea8'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -705,7 +708,7 @@ ini_set( "display_errors", 0);
 								<p>9. On which areas did you learn new skills or make progress? Please elaborate. </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas9" name='txtarea9'></textarea>
+								<textarea maxlength="500" id="ideas9" name='txtarea9'></textarea>
 							</td>
 						</tr>
 						<tr>
