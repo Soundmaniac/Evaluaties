@@ -2,6 +2,7 @@
 	include("functions.php");
 	function generateRows()
 	{
+		OpenConnection();
 		$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusID = '" . $_GET['course'] . "'";
 		
 		if($_SERVER["REQUEST_METHOD"] == "POST")
