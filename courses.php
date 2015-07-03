@@ -3,7 +3,7 @@
 		<meta http-equiv="Content-Type" content="text/html;" >
         <title>PCI Languages - Cursussen</title>
         <?php
-        include_once("functions.php");
+        include_once("dbFunctions.php");
 		include_once("tablegenfunctions.php");
         StartUp();
         ini_set( "display_errors", 0);
@@ -56,6 +56,7 @@
 								{
 									$search = true;
 								}
+								/*If tabe is not loaded correctly, change connection string*/
 								generateCourses($searchvalue, $search);
 								?>
 							</tbody>

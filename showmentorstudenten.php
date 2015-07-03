@@ -39,7 +39,7 @@
 				
 					<?php
 					
-					Connect();
+					OpenConnection();
 					$check = mysql_query("Select * From aanwezigheid  WHERE  studentID='" . $_GET['student'] . "'");
 					
 					echo("<table>");
@@ -71,7 +71,7 @@
 					}
 					echo("</table>");
 
-					CloseConnect();
+					CloseConnection();
 					?>
 
 				

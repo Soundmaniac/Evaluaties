@@ -7,7 +7,7 @@
 	$failed = null;
 	if($_POST['vnaam'] != null && $_POST['anaam'] != null)
 	{
-		Connect();
+		OpenConnection();
 		
 		mysql_query("
 			UPDATE vrijwilliger
@@ -17,7 +17,7 @@
 		");
 		
 		$succes = true;
-		CloseConnect();
+		CloseConnection();
 	}
 
 ?>
@@ -52,7 +52,7 @@
 				<form action="<?php echo("showvolunteer.php?vrijwilliger=" . $_GET['vrijwilliger'] . ""); ?>" method="post">
 				<?php
 				
-					Connect();
+					OpenConnection();
 					
 					$result = mysql_query("SELECT * FROM vrijwilliger WHERE ID='" . $_GET['vrijwilliger'] . "'");
 					echo("<table class='tcenter'>");
@@ -94,7 +94,7 @@
 						echo("<a href=showcursus.php?cursus=" . $row['cID'] . "> " . $row['cID'] . ",</a> ");
 					}
 					
-					CloseConnect();
+					CloseConnection();
 				?>
 				</div>
 				</form>

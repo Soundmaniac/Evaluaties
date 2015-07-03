@@ -42,7 +42,7 @@ $failed = null;
 echo("<table style='table-layout: fixed; width: 100%;' class='ocenter'><tr><td class='center'>Overzicht formulier</td></tr>");
 echo("<tr><td></td><td> Tussentijdse Evaluatie </td><td>Eind Evaluatie</td></tr>");
 
-Connect();
+OpenConnection();
 
 $getttdata= mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $_GET['id'] . "'");
 $rowtt = mysql_fetch_array($getttdata);
@@ -277,7 +277,7 @@ echo("
                     <td> " . $rowee[wensen]  ."</td>
                 </tr>");
 
-CloseConnect();
+CloseConnection();
 echo("</table>");
 ?>
 <div class="clear"> </div>

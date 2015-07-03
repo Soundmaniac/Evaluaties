@@ -1,17 +1,6 @@
 <?php
 /* Connectionstring */
 include_once("functions.php");
-function OpenConnection()
-{
-    /* !!Aanpassen wanneer er een andere database wordt gebruikt!! */
-    mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
-	mysql_select_db("pcilaaw10_eval");
-}
-
-function CloseConnection()
-{
-    mysql_close();
-}
 
 /* Functie voor de chart.js om de grafiek te vullen */
 /*
@@ -145,9 +134,9 @@ function GenerateRow()
                     }
 					else
 					{
+                        CloseConnection();
 						redirect("students.php?course=" . $_GET["course"]);
 					}
-                    CloseConnection();
                 }
             }
         }
@@ -226,7 +215,7 @@ function editSelectedRow()
 					}
 					else
 					{
-						redirect("students.php?course=" . $_GET["course"]);
+						header("Location: students.php?course=" . $_GET["course"]);
 					}
 				}
 			}
@@ -279,9 +268,23 @@ function addCourse($company)
 						$bedrijfID = $row['bedrijfID'];
 					}
 					
-					echo($bedrijfID);
+					$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `bedrijfID`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $bedrijfID . "\");";
 					
-					$query = "INSERT INTO `cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`, `bedrijfID`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\", \"" . $bedrijfID . "\");";
+					if(($_POST['begindatum'] != null && $_POST['begindatum'] != "") && ($_POST['einddatum'] != null && $_POST['einddatum'] != ""))
+					{
+						//Insert query with both dates
+						$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `einddatum`, `bedrijfID`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $_POST['einddatum'] . "\", \"" . $bedrijfID . "\");";
+					}
+					else if($_POST['begindatum'] != null && $_POST['begindatum'] != "" && ($_POST['einddatum'] == null || $_POST['einddatum'] == ""))
+					{
+						//Insert query with one date
+						$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `begindatum`, `bedrijfID`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['begindatum'] . "\", \"" . $bedrijfID . "\");";
+					}
+					else if($_POST['einddatum'] != null && $_POST['einddatum'] != "" && ($_POST['begindatum'] == null || $_POST['begindatum'] == ""))
+					{
+						//Insert query with another date
+						$query = "INSERT INTO `project`.`cursussen` (`cursusnaam`, `projectnummer`, `trainernaam`, `einddatum`, `bedrijfID`) VALUES (\"" . $_POST['cursusnaam'] . "\", \"" . $_POST['projectnummer'] . "\", \"" . $_POST['trainernaam'] . "\", \"" . $_POST['einddatum'] . "\", \"" . $bedrijfID . "\");";
+					}
 					
 					$sql = mysql_query($query);
                     if(!$sql)

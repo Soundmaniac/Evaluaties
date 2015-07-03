@@ -6,7 +6,7 @@
 	ini_set( "display_errors", 0);
 	AdminOnly();
 	
-		Connect();
+		OpenConnection();
 		
 		if($_POST['accnaam'] != null && $_POST['accww'] != null && $_POST['vnaam'] != null && $_POST['anaam'] != null 
 		&& $_POST['email'] != null && $_POST['tele'] != null)
@@ -42,7 +42,7 @@
 			$failed = true;
 		}
 					
-		CloseConnect();
+		CloseConnection();
 ?>
 
 <!DOCTYPE html>
@@ -74,11 +74,11 @@
 				
 				<?php
 					
-					Connect();
+					OpenConnection();
 					
 					showVrijwilliger($_SESSION['showall'], getPage($page));
 					
-					CloseConnect();
+					CloseConnection();
 					
 					Pages("mentor", "mentor.php");
 				

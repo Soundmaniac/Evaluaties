@@ -3,7 +3,6 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
         <title>form php</title>
         <?php
-        include_once("functions.php");
         include_once("dbFunctions.php");
 		include_once("codegenfunctions.php");
         StartUp();
@@ -50,10 +49,10 @@
 									<input placeholder="Trainernaam" type="text" name="trainernaam"></input>
 								</td>
 								<td>
-									<input placeholder="Begindatum" type="text" name="begindatum"></input>
+									<input placeholder="Begindatum" type="date" name="begindatum"></input>
 								</td>
 								<td>
-									<input placeholder="Einddatum" type="text" name="einddatum"></input>
+									<input placeholder="Einddatum" type="date" name="einddatum"></input>
 								</td>
 							</tr>
 						</table>

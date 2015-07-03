@@ -4,9 +4,6 @@
 	include_once("dbFunctions.php");
 	StartUp();
 	ini_set( "display_errors", 0);
-	
-
-
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +35,11 @@
 				
 				<?php
 					
-					Connect();
+					OpenConnection();
 					
 					showAanwezig($_SESSION['showall'], getPage($page));
 					
-					CloseConnect();
+					CloseConnection();
 					
 					Pages("cursist", "cursist.php");
 				

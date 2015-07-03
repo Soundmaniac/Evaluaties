@@ -5,7 +5,7 @@
 	StartUp();
 	AdminOnly();
 	
-	Connect();
+	OpenConnection();
 	
 	if($_POST['dag1'] != "default" && $_POST['maand1'] != "default" && $_POST['jaar1'] != "default" && $_POST['dag1'] != null && $_POST['maand1'] != null && $_POST['jaar1'] != null
 		&& $_POST['dag2'] != "default" && $_POST['maand2'] != "default" && $_POST['jaar2'] != "default" && $_POST['dag2'] != null && $_POST['maand2'] != null && $_POST['jaar2'] != null
@@ -50,7 +50,7 @@
 		$failed = true;
 	}
 	
-	CloseConnect();
+	CloseConnection();
 ?>
 
 <!DOCTYPE html>
@@ -81,11 +81,11 @@
 			<div id="content">
 				<?php
 					
-					Connect();
+					OpenConnection();
 
 					showCursus($_SESSION['showall'], getPage($page));
 					
-					CloseConnect();
+					CloseConnection();
 					
 					Pages("cursus", "cursus.php");					
 					

@@ -7,7 +7,7 @@
 	if(isset($_POST['values']))
 	{
 
-		Connect();
+		OpenConnection();
 		
 		$selectIDSQL = mysql_query("SELECT ID FROM account WHERE gebruiker = '$_SESSION[gebruiker]'");
 		$selectedID = mysql_fetch_array($selectIDSQL);
@@ -28,7 +28,7 @@
 		");
 		
 		$succes = true;
-		CloseConnect();
+		CloseConnection();
 	}
 
 ?>
@@ -60,7 +60,7 @@
 			<div id="content">
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 				<?php
-					Connect();
+					OpenConnection();
 					
 					$result = mysql_query("SELECT * FROM account WHERE gebruiker='" . $_SESSION['gebruiker'] . "'");
 					while ($row = mysql_fetch_array($result))
@@ -162,7 +162,7 @@
 						// echo("</table>");
 					// }
 					
-					CloseConnect();
+					CloseConnection();
 				?>
 				</form>
 				

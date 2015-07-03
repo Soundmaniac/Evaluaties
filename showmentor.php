@@ -48,7 +48,7 @@ Q
 				echo("<table class='ocenter'><tr><td class='center'>Overzicht formulier</td></tr>");
 				echo("<tr><td></td><td> Tussentijdse Evaluatie </td><td>Eind Evaluatie</td></tr>");
 				
-				Connect();
+				OpenConnection();
 
                 /*TO DO: Query aanpassen zoddat formulier op cursistID wordt laten zien*/
 				$getDatasql = mysql_query("SELECT * FROM formulieren WHERE contactgegevensID='" . $_GET['mentor'] . "'");
@@ -209,7 +209,7 @@ Q
 							<td> " . $row[eideas12]  ."</td>
 							</tr>");
 					}
-				CloseConnect();
+				CloseConnection();
 				echo("</table>");
 				?>
 				

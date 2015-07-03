@@ -9,7 +9,7 @@
 		
 	if($_POST['dag'] != "default" && $_POST['maand'] != "default" && $_POST['jaar'] != "default" && $_POST['dag'] != null && $_POST['maand'] != null && $_POST['jaar'] != null)
 	{		
-		Connect();
+		OpenConnection();
 		$startDate1 = "" . $_POST["jaar"] . "-" . $_POST["maand"] . "-" . $_POST["dag"] . "";
 		
 		
@@ -20,7 +20,7 @@
 			
 		");
 		
-		CloseConnect();
+		CloseConnection();
 		header( "Location: showcursus.php?cursus=" . $_GET['cursus'] . "" );
 	}
 
@@ -54,7 +54,7 @@
 			<div id="content">
 				<form action="<?php echo("showles.php?les=" . $_GET['les'] . "&cursus=" . $_GET['cursus'] . ""); ?>" method="post">
 				<?php
-					Connect();
+					OpenConnection();
 					
 					$result = mysql_query("SELECT * FROM les WHERE les.ID=" . $_GET['les'] . "");
 					while($row = mysql_fetch_array($result))
@@ -93,7 +93,7 @@
 					}
 					echo("</select><br/>");
 					
-					CloseConnect();
+					CloseConnection();
 				?>
 				<input type='submit' name='submit' value='Wijziging toepassen' class='submit'>  </input>
 				</form>

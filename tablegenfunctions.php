@@ -1,12 +1,8 @@
 <?php
+	include("functions.php");
 	function generateRows()
 	{
-		mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
-		mysql_select_db("pcilaaw10_eval");
-		
-		/*TO DO: selecstrings vervangen*/
 		$selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate, cu.* FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID LEFT JOIN cursussen cu ON cu.cursusID = c.cursusID WHERE cu.cursusID = '" . $_GET['course'] . "'";
-		//OLD STRING: $selectstring = "SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID";
 		
 		if($_SERVER["REQUEST_METHOD"] == "POST")
 		{
@@ -72,14 +68,12 @@
 				</tr>
 				");
 		}
-		mysql_close();
+		CloseConnection();
 	}
 	
 	function generateCourses($searchvalue, $search)
 	{
-		mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
-		mysql_select_db("pcilaaw10_eval");
-		
+		OpenConnection();
 		if(!$search)
 		{
 			$selectstring = "SELECT c.*, b.bedrijfnaam FROM `cursussen` c LEFT JOIN bedrijven b ON c.bedrijfID = b.bedrijfID WHERE b.bedrijfnaam = '". $_GET['company'] ."';";
@@ -92,27 +86,31 @@
 		$sql = mysql_query($selectstring);
 		while ($sqlvalue = mysql_fetch_array($sql))
 		{
+			$firstdate = ($sqlvalue['begindatum'] != null ? date('d/m/Y', strtotime($sqlvalue['begindatum'])) : "-");
+			$lastdate = ($sqlvalue['einddatum'] != null? date('d/m/Y', strtotime($sqlvalue['einddatum'])) : "-");
 			echo("
 			<tr>
 				<td class='cursusnaam'>
-					<a href='students.php?course=" . $sqlvalue["cursusID"] . "' />" . $sqlvalue["cursusID"] . " - " . $sqlvalue["cursusnaam"] . "</a>
+					<a href='students.php?course=" . $sqlvalue["cursusID"] . "' />" . $sqlvalue["cursusnaam"] . "</a>
 				</td>
 				<td>" . $sqlvalue["projectnummer"] . "</td>
 				<td class='trainernaam'>" . $sqlvalue["trainernaam"] . "</td>
 				<td><a href='compactcourseresults.php?course=" . $sqlvalue['cursusID'] . "'>Klik</a></td>
-				<td class='date'>" . $sqlvalue["begindatum"] . "</td>
-				<td class='date'>" . $sqlvalue["einddatum"] . "</td>
+				<td class='date'>" . $firstdate . "</td>
+				<td class='date'>" . $lastdate . "</td>
 				<td class='actions'>
-					<a title='Wijzigen' href='editCourseInfo.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
-						<img src='images/wijzigen.png'></img>
-					</a>
-					<a title='Verwijderen' class='confirmation' href='deleteCourse.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
-						<img src='images/verwijderen.png'></img>
-					</a>
+					<div class='positionaction'>
+						<a title='Wijzigen' href='editCourseInfo.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
+							<img src='images/wijzigen.png'></img>
+						</a>
+						<a title='Verwijderen' class='confirmation' href='deleteCourse.php?company=" . $_GET['company'] . "&id=" . $sqlvalue["cursusID"] . "'>
+							<img src='images/verwijderen.png'></img>
+						</a>
+					</div>
 				</td>
 			</tr>
 			");
 		}
-		mysql_close();
+		CloseConnection();
 	}
 ?>

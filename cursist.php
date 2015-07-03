@@ -6,7 +6,7 @@
 	ini_set( "display_errors", 0);
 	AdminOnly();
 	
-		Connect();
+		OpenConnection();
 		
 		if($_POST['woonplaats'] != null && $_POST['adres'] != null && $_POST['vnaam'] != null && $_POST['anaam'] != null 
 		&& $_POST['email'] != null && $_POST['tele'] != null && $_POST['dag'] != "default" && $_POST['maand'] != "default" && $_POST['jaar'] != "default")
@@ -23,7 +23,7 @@
 			$failed = true;
 		}
 					
-		CloseConnect();
+		CloseConnection();
 ?>
 
 <!DOCTYPE html>
@@ -55,11 +55,11 @@
 				
 				<?php
 					
-					Connect();
+					OpenConnection();
 					
 					showCursist($_SESSION['showall'], getPage($page));
 					
-					CloseConnect();
+					CloseConnection();
 					
 					Pages("cursist", "cursist.php");
 				

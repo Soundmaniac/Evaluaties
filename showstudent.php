@@ -9,7 +9,7 @@
 	{
 		if($_POST['vnaam'] != null && $_POST['anaam'] != null)
 		{
-			Connect();
+			OpenConnection();
 			
 			mysql_query("
 				UPDATE student
@@ -19,12 +19,12 @@
 			");
 			
 			$succes = true;
-			CloseConnect();
+			CloseConnection();
 		}
 	}
 	if($_POST['submitaw'] != null)
 	{
-		Connect();
+		OpenConnection();
 		
 		$i = 1;
 		while($i <= 12)
@@ -33,7 +33,7 @@
 			$i++;
 		}
 		
-		CloseConnect();
+		CloseConnection();
 	}
 ?>
 
@@ -67,7 +67,7 @@
 				<form action="<?php echo("showstudent.php?student=" . $_GET['student'] . ""); ?>" method="post">
 				<?php
 				
-					Connect();
+					OpenConnection();
 					
 					$result = mysql_query("SELECT * FROM student WHERE ID='" . $_GET['student'] . "'");
 					echo("<table class='tcenter'>");
@@ -98,7 +98,7 @@
 						echo("<p style='color: green;'>Aanpassing gelukt</p>");
 					}
 					
-					CloseConnect();
+					CloseConnection();
 					
 				?>
 				</form>

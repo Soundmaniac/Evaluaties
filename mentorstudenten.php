@@ -37,21 +37,15 @@
 			<div id="content">
 				
 				<?php
-					
-					Connect();
-					
+					OpenConnection();
+
 					showMentorlln($_SESSION['showall'], getPage($page));
 					
-					CloseConnect();
+					CloseConnection();
 					
 					Pages("cursist", "cursist.php");
 				
 				?>
-				
-				
-				
-				
-				
 				<div class="clear"> </div>
 			</div>
 		</div>

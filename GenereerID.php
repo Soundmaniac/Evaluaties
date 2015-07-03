@@ -6,7 +6,7 @@
 	ini_set( "display_errors", 0);
 	AdminOnly();
 	
-		Connect();
+		OpenConnection();
 		
 		if($_POST['accnaam'] != null && $_POST['accww'] != null)
 		{
@@ -29,7 +29,7 @@
 			$failed = true;
 		}
 					
-		CloseConnect();
+		CloseConnection();
 ?>
 
 <!DOCTYPE html>

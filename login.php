@@ -11,7 +11,7 @@ if(isset($_SESSION['gebruiker']))
 if (isset($_POST['inloggen'])) { 
 	if(isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord']))
 	{
-		Connect();
+		OpenConnection();
 		$logcheck = true;
 
 		$result = mysql_query("SELECT * FROM account WHERE gebruiker='" . safeSql($_POST["gebruikersnaam"]) . "' AND wachtwoord='" . safeSql($_POST['wachtwoord']) . "'");
@@ -33,7 +33,7 @@ if (isset($_POST['inloggen'])) {
 			$logcheck = false;
 		}
 
-		CloseConnect();
+		CloseConnection();
 
 		if($logcheck == true)
 		{
@@ -54,7 +54,7 @@ else if (isset($_POST['login'])) {
 	
 	if(isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord']))
 	{
-		Connect();
+		OpenConnection();
 		$logcheck = true;
 		
 		$result = mysql_query("SELECT * FROM account WHERE gebruiker='" . safeSql($_POST["gebruikersnaam"]) . "' AND wachtwoord='" . safeSql($_POST['wachtwoord']) . "'");
@@ -76,7 +76,7 @@ else if (isset($_POST['login'])) {
 			$logcheck = false;
 		}
 
-	CloseConnect();
+	CloseConnection();
 
 		if($logcheck == true)
 		{

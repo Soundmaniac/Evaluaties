@@ -38,7 +38,7 @@
 				<div>
 				<div class="cleft">
 				<?php
-					Connect();
+					OpenConnection();
 					
 					echo("<table>");
 					$result = mysql_query("SELECT * FROM cursus WHERE cursus.id='" . $_GET['cursus'] . "'");
@@ -144,7 +144,7 @@
 
 					
 					
-					CloseConnect();
+					CloseConnection();
 				?>
 				<div class="clear"> </div>				
 			</div>

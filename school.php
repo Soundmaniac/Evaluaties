@@ -5,7 +5,7 @@
 	StartUp();
 	AdminOnly();
 	
-Connect();
+	OpenConnection();
 	
 	if($_POST['schoolnaam'] != null)
 	{
@@ -19,7 +19,7 @@ Connect();
 		$failed = true;
 	}
 	
-	CloseConnect();
+	CloseConnection();
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ Connect();
 			<div id="content">
 				<?php
 					
-					Connect();
+					OpenConnection();
 
 					echo("<table class='center'>");
 						
@@ -74,7 +74,7 @@ Connect();
 						echo("</table>");
 
 					
-					CloseConnect();
+					CloseConnection();
 					
 					Pages("school", "school.php");	
 					

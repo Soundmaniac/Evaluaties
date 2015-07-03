@@ -38,7 +38,7 @@
 				
 				<?php
 				
-					Connect();
+					OpenConnection();
 					
 					/*$page = getPage($page);
 					
@@ -51,7 +51,7 @@
 					
 					showMentor($_SESSION['showall'], getPage($page));
 					
-					CloseConnect();
+					CloseConnection();
 					
 					Pages("mentor", "mentor.php");
 					

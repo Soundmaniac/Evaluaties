@@ -7,20 +7,20 @@
 	
 	if($_POST['vrijwilliger'] != null && $_POST['submitvw'] != null)
 	{
-		Connect();
+		OpenConnection();
 		mysql_query("INSERT INTO vwrelatie (cursusID, vrijwilligerID) VALUES (" . $_GET['cursus'] . ", " . $_POST['vrijwilliger'] . ")");
-		CloseConnect();
+		CloseConnection();
 	}
 	if($_POST['verwijdervw'] == 'true' && $_POST['submitvw'] != null)
 	{
-		Connect();
+		OpenConnection();
 		mysql_query("DELETE FROM vwrelatie WHERE cursusID=" . $_GET['cursus'] . ";");
-		CloseConnect();
+		CloseConnection();
 	}
 	
 	if($_POST['submitst'] != null)
 	{
-		Connect();
+		OpenConnection();
 		foreach($_POST as $value)
 		{
 			mysql_query("
@@ -34,42 +34,42 @@
 				VALUES ('" . $_POST['accnaam'] . "', '" . $value . "');
 			");
 		}
-		CloseConnect();
+		CloseConnection();
 	}
 	
 	if($_POST['submitdv'] != null)
 	{
-		Connect();
+		OpenConnection();
 		foreach($_POST as $value)
 		{
 			mysql_query("UPDATE cursist SET cursusID = NULL WHERE ID=" . $value . "");
 		}
-		CloseConnect();
+		CloseConnection();
 	}
 	if($_POST['submitdt'] != null)
 	{
-		Connect();
+		OpenConnection();
 		foreach($_POST as $value)
 		{
 			mysql_query("UPDATE cursist SET cursusID = " . $_GET['cursus'] . " WHERE ID=" . $value . "");
 		}
-		CloseConnect();
+		CloseConnection();
 	}
 	
 	if($_POST['submitsv'] != null)
 	{
-		Connect();
+		OpenConnection();
 		foreach($_POST as $value)
 		{
 			mysql_query("UPDATE aanwezigheid SET lesnummer = NULL");
 			mysql_query("UPDATE student	SET student.cursusID = NULL	WHERE student.ID='" . $value . "';");
 		}
-		CloseConnect();
+		CloseConnection();
 	}
 	
 	if($_POST['submitst'] != null)
 	{
-		Connect();
+		OpenConnection();
 		$result = mysql_query("SELECT MIN(ID) FROM les WHERE les.cursusID = '" . $_GET['cursus'] . "'");
 		while($row = mysql_fetch_array($result))
 		{
@@ -89,7 +89,7 @@
 				$i++;
 			}
 		}
-		CloseConnect();
+		CloseConnection();
 	}
 ?>
 
@@ -122,7 +122,7 @@
 			
 				<form action="<?php echo("cursuswijzigen.php?cursus=" . $_GET['cursus'] . "");?>" method="post">
 					<?php
-						Connect();
+						OpenConnection();
 						$result = mysql_query("
 							SELECT cursus.ID cID, vrijwilliger.ID vID, vrijwilliger.voornaam, vrijwilliger.tussenvgsl, vrijwilliger.achternaam
 							FROM cursus
@@ -152,7 +152,7 @@
 							}
 						}
 						echo("</div>");
-						CloseConnect();
+						CloseConnection();
 						
 					?>
 					<div class="clear"></div>
@@ -167,7 +167,7 @@
 						<h2>Cursisten beheer</h2>
 						<div class="cleft">
 							<?php
-								Connect();
+								OpenConnection();
 								$result = mysql_query("SELECT * FROM cursist WHERE cursusID=" . $_GET['cursus'] . "");
 								if(mysql_num_rows($result) == 0)
 								{
@@ -184,13 +184,13 @@
 										");
 									}
 								}
-								CloseConnect();
+								CloseConnection();
 							?>
 							<input type="submit" name="submitdv" value="Deelnemers verwijderen" class="submit"/>
 						</div>
 						<div class="cright">
 							<?php
-								Connect();
+								OpenConnection();
 								echo("Beschikbare cursisten:<br/>");
 								$result = mysql_query("SELECT * FROM cursist WHERE cursusID IS NULL");
 								while($row = mysql_fetch_array($result))
@@ -200,7 +200,7 @@
 										<a href='showcursist.php?cursist=" . $row['ID'] . "'>" . $row['voornaam'] . " " . $row['tussenvgsl'] . " " . $row['achternaam'] . "</a><br/>"
 									);
 								}
-								CloseConnect();
+								CloseConnection();
 							?>
 							<input type="submit" name="submitdt" value="Deelnemers toevoegen" class="submit"/>
 						</div>
@@ -213,7 +213,7 @@
 						<h2>Studenten beheer</h2>
 						<div class="cleft">
 							<?php
-								Connect();
+								OpenConnection();
 								$result = mysql_query("SELECT * FROM student WHERE cursusID=" . $_GET['cursus'] . "");
 								if(mysql_num_rows($result) == 0)
 								{
@@ -230,13 +230,13 @@
 										");
 									}
 								}
-								CloseConnect();
+								CloseConnection();
 							?>
 							<input type="submit" name="submitsv" value="Studenten verwijderen" class="submit"/>
 						</div>
 						<div class="cright">
 							<?php
-								Connect();
+								OpenConnection();
 								$result = mysql_query("SELECT * FROM student WHERE cursusID IS NULL");
 								if(mysql_num_rows($result) == 0)
 								{
@@ -253,7 +253,7 @@
 										");
 									}
 								}
-								CloseConnect();
+								CloseConnection();
 								echo $s;
 							?>
 							<input type="submit" name="submitst" value="Studenten toevoegen" class="submit"/>

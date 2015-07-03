@@ -6,7 +6,7 @@
 	ini_set( "display_errors", 0);
 	AdminOnly();
 	
-		Connect();
+		OpenConnection();
 		
 		if($_POST['vnaam'] != null && $_POST['anaam'] != null && $_POST['email'] != null && $_POST['tele'] != null && $_POST['mentor'] != "select")
 		{
@@ -36,7 +36,7 @@
 			$failed = true;
 		}
 					
-		CloseConnect();
+		CloseConnection();
 ?>
 
 <!DOCTYPE html>

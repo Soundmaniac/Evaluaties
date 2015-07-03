@@ -17,7 +17,7 @@
         <div id="resultstitle">
             <h2>
                 <?php
-                Connect();
+                OpenConnection();
                 $sql = mysql_query("SELECT * FROM cursussen WHERE cursusID='" . $_GET['course'] . "'");
                 $sql2 = mysql_query("SELECT * FROM cursisten WHERE cursusID='" . $_GET['course'] . "'");
                 $row = mysql_fetch_array($sql);
@@ -27,7 +27,7 @@
                     $counter++;
                 }
                 echo ("Cursusoverzicht: <br/>". $row["cursusnaam"] . " - " . $row["projectnummer"] . " (" . $counter . " studenten) <br/>" . $row["trainernaam"] );
-                CloseConnect();
+                CloseConnection();
                 ?>
             </h2>
             <br/>

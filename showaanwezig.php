@@ -8,7 +8,7 @@
 
 	if($_POST['submitaw'] != null)
 	{
-		Connect();
+		OpenConnection();
 		
 	    
 		if ($_POST['area1'] != null)
@@ -151,7 +151,7 @@
 			$i++;
 		}
 		
-		CloseConnect();
+		CloseConnection();
 	}
 
 ?>
@@ -187,7 +187,7 @@
 				
 					<?php
 					
-					Connect();
+					OpenConnection();
 					$check = mysql_query("Select * From aanwezigheid  WHERE  studentID='" . $_GET['student'] . "'");
 					echo("<table>");
 					echo("<tr><td class='center'>Les nummer</td>");
@@ -228,7 +228,7 @@
 						echo("<p style='color: red;>mislukt</p>");
 					}
 					
-					CloseConnect();
+					CloseConnection();
 					?>
 
 				

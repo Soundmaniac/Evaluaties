@@ -17,14 +17,14 @@
         <div id="resultstitle">
             <h2>
                 <?php
-                Connect();
+                OpenConnection();
                 $sql1 = mysql_query("SELECT * FROM cursisten WHERE cursistID='" . $_GET['id'] . "'");
                 $row1 = mysql_fetch_array($sql1);
                 $sql2 = mysql_query("SELECT * FROM cursussen WHERE cursusID='" . $row1['cursusID'] . "'");
                 $row2 = mysql_fetch_array($sql2);
                 $counter = 0;
                 echo ("Studentoverzicht: <br/>". $row1["cursistVoornaam"] . " " . $row1["cursistAchternaam"] . " <br/> " . $row2["cursusnaam"] . " - " . $row2["projectnummer"]);
-                CloseConnect();
+                CloseConnection();
                 ?>
             </h2>
             <br/>
@@ -93,7 +93,7 @@
             ?>
         </div>
         <?php
-        Connect();
+        OpenConnection();
         $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
         $rowee = mysql_fetch_array($geteedata);
         ?>
@@ -152,7 +152,7 @@
             </table>
         </div>
         <?php
-        CloseConnect();
+        CloseConnection();
         ?>
         <br/>
         <br/>

@@ -78,20 +78,24 @@ function safeSql($value)
 	return mysql_real_escape_string($value);
 }
 
-function Connect()
+function OpenConnection()
 {
-	mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
-	mysql_select_db("pcilaaw10_eval");
+	//For server:
+	//mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
+	//mysql_select_db("pcilaaw10_eval");
+	//For USBWebserver:
+	mysql_connect("localhost", "root", "usbw") or die;
+	mysql_select_db("project");
 }
 
-function CloseConnect()
+function CloseConnection()
 {
 	mysql_close();
 }
 
 function CheckGrades($cursistid)
 {
-    Connect();
+    OpenConnection();
     $getttdata= mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $cursistid . "'");
     $rowtt = mysql_fetch_array($getttdata);
 
@@ -251,11 +255,12 @@ function CheckGrades($cursistid)
                 break;
         }
     }
+    CloseConnection();
 }
 
 function GetData($number, $cursistid)
 {
-    Connect();
+    OpenConnection();
     $getttdata= mysql_query("SELECT * FROM ttsurveyresults WHERE cursistID='" . $cursistid . "'");
     $rowtt = mysql_fetch_array($getttdata);
 
@@ -318,12 +323,12 @@ function GetData($number, $cursistid)
                 break;
         }
     }
-    CloseConnect();
+    CloseConnection();
 }
 
 function GetCourseData($number, $cursusID)
 {
-    Connect();
+    OpenConnection();
     $tt1 = 0;
     $tt2 = 0;
     $tt3 = 0;
@@ -420,7 +425,7 @@ function GetCourseData($number, $cursusID)
                 break;
         }
     }
-    CloseConnect();
+    CloseConnection();
 }
 
 function profileFunction()
@@ -484,7 +489,7 @@ function MentorOnly()
 
 function Pages($table, $page)
 {
-	Connect();
+	OpenConnection();
 
 	$result = mysql_query("SELECT * FROM " . $table . "");
 	$amount = mysql_num_rows($result) / 10;
@@ -525,7 +530,7 @@ function Pages($table, $page)
 		echo("<div class='clear'></div></div>");
 	}
 	
-	CloseConnect();
+	CloseConnection();
 }
 
 /*Functions by Barry*/

@@ -3,7 +3,6 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
         <title>form php</title>
         <?php
-        include_once("functions.php");
         include_once("dbFunctions.php");
 		include_once("codegenfunctions.php");
         StartUp();

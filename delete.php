@@ -1,5 +1,4 @@
 <?php
-include_once("functions.php");
 include_once("codegenfunctions.php");
 if($_GET["id"] != null && $_GET["id"] != "")
 {

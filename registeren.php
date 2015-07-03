@@ -1,6 +1,6 @@
 <?php
 	include_once("functions.php");
-	Connect();
+	OpenConnection();
 		
 		if($_POST['accnaam'] != null && $_POST['accww'] != null && $_POST['vnaam'] != null && $_POST['anaam'] != null)
 		{
@@ -36,7 +36,7 @@
 			$failed = true;
 		}
 					
-		CloseConnect();
+		CloseConnection();
 	
 ?>
 

@@ -7,7 +7,7 @@
 	$failed = null;
 	if($_POST['vnaam'] != null && $_POST['anaam'] != null)
 	{
-		Connect();
+		OpenConnection();
 		
 		mysql_query("
 			UPDATE cursist
@@ -17,7 +17,7 @@
 		");
 		
 		$succes = true;
-		CloseConnect();
+		CloseConnection();
 	}
 	else if($_POST['submit'] != null)
 	{
@@ -55,7 +55,7 @@
 				<form action="<?php echo("showcursist.php?cursist=" . $_GET['cursist'] . ""); ?>" method="post">
 				<?php
 				
-					Connect();
+					OpenConnection();
 					
 					$result = mysql_query("SELECT * FROM cursist WHERE ID='" . $_GET['cursist'] . "'");
 					echo("<table class='tcenter'>");
@@ -84,7 +84,7 @@
 						echo("<p style='color: green;'>Aanpassing gelukt</p>");
 					}
 					
-					CloseConnect();
+					CloseConnection();
 					
 				?>
 				</form>
