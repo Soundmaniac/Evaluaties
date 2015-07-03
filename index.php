@@ -40,9 +40,7 @@ if(isset($_SESSION['gebruiker']))
 					<div class="clear"> </div>
 				</div>
 			
-			</form>
-			<div style="margin-left: 15px;">Click <a href='indexeng.php'> here </a> for English version.</div>
-		
+			</form>		
 		</div>
 		
 	</body>
