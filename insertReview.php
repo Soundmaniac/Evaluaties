@@ -12,6 +12,7 @@ OpenConnection();
 /*Every specific column can be handled differently when there is not value being posted
 by replacing the null value in the following part of the code:*/
 $cursistID = $_POST['id'];
+$lang = $_GET['lang'];
 $cursusinhouda = (isset($_POST['group1a']) ? $_POST['group1a'] : null);
 $cursusinhoudb = (isset($_POST['group1b']) ? $_POST['group1b'] : null);
 $cursusinhoudc = (isset($_POST['group1c']) ? $_POST['group1c'] : null);
@@ -45,5 +46,5 @@ else
 }
 
 CloseConnection();
-header( 'Location: thankpage.php' );
+header( 'Location: thankpage.php?lang=' . $lang );
 ?>

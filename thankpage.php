@@ -26,9 +26,22 @@
 			<!--CSS aanpassen! -->
                 <div class="positioncontent">
 					<p>
-						Thanks for filling in the review.
+						
 						<?php
-						backFunction();
+						if($_GET['lang'] == "eng")
+						{
+							echo("Thanks for filling in the review.");
+						}
+						else if($_GET['lang'] == "nl")
+						{
+							echo("Bedankt voor het invullen van de formulier.");
+						}
+						else
+						{
+							echo("U heeft geen taal geselecteerd.");
+						}
+						//If you're logged in as admin:
+							backFunction();
 						?>
 					</p>
                 </div>

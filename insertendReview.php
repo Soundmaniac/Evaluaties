@@ -8,6 +8,7 @@ OpenConnection();
 //$selectedID = mysql_fetch_array($selectIDSQL);
 
 $cursistID = $_POST['id'];
+$lang = $_GET['lang'];
 $meninga = (isset($_POST['group1a']) ? $_POST['group1a'] : null);
 $meningb = (isset($_POST['group1b']) ? $_POST['group1b'] : null);
 $meningc = (isset($_POST['group1c']) ? $_POST['group1c'] : null);
@@ -66,5 +67,5 @@ else
 
 CloseConnection();
 
-header( 'Location: thankpage.php' );
+header( 'Location: thankpage.php?lang=' . $lang);
 ?>

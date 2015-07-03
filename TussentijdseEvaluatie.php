@@ -43,7 +43,7 @@
 			
 			<div id="content">
 				<p>Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.</p>
-				<form name='reviewForm' action='insertReview.php' method='POST'>
+				<form name='reviewForm' action='insertReview.php?lang=nl' method='POST'>
 				<!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
 				<input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/>
 				<table class="tableforms">
