@@ -49,13 +49,18 @@
 				<table class="tableforms">
 					<tbody>
 						<tr >
-							<td class='titel'>
-								1. Hoe zou u de inhoud van de cursus willen beoordelen voor wat betreft:
-							</td>
+
 						</tr>
+                        <tr>
+                            <td class='titel'>
+                                Cursusinhoud
+                            </td>
+                        </tr>
 						<tr>
 							<td>
-							</td>
+                                Hoe zou u de inhoud van de cursus willen beoordelen voor wat betreft:
+
+                            </td>
 							<td class='center'>
 								5. Uitstekend
 							</td>
@@ -74,7 +79,7 @@
 						</tr>
 						<tr>
 							<td>
-								a.  Aansluiting op uw startniveau
+								1a.  Aansluiting op uw startniveau
 							</td>
 							<td class='center'>
 								<input type="radio" name="group1a" value="5">
@@ -94,7 +99,7 @@
 						</tr>
 						<tr>
 							<td>
-								b.  Toepasbaarheid op uw situatie
+								1b.  Toepasbaarheid op uw situatie
 							</td>
 							<td class='center'>
 								<input type="radio" name="group1b" value="5">
@@ -114,7 +119,7 @@
 						</tr>
 						<tr>
 							<td>
-								c.  Kwaliteit van de lesstof
+								1c.  Kwaliteit van de lesstof
 							</td>
 							<td class='center'>
 								<input type="radio" name="group1c" value="5">
@@ -142,13 +147,12 @@
 						</tr>
 
 						<tr>
-							<td class='titel'>
-							Wat is uw oordeel over de volgende aspecten van uw cursus:
-							</td>
+
 						</tr>
 						<tr>
-							<td>
-							</td>
+                            <td class='titel'>
+                                Wat is uw oordeel over de volgende aspecten van uw cursus:
+                            </td>
 							<td class='center'>
 								5. Uitstekend
 							</td>
@@ -253,16 +257,13 @@
 							<textarea id="ideas2" name='txtarea2'></textarea>
 							</td>
 						</tr>
-
 						<tr>
-							<td class='titel'>
-							Algemeen
-							</td>
+
 						</tr>
 						<tr>
-							<td>
-								
-							</td>
+                            <td class='titel'>
+                                Algemeen
+                            </td>
 							<td class='center'>
 								5. Uitstekend
 							</td>

@@ -31,17 +31,18 @@
                 <p>
                     Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.
                 </p>
-                <form name='reviewForm' action='insertendReview.php' method='POST'>
+                <form name='reviewForm' action='insertendReview.php?lang=nl' method='POST'>
 					<input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/> <!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
 					<table class='tableforms'>
 						<tr >
 							<td class='titel'>
-							1.  Wat beschrijft het best uw mening over de volgende onderwerpen? 
+                                Cursusinhoud
 							</td>
 						</tr>
 						<tr>
 							<td>
-							</td>
+                                Wat beschrijft het best uw mening over de volgende onderwerpen?
+                            </td>
 							<td class='center'>
 								5. Uitstekend
 							</td>
@@ -60,7 +61,7 @@
 						</tr>
 						<tr>
 							<td>
-								a. Passende moeilijkheidsgraad
+								1a. Passende moeilijkheidsgraad
 							</td>
 							<td class='center'>
 								<input type="radio" name="group1a" value="5">
@@ -80,7 +81,7 @@
 						</tr>
 						<tr>
 							<td>
-								b. Toepasbaarheid op uw situatie
+								1b. Toepasbaarheid op uw situatie
 							</td>
 							<td class='center'>
 								<input type="radio" name="group1b" value="5">
@@ -100,7 +101,7 @@
 						</tr>
 						<tr>
 							<td>
-								c. Kwaliteit van de lesstof
+								1c. Kwaliteit van de lesstof
 							</td>
 							<td class='center'>
 								<input type="radio" name="group1c" value="5">
@@ -128,18 +129,16 @@
 						</tr>
 
 						<tr>
-							<td class='titel'>
-							Structuur van de cursus
-							</td>
+
+						</tr>
+						<tr>
+                            <td class='titel'>
+                                Structuur van de cursus
+                            </td>
 						</tr>
 						<tr>
 							<td>
-							2. Wat beschrijft het best uw mening over de volgende onderwerpen?
-							</td>
-						</tr>
-						<tr>
-							<td>
-								
+                                Wat beschrijft het best uw mening over de volgende onderwerpen?
 							</td>
 							<td class='center'>
 								5. Uitstekend
@@ -159,7 +158,7 @@
 						</tr>
 						<tr>
 							<td>
-								a. Volgorde
+								2a. Volgorde
 							</td>
 							<td class='center'>
 								<input type="radio" name="group2a" value="5">
@@ -179,7 +178,7 @@
 						</tr>
 						<tr>
 							<td>
-								b. Tempo
+								2b. Tempo
 							</td>
 							<td class='center'>
 								<input type="radio" name="group2b" value="5">
@@ -199,7 +198,7 @@
 						</tr>
 						<tr>
 							<td>
-								c. Omvang
+								2c. Omvang
 							</td>
 							<td class='center'>
 								<input type="radio" name="group2c" value="5">
@@ -219,7 +218,7 @@
 						</tr>
 						<tr>
 							<td>
-								d. Verhouding theorie/praktijk
+								2d. Verhouding theorie/praktijk
 							</td>
 							<td class='center'>
 								<input type="radio" name="group2d" value="5">
@@ -239,7 +238,7 @@
 						</tr>
 						<tr>
 							<td>
-								e. Niveau
+								2e. Niveau
 							</td>
 							<td class='center'>
 								<input type="radio" name="group2e" value="5">
@@ -259,7 +258,7 @@
 						</tr>
 						<tr>
 							<td>
-								f. Nut van de gebruikte werkvormen
+								2f. Nut van de gebruikte werkvormen
 							</td>
 							<td class='center'>
 								<input type="radio" name="group2f" value="5">
@@ -287,18 +286,16 @@
 						</tr>
 
 						<tr>
-							<td class='titel'>
-							Algemeen
-							</td>
+						</tr>
+						<tr>
+                            <td class='titel'>
+                                Cursusmateriaal
+                            </td>
 						</tr>
 						<tr>
 							<td>
-							3. Wat beschrijft het best uw mening over het cursusmateriaal? 
-							</td>
-						</tr>
-						<tr>
-							<td> 
-							</td>
+                                Wat beschrijft het best uw mening over het cursusmateriaal?
+                            </td>
 							<td class='center'>
 								5. Uitstekend
 							</td>
@@ -317,7 +314,7 @@
 						</tr>
 						<tr>
 							<td>
-								a. Kwaliteit 
+								3a. Kwaliteit
 							</td>
 							<td class='center'>
 								<input type="radio" name="group3a" value="5">
@@ -337,7 +334,7 @@
 						</tr>
 						<tr>
 							<td>
-								b. Taalgebruik
+								3b. Taalgebruik
 							</td>
 							<td class='center'>
 								<input type="radio" name="group3b" value="5">
@@ -357,7 +354,7 @@
 						</tr>
 						<tr>
 							<td>
-								c. Inhoud
+								3c. Inhoud
 							</td>
 							<td class='center'>
 								<input type="radio" name="group3c" value="5">
@@ -377,7 +374,7 @@
 						</tr>
 						<tr>
 							<td>
-								d. Duidelijkheid
+								3d. Duidelijkheid
 							</td>
 							<td class='center'>
 								<input type="radio" name="group3d" value="5">
@@ -397,7 +394,7 @@
 						</tr>
 						<tr>
 							<td>
-								e. Toepasbaarheid
+								3e. Toepasbaarheid
 							</td>
 							<td class='center'>
 								<input type="radio" name="group3e" value="5">
@@ -424,19 +421,16 @@
 							</td>
 						</tr>
 						<tr>
-							<td class='titel'>
-							Algemeen
-							</td>
+						</tr>
+						<tr>
+                            <td class='titel'>
+                                Docent / Trainer
+                            </td>
 						</tr>
 						<tr>
 							<td>
-							4.  Wat beschrijft het best uw mening over de docent / trainer met betrekking tot de volgende aspecten? 
-							</td>
-						</tr>
-						<tr>
-							<td>
-								
-							</td>
+                                Wat beschrijft het best uw mening over de docent / trainer met betrekking tot de volgende aspecten?
+                            </td>
 							<td class='center'>
 								5. Uitstekend
 							</td>
@@ -602,15 +596,12 @@
 							</td>
 						</tr>
 						 <tr>
-							<td>
-							5. Algemeen
-							</td>
 						</tr>
 						<tr>
-							<td>
-								
-							</td>
-							<td class='center'>
+                            <td class="titel">
+                                Algemeen
+                            </td>
+                            <td class='center'>
 								5. Uitstekend
 							</td>
 							<td class='center'>
