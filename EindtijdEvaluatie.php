@@ -29,7 +29,9 @@
             
             <div id="content">
                 <p>
-                    Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.
+                    Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.<br />
+					<br />
+					Invulvelden zijn gelimiteerd tot 500 karakters.
                 </p>
                 <form name='reviewForm' action='insertendReview.php?lang=nl' method='POST'>
 					<input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/> <!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
@@ -124,7 +126,7 @@
 								<p>Suggesties en opmerkingen: </p>
 							</td>
 							<td class='open'>
-							<textarea id="ideas1" name='txtarea1'></textarea>
+							<textarea maxlength="500" id="ideas1" name='txtarea1'></textarea>
 							</td>
 						</tr>
 
@@ -281,7 +283,7 @@
 								<p>Suggesties en opmerkingen: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas2" name='txtarea2'></textarea>
+								<textarea maxlength="500" id="ideas2" name='txtarea2'></textarea>
 							</td>
 						</tr>
 
@@ -417,7 +419,7 @@
 								<p>Suggesties en opmerkingen: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas3" name='txtarea3'></textarea>
+								<textarea maxlength="500" id="ideas3" name='txtarea3'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -592,7 +594,7 @@
 								<p>Suggesties en opmerkingen: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas4" name='txtarea4'></textarea>
+								<textarea maxlength="500" id="ideas4" name='txtarea4'></textarea>
 							</td>
 						</tr>
 						 <tr>
@@ -662,7 +664,7 @@
 								<p>Suggesties en opmerkingen: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas5" name='txtarea5'></textarea>
+								<textarea maxlength="500" id="ideas5" name='txtarea5'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -691,7 +693,7 @@
 								<p>7. Welke onderdelen hebben u het meest aangesproken en waarom? </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas7" name='txtarea7'></textarea>
+								<textarea maxlength="500" id="ideas7" name='txtarea7'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -699,7 +701,7 @@
 								<p>8. Waren er onderdelen die u overbodig vond? Indien van toepassing, gaarne toelichten. </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas8" name='txtarea8'></textarea>
+								<textarea maxlength="500" id="ideas8" name='txtarea8'></textarea>
 							</td>
 						</tr>
 						 <tr>
@@ -707,7 +709,7 @@
 								<p>9. Bij welke onderdelen heeft u nieuwe vaardigheden opgedaan of uw vaardigheden verbeterd? Gaarne toelichten. </p>
 							</td>
 							<td class='open'>
-							<textarea id="ideas9" name='txtarea9'></textarea>
+							<textarea maxlength="500" id="ideas9" name='txtarea9'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -715,7 +717,7 @@
 								<p>10. Hoeveel tijd (in uren) heeft u  in totaal besteed aan de voorbereiding van de cursus/training? </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas10" name='txtarea10'></textarea>
+								<textarea maxlength="500" id="ideas10" name='txtarea10'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -771,7 +773,7 @@
 								<p>Als u nog opmerkingen, toelichting of wensen heeft, kunt u die hier invullen: </p>
 							</td>
 							<td class='open'>
-								<textarea id="ideas12" name='txtarea12'></textarea>
+								<textarea maxlength="500" id="ideas12" name='txtarea12'></textarea>
 							</td>
 						</tr>
 						<tr>

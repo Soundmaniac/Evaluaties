@@ -43,7 +43,9 @@ if ($_GET["company"] == 4)
 
 <div id="content">
 <p>
-    For each question, please mark one box and provide a short explanation.
+    For each question, please mark one box and provide a short explanation.<br />
+	<br />
+	Invulvelden zijn gelimiteerd tot 500 karakters.
 </p>
 <form name='reviewForm' action='insertReview.php?lang=eng' method='POST'>
 <!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
@@ -143,7 +145,7 @@ if ($_GET["company"] == 4)
         <p>Comments and suggestions: </p>
     </td>
     <td class='open'>
-        <textarea id="ideas1" name='txtarea1'></textarea>
+        <textarea maxlength="500" id="ideas1" name='txtarea1'></textarea>
     </td>
 </tr>
 
@@ -255,7 +257,7 @@ if ($_GET["company"] == 4)
         <p>Comments and suggestions:</p>
     </td>
     <td class='open'>
-        <textarea id="ideas2" name='txtarea2'></textarea>
+        <textarea maxlength="500" id="ideas2" name='txtarea2'></textarea>
     </td>
 </tr>
 <tr>
@@ -306,7 +308,7 @@ if ($_GET["company"] == 4)
         <p>Comments and suggestions:</p>
     </td>
     <td class='open'>
-        <textarea id="ideas3" name='txtarea3'></textarea>
+        <textarea maxlength="500" id="ideas3" name='txtarea3'></textarea>
     </td>
 </tr>
 <tr>

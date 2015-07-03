@@ -41,8 +41,11 @@
 				<div class="clear"></div>
 			</div>
 			
-			<div id="content">
-				<p>Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.</p>
+			<div id="content">.
+				<p>Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.<br />
+				<br />
+				Invulvelden zijn gelimiteerd tot 500 karakters.
+				</p>
 				<form name='reviewForm' action='insertReview.php?lang=nl' method='POST'>
 				<!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
 				<input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/>
@@ -142,7 +145,7 @@
 								<p>Suggesties en opmerkingen: </p>
 							</td>
 							<td class='open'>
-							<textarea id="ideas1" name='txtarea1'></textarea>
+							<textarea maxlength="500" id="ideas1" name='txtarea1'></textarea>
 							</td>
 						</tr>
 
@@ -254,7 +257,7 @@
 								<p>Suggesties  en opmerkingen: </p>
 							</td>
 							<td class='open'>
-							<textarea id="ideas2" name='txtarea2'></textarea>
+							<textarea maxlength="500" id="ideas2" name='txtarea2'></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -305,7 +308,7 @@
 								<p>Suggesties en opmerkingen: </p>
 							</td>
 							<td class='open'>
-							<textarea id="ideas3" name='txtarea3'></textarea>
+							<textarea maxlength="500" id="ideas3" name='txtarea3'></textarea>
 							</td>
 						</tr>
 						<tr>
