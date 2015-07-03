@@ -149,6 +149,11 @@ table.tableforms td
     padding: 5px 0;
 }
 
+table.tableforms textarea
+{
+    resize: none;
+}
+
 .center{
 	text-align: center;
 }

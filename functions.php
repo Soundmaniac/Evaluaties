@@ -81,11 +81,11 @@ function safeSql($value)
 function OpenConnection()
 {
 	//For server:
-	mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
-	mysql_select_db("pcilaaw10_eval");
+	//mysql_connect("localhost", "pcilaaw10_eval", "admin46") or die;
+	//mysql_select_db("pcilaaw10_eval");
 	//For USBWebserver:
-	//mysql_connect("localhost", "root", "usbw") or die;
-	//mysql_select_db("project");
+	mysql_connect("localhost", "root", "usbw") or die;
+	mysql_select_db("project");
 }
 
 function CloseConnection()
