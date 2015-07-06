@@ -33,7 +33,7 @@
 					<br />
 					Invulvelden zijn gelimiteerd tot 500 karakters.
                 </p>
-                <form name='reviewForm' action='insertendReview.php?lang=nl' method='POST'>
+                <form name='reviewForm' action='<?php echo("insertendReview.php?lang=nl&course=" . $_GET['course']); ?>' method='POST'>
 					<input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/> <!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
 					<table class='tableforms'>
 						<tr >

@@ -32,7 +32,7 @@ ini_set( "display_errors", 0);
 					Text areas are limited to 500 characters.
 				</p>
 				
-				<form name='reviewForm' action='insertendReview.php?lang=eng' method='POST'>
+				<form name='reviewForm' action='<?php echo("insertendReview.php?lang=eng&course=" . $_GET['course']); ?>' method='POST'>
 					<input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/> <!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
 					<table class='tableforms'>
 						<tr >

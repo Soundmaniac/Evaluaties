@@ -67,5 +67,5 @@ else
 
 CloseConnection();
 
-header( 'Location: thankpage.php?lang=' . $lang);
+header( 'Location: thankpage.php?lang=' . $lang . "&course=" . $_GET['course']);
 ?>

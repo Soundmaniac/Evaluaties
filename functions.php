@@ -540,7 +540,7 @@ function backFunction()
 	if($_SESSION['rol'] == "admin")
 	{
 		echo("
-		<br /><br /><a href='students.php' class='formbtn' >Terug</a>
+		<br /><br /><a href='students.php?course=" . $_GET['course'] . "' class='formbtn' >Terug</a>
 		");
 	}
 }

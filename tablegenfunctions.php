@@ -47,8 +47,10 @@
 					<td>
 						<select id='ddlEvaluatie' onchange='copyToClip(this)'>
 							<option selected>Selecteer een optie...</option>
-							<option value='TussentijdseEvaluatie.php?id=" . $sqlvalue['cursistID'] . "&company=". $rowbedrijven['bedrijfID'] ."'>Tussentijdse evaluatie</option>
-							<option value='EindtijdEvaluatie.php?id=" . $sqlvalue['cursistID'] . "&company=". $rowbedrijven['bedrijfID'] . "'>Eind evaluatie</option>
+							<option value='TussentijdseEvaluatie.php?id=" . $sqlvalue['cursistID'] . "&company=". $rowbedrijven['bedrijfID'] . "&course=" . $_GET['course'] . "'>Tussentijdse evaluatie (NL)</option>
+							<option value='EindtijdEvaluatie.php?id=" . $sqlvalue['cursistID'] . "&company=". $rowbedrijven['bedrijfID'] . "&course=" . $_GET['course'] . "'>Eind evaluatie (NL)</option>
+							<option value='TussentijdseEvaluatieENG.php?id=" . $sqlvalue['cursistID'] . "&company=". $rowbedrijven['bedrijfID'] . "&course=" . $_GET['course'] . "'>Midterm course evaluation (ENG)</option>
+							<option value='EindtijdEvaluatieENG.php?id=" . $sqlvalue['cursistID'] . "&company=". $rowbedrijven['bedrijfID'] . "&course=" . $_GET['course'] . "'>Final course evaluation (ENG)</option>
 						</select>
 					</td>
 					<td>
