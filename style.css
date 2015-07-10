@@ -152,6 +152,7 @@ table.tableforms td
 table.tableforms textarea
 {
     resize: none;
+    height: 45px;
 }
 
 .center{

@@ -65,6 +65,7 @@
 							<tr>
 								<td>
 									<input type="submit" value="Toevoegen" name="submit" class="submit" />
+									<a href="students.php?course=<?php echo($_GET['course']); ?>" class="formbtn" >Terug</a>
 								</td>
 								<td>
 								</td>

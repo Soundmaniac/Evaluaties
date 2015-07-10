@@ -80,7 +80,7 @@
 								<td>
 									<input type="submit" value="Toevoegen" name="submit" class="submit" />
 									<!--TO DO: adjust href to selected company-->
-									<a href="courses.php?selected=<?php ?>" class="formbtn" >Terug</a>
+									<a href="courses.php?company=<?php echo($_GET['company']); ?>" class="formbtn" >Terug</a>
 								</td>
 								<td>
 								</td>

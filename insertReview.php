@@ -26,22 +26,42 @@ $algemeenoordeela = (isset($_POST['group5']) ? $_POST['group5'] : null);
 $algemeenoordeelcomm =(isset($_POST['txtarea3']) ? mysql_real_escape_string(htmlentities($_POST['txtarea3'])) : null);
 /*End of setting variables*/
 
-$querystring1 = "SELECT cursistID FROM ttsurveyresults WHERE cursistID = '" . $cursistID . "'";
-$querystring2 = "INSERT INTO ttsurveyresults(cursistID, submitdate, cursusinhouda, cursusinhoudb, cursusinhoudc, cursusinhoudcomm, structuura, cursusmateriaala, trainera, trainerb, trainercomm, algemeenoordeela, algemeenoordeelcomm) VALUES('$cursistID', NOW(), '$cursusinhouda', '$cursusinhoudb', '$cursusinhoudc', '$cursusinhoudcomm', '$structuura', '$cursusmateriaala', '$trainera', '$trainerb', '$trainercomm', '$algemeenoordeela', '$algemeenoordeelcomm')";
+$querystring1 = "SELECT c.`cursistVoornaam`, c.`cursistTussenvoegsel`, c.`cursistAchternaam` FROM `cursisten` c WHERE `cursistID` = '" . $cursistID . "'";
+$querystring2 = "SELECT cursistID FROM ttsurveyresults WHERE cursistID = '" . $cursistID . "'";
+$querystring3 = "INSERT INTO ttsurveyresults(cursistID, submitdate, cursusinhouda, cursusinhoudb, cursusinhoudc, cursusinhoudcomm, structuura, cursusmateriaala, trainera, trainerb, trainercomm, algemeenoordeela, algemeenoordeelcomm) VALUES('$cursistID', NOW(), '$cursusinhouda', '$cursusinhoudb', '$cursusinhoudc', '$cursusinhoudcomm', '$structuura', '$cursusmateriaala', '$trainera', '$trainerb', '$trainercomm', '$algemeenoordeela', '$algemeenoordeelcomm')";
+
 
 if(mysql_num_rows(mysql_query($querystring1)) > 0)
 {
-	echo("De resultaten van de persoon met cursistID " . $cursistID . " bestaan al. <a href='profile.php'>Klik hier (href aanpassen!)</a> om terug te gaan");
-	/*Wat hierna gebeurd kun je eventueel aanpassen*/
-	exit;
-}
-else
-{
-	$sql = mysql_query($querystring2);
-	if(!$sql)
+	if(mysql_num_rows(mysql_query($querystring2)) > 0)
 	{
-		echo("Could not run query: " . mysql_error());
+		echo("De resultaten van de persoon met cursistID " . $cursistID . " bestaan al. <a href='profile.php'>Klik hier (href aanpassen!)</a> om terug te gaan");
+		/*Wat hierna gebeurd kun je eventueel aanpassen*/
 		exit;
+	}
+	else
+	{
+		$sql = mysql_query($querystring3);
+		if(!$sql)
+		{
+			echo("Could not run query: " . mysql_error());
+			exit;
+		}
+		else
+		{
+			$sql = mysql_query($querystring1);
+			while ($sqlvalue = mysql_fetch_array($sql))
+			{
+				$to = "info@pcilanguages.com";
+				$subject = "PCI evaluatie";
+				$message = 'Beste PCI Languages medewerker,<br /><br />Er is een evaluatie ingevuld door: <br />' . $sqlvalue['cursistVoornaam'] . ' ' . $sqlvalue['cursistTussenvoegsel'] . ' ' . $sqlvalue['cursistAchternaam'] . '<br />De resultaten staat in de volgende link: <a href="http://evaluaties.pcilanguages.com/compactresults.php?id=' . $cursistID . '">Klik hier</a>.<br /><br />Nog een fijne dag.';
+				$headers  = "From: info@pcilanguages.com\r\n";
+				$headers .= "Content-type: text/html\r\n";
+				//options to send to cc+bcc
+				//$headers .= "Cc: [email]xxx@xxx.com[/email]";
+				mail($to, $subject, $message, $headers);
+			}
+		}
 	}
 }
 

@@ -41,7 +41,7 @@
 				<div class="clear"></div>
 			</div>
 			
-			<div id="content">.
+			<div id="content">
 				<p>Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.<br />
 				<br />
 				Invulvelden zijn gelimiteerd tot 500 karakters.
