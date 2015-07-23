@@ -1,14 +1,11 @@
 <?php
-
 session_start();
 include_once("functions.php");
-if(isset($_SESSION['gebruiker']))
-{
-	header( 'Location: profiel.php' );
-}
 
-/*Nederlandse login formulier*/
-if (isset($_POST['inloggen'])) { 
+/*When login button has been clicked*/
+/*Filled in fields will be compared with data stored within accounts table*/
+if (isset($_POST['inloggen']))
+{
 	if(isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord']))
 	{
 		OpenConnection();
@@ -20,9 +17,8 @@ if (isset($_POST['inloggen'])) {
 		{
 			while($row = mysql_fetch_array($result))
 			{
-				if($row['gebruiker'] == true)
+				if($row['gebruiker'])
 				{
-					$_SESSION['taal'] = "Dutch";
 					$_SESSION['rol'] = $row['rol'];
 					$_SESSION['gebruiker'] = $_POST['gebruikersnaam'];
 				}
@@ -34,67 +30,30 @@ if (isset($_POST['inloggen'])) {
 		}
 
 		CloseConnection();
-
-		if($logcheck == true)
-		{
-			header( 'Location: companies.php' );
-		}
-		else
-		{
-			header( 'Location: index.php' );
-		}
-	}
-}
-
-else if (isset($_POST['registeren'])) {
-	header( 'Location: registeren.php' );
-}
-/*Engelse login formulier*/
-else if (isset($_POST['login'])) {
-	
-	if(isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord']))
-	{
-		OpenConnection();
-		$logcheck = true;
 		
-		$result = mysql_query("SELECT * FROM account WHERE gebruiker='" . safeSql($_POST["gebruikersnaam"]) . "' AND wachtwoord='" . safeSql($_POST['wachtwoord']) . "'");
-			
-		if(mysql_num_rows($result) == 1)
-		{
-			while($row = mysql_fetch_array($result))
-			{
-				if($row['gebruiker'] == true)
-				{
-					$_SESSION['taal'] = "English";
-					$_SESSION['rol'] = $row['rol'];
-					$_SESSION['gebruiker'] = $_POST['gebruikersnaam'];
-				}
-			}
-		}
-		else
-		{
-			$logcheck = false;
-		}
-
-	CloseConnection();
-
-		if($logcheck == true)
+		/*Proceed*/
+		if($logcheck)
 		{
 			header( 'Location: companies.php' );
 		}
+		/*Credentials are incorrect, may not proceed*/
 		else
 		{
 			header( 'Location: index.php' );
 		}
 	}
-	} else if (isset($_POST['register'])) { 
-
-		header( 'Location: register.php' );
-	}
+}
+/*When register button has been clicked*/
+else if (isset($_POST['registreren']))
+{
+	header( 'Location: registreren.php' );
+}
+/*When nothing has been clicked (going straight for the login.php file in URL)*/
 else
 {
 	header( 'Location: index.php' );
 }
+
 /*$password=(!isset($_POST['password']));
 $username=(!isset($_POST['username']));
 
