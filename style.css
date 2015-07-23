@@ -37,11 +37,13 @@ h1{
 }
 h2{
 	color: rgb(0,0,200);
-	/*margin: 0;*/
-	/*padding: 0;*/
 	font-size: 14pt;
-	/*margin-left: 60px;*/
 }
+
+/*Old h2 styling:
+    margin: 0;
+    padding: 0;
+    margin-left: 60px;*/
 
 #container{
 	margin-left: auto;
@@ -71,13 +73,46 @@ h2{
 }
 
 
-#login{
-	margin-top: 200px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 350px;
-	height: auto;
-	padding-top: 20px;
+#login, #register
+{
+    background-color: white;
+    width: 580px;
+    top: 30%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1px;
+    box-shadow: 2px 2px 8px #444444;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#login form, #register form
+{
+    margin-bottom: 16px;
+}
+
+#login form input[type="submit"], #register form input[type="submit"]
+{
+    margin-top: 20px;
+}
+
+#login form input[type="submit"], #register form input[type="submit"], #addcourse form input[type="submit"]
+{
+	height: 25px;
+	width: auto;
+	background-color: rgb(50,50,255);
+	text-align: center;
+	color: rgb(255,255,255);
+	border: 0;
+	text-decoration: none;
+}
+
+#login form input[type="submit"]:hover, #register form input[type="submit"]:hover, #addcourse form input[type="submit"]:hover
+{
+	background-color: rgb(250, 150, 0);
 }
 
 #formheader1
@@ -180,18 +215,7 @@ table.tableforms textarea
 	text-decoration: none;
 }
 
-.submit{
-	height: 25px;
-	width: auto;
-	background-color: rgb(50,50,255);
-	text-align: center;
-	color: rgb(255,255,255);
-	border: 0;
-	text-decoration: none;
-}
-.submit:hover{
-	background-color: rgb(250, 150, 0);
-}
+
 
 .radio1{
 	width: 1.5em;
@@ -251,11 +275,6 @@ table.tableforms textarea
 
 td.text{
 	text-align: right;
-}
-
-#codegentablewidth
-{
-    /*If page has not header function, use width: 580px;*/
 }
 
 .positionbtn
