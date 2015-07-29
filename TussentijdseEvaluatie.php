@@ -42,6 +42,7 @@
 			</div>
 			
 			<div id="content">
+				<h2>Tussentijdse evaluatie</h2>
 				<p>Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.<br />
 				<br />
 				Invulvelden zijn gelimiteerd tot 500 karakters.

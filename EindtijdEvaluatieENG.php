@@ -26,6 +26,7 @@ ini_set( "display_errors", 0);
 			</div>
 
 			<div id="content">
+				<h2>Final course evaluation</h2>
 				<p>
 					For each question, please mark one box and provide a short explanation.<br />
 					<br />

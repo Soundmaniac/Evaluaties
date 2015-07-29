@@ -42,11 +42,9 @@ if ($_GET["company"] == 4)
 </div>
 
 <div id="content">
-<p>
-    For each question, please mark one box and provide a short explanation.<br />
-	<br />
-	Invulvelden zijn gelimiteerd tot 500 karakters.
-</p>
+<h2>Intermediate course evaluation</h2>
+<p>For each question, please mark one box and provide a short explanation.<br /><br />
+Text areas are limited to 500 characters.</p>
 <form name='reviewForm' action='<?php echo("insertReview.php?lang=eng&course=" . $_GET['course']); ?>' method='POST'>
 <!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->
 <input type="hidden" name="id" value="<?php echo($_GET["id"]); ?>"/>

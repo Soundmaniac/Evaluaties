@@ -28,6 +28,7 @@
             </div>
             
             <div id="content">
+				<h2>Eindtijd evaluatie</h2>
                 <p>
                     Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.<br />
 					<br />
