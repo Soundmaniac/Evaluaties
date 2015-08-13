@@ -42,7 +42,7 @@ if ($_GET["company"] == 4)
 </div>
 
 <div id="content">
-<h2>Intermediate course evaluation</h2>
+<h2>Midterm course evaluation</h2>
 <p>For each question, please mark one box and provide a short explanation.<br /><br />
 Text areas are limited to 500 characters.</p>
 <form name='reviewForm' action='<?php echo("insertReview.php?lang=eng&course=" . $_GET['course']); ?>' method='POST'>
