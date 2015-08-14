@@ -53,7 +53,16 @@
 				<table class="tableforms">
 					<tbody>
 						<tr >
-
+							<td>Voornaam: </td>
+							<td><input type="text" placeholder="Voornaam hier" name="voornaam"></td>
+						</tr>
+						<tr>
+							<td>Achternaam: </td>
+							<td><input type="text" placeholder="Achternaam hier" name="achternaam"></td>
+						</tr>
+						<tr>
+							<td>Cursus: </td>
+							<td><select></select></td>
 						</tr>
                         <tr>
                             <td class='titel'>

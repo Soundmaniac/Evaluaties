@@ -26,7 +26,7 @@ if(isset($_SESSION['gebruiker']))
 				</table>
 				<div class="clear"> </div>
 				<input type="submit" name="inloggen" value="Inloggen" />
-				<input type="submit" name="registreren" value="Registreren" />
+				<!--<input type="submit" name="registreren" value="Registreren" />-->
 				<div class="clear"> </div>
 			</form>		
 		</div>

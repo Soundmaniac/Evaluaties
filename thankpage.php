@@ -30,11 +30,11 @@
 						<?php
 						if($_GET['lang'] == "eng")
 						{
-							echo("Thanks for filling in the review.");
+							echo("Thanks for filling in the evaluation.");
 						}
 						else if($_GET['lang'] == "nl")
 						{
-							echo("Bedankt voor het invullen van de formulier.");
+							echo("Bedankt voor het invullen van de evaluatie.");
 						}
 						else
 						{

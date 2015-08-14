@@ -115,6 +115,11 @@ h2{
 	background-color: rgb(250, 150, 0);
 }
 
+#login form input[type="submit"]:hover
+{
+    cursor: pointer;
+}
+
 #formheader1
 {
     height: 60px;
