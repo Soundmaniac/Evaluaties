@@ -39,7 +39,7 @@
                         datasets: [
                             {
                                 label: "Eerste gegevens",
-                                fillColor: "rgba(73,188,170,0.4)",
+                                fillColor: "rgba(144,195,212,0.9)",
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
@@ -48,7 +48,7 @@
                             },
                             {
                                 label: "Tweede gegevens",
-                                fillColor: "rgba(73,188,170,0.4)",
+                                fillColor: "rgba(161,212,144,0.9)",
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
@@ -57,7 +57,7 @@
                             },
                             {
                                 label: "Gemiddelde",
-                                fillColor: "rgba(80, 80, 82, 0.9)",
+                                fillColor: "rgba(212, 161, 144, 0.9)",
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
@@ -86,6 +86,20 @@
 
                 </script>
             </div>
+			<div id="graphlegend">
+				<div id="legendcolors">
+					<div id="legendelement1" class="legendelement"></div>
+					<div id="legendelement2" class="legendelement"></div>
+					<div id="legendelement3" class="legendelement"></div>
+				</div>
+				<div id="legendtext">
+					<ul>
+						<li>Cijfer tussentijdse evaluatie</li>
+						<li>Cijfer eindevaluatie</li>
+						<li>Gemiddelde</li>
+					</ul>
+				</div>
+			</div>
         </div>
         <div id="questions" style="text-align: center;">
             <?php
@@ -96,6 +110,10 @@
         OpenConnection();
         $geteedata= mysql_query("SELECT * FROM eesurveyresults WHERE cursistID='" . $_GET['id'] . "'");
         $rowee = mysql_fetch_array($geteedata);
+		$getdates = mysql_query("SELECT c.*, t.submitdate AS tsubmitdate, e.submitdate AS esubmitdate FROM cursisten c LEFT JOIN ttsurveyresults t ON c.cursistID = t.cursistID LEFT JOIN eesurveyresults e ON c.cursistID = e.cursistID WHERE c.cursistID = '" . $_GET['id'] . "'");
+		$rowdates = mysql_fetch_array($getdates);
+		$showttdate = ($rowdates['tsubmitdate'] != null ? date('d/m/Y', strtotime($rowdates['tsubmitdate'])) : "-");
+		$showeedate = ($rowdates['esubmitdate'] != null? date('d/m/Y', strtotime($rowdates['esubmitdate'])) : "-");
         ?>
         <div id="questions">
             <table>
@@ -149,6 +167,22 @@
                         ?>
                     </td>
                 </tr>
+				<tr>
+					<td>
+						Tussentijdse evaluatie afgelegde datum
+					</td>
+					<td>
+						<?php echo($showttdate); ?>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Eindevaluatie afgelegde datum
+					</td>
+					<td>
+						<?php echo($showeedate); ?>
+					</td>
+				</tr>
             </table>
         </div>
         <?php
