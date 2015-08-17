@@ -30,7 +30,7 @@
 						<?php
 						if($_GET['lang'] == "eng")
 						{
-							echo("Thanks for filling in the evaluation.");
+							echo("Thanks for completing the evaluation.");
 						}
 						else if($_GET['lang'] == "nl")
 						{

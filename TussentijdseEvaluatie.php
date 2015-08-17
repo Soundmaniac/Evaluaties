@@ -45,7 +45,7 @@
 				<h2>Tussentijdse evaluatie</h2>
 				<p>Kruis voor elke vraag s.v.p. &#233;&#233;n vakje aan en geef een korte toelichting.<br />
 				<br />
-				Invulvelden zijn gelimiteerd tot 500 karakters.
+				Tekstvakken zijn gelimiteerd tot 500 karakters.
 				</p>
 				<form name='reviewForm' action='<?php echo("insertReview.php?lang=nl&course=" . $_GET['course']); ?>' method='POST'>
 				<!--Id uit URL opvragen.  TODO: Ergens een check of id wel ingevuld/ correct is-->

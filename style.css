@@ -99,7 +99,8 @@ h2{
     margin-top: 20px;
 }
 
-#login form input[type="submit"], #register form input[type="submit"], #addcourse form input[type="submit"]
+#login form input[type="submit"], /*#register form input[type="submit"], #addcourse form input[type="submit"], .codegenposition input[type="submit"], .editcursistinfo input[type="submit"]*/
+#content input[type="submit"]
 {
 	height: 25px;
 	width: auto;
@@ -110,7 +111,9 @@ h2{
 	text-decoration: none;
 }
 
-#login form input[type="submit"]:hover, #register form input[type="submit"]:hover, #addcourse form input[type="submit"]:hover
+#login form input[type="submit"]:hover, /*#register form input[type="submit"]:hover, #addcourse form input[type="submit"]:hover,
+.codegenposition input[type="submit"]:hover, .editcursistinfo input[type="submit"]:hover*/
+#content input[type="submit"]:hover
 {
 	background-color: rgb(250, 150, 0);
 }

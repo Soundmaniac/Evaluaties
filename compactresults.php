@@ -52,7 +52,7 @@
                         datasets: [
                             {
                                 label: "Eerste gegevens",
-                                fillColor: "rgba(73,188,170,0.4)",
+                                fillColor: "rgba(144,195,212,0.4)",
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
@@ -61,7 +61,7 @@
                             },
                             {
                                 label: "Tweede gegevens",
-                                fillColor: "rgba(73,188,170,0.4)",
+                                fillColor: "rgba(161,212,144,0.4)",
                                 strokeColor: "rgba(72,174,209,0.4)",
                                 data:
                                 <?php
@@ -71,7 +71,7 @@
                             {
                                 label: "Gemiddelde",
                                 fillColor: "rgba(80, 80, 82, 0.9)",
-                                strokeColor: "rgba(72,174,209,0.4)",
+                                strokeColor: "rgba(212,161,144,0.4)",
                                 data:
                                 <?php
                                 GetData(2, $_GET['id']);
@@ -100,6 +100,11 @@
                 </script>
             </div>
         </div>
+		<div id="legend" style="text-align: center;">
+			Eerste lijn = Cijfer van tussentijdse evaluatie<br />
+			Twee lijn = Cijfer van eindtijd evaluatie<br />
+			Derde lijn = Cijfer van het gemiddelde tussen tussentijdse evaluatie en eindetijd evaluatie
+		</div>
         <div id="questions" style="text-align: center;">
             <?php
                 CheckGrades($_GET['id']);
